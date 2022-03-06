@@ -1,0 +1,82 @@
+{
+	"pages": [
+		
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh":true
+			}
+			
+			
+		},
+		{
+			"path": "pages/middle/middle",
+			"style": {
+				"navigationBarTitleText": "发布",
+				"enablePullDownRefresh":true
+			}
+		},
+		
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#449bf8"
+				
+				
+				
+			}
+		},{
+			"path":"pages/detail/detail",
+			"style": {
+				// "navigationBarBackgroundColor": "#449bf8"
+				"enablePullDownRefresh":true
+			}
+			
+		}
+		
+	],
+	"globalStyle": {
+
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "失物招领",
+		"navigationBarBackgroundColor": "#449bf8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+		
+
+	},
+	"tabBar": {
+		"selectedColor":"#1296db",
+
+		"list": [{
+
+				"pagePath": "pages/index/index",
+				"iconPath":"static/index.png",
+				"selectedIconPath":"static/首页blue.png",
+				"text":"首页"
+			},
+			{
+				"pagePath": "pages/middle/middle",
+				"iconPath":"static/square.png",
+				"selectedIconPath":"static/广场blue.png",
+				"text":"广场"
+			}, {
+
+				"pagePath": "pages/user/user",
+				"iconPath":"static/my.png",
+				"selectedIconPath":"static/我的blue.png",
+				"text":"我的"
+			}
+		]
+	},
+	"easycom": {
+			"autoscan": true,
+			"custom": {
+				"tui-(.*)": "thorui-uni/lib/thorui/tui-$1/tui-$1.vue"
+			}
+		}
+}

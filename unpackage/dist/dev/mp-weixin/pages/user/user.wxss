@@ -1,0 +1,8 @@
+
+page {
+	background-color: #f6f7fa;
+}
+.u-cell__title-text {
+	margin: 0 0 0 30rpx;
+}
+

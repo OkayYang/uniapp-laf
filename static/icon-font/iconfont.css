@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "custom-icon"; /* Project id 3168431 */
+  src: url('//at.alicdn.com/t/font_3168431_a4ehbxlqwwm.woff2?t=1646126682593') format('woff2'),
+       url('//at.alicdn.com/t/font_3168431_a4ehbxlqwwm.woff?t=1646126682593') format('woff'),
+       url('//at.alicdn.com/t/font_3168431_a4ehbxlqwwm.ttf?t=1646126682593') format('truetype');
+}
+
+.custom-icon {
+  font-family: "custom-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-icon-gengduo:before {
+  content: "\e660";
+}
+
+.custom-icon-renwurenling:before {
+  content: "\e621";
+}
+
+.custom-icon-pinglun1:before {
+  content: "\e6ad";
+}
+
+.custom-icon-pinglun2:before {
+  content: "\e891";
+}
+
+.custom-icon-zhuanfa1:before {
+  content: "\e63d";
+}
+
+.custom-icon-kehurenling:before {
+  content: "\e630";
+}
+
+.custom-icon-dianzan1:before {
+  content: "\e656";
+}
+
+.custom-icon-cai:before {
+  content: "\e779";
+}
+
+.custom-icon-pinglun:before {
+  content: "\e608";
+}
+
+.custom-icon-dianzan:before {
+  content: "\e696";
+}
+
+.custom-icon-guanbi:before {
+  content: "\e61f";
+}
+
+.custom-icon-querenlingqu:before {
+  content: "\e61e";
+}
+
+.custom-icon-avatar:before {
+  content: "\e602";
+}
+
+.custom-icon-chacha:before {
+  content: "\e62f";
+}
+
+.custom-icon-zhuanfa:before {
+  content: "\e601";
+}
+
+.custom-icon-shoucang-red:before {
+  content: "\e612";
+}
+
+.custom-icon-shoucang:before {
+  content: "\e606";
+}
+
+.custom-icon-gonggao:before {
+  content: "\e613";
+}
+
+.custom-icon-gonggao-blue:before {
+  content: "\e778";
+}
+
+.custom-icon-wo-blue:before {
+  content: "\e758";
+}
+
+.custom-icon-shijieditu-blue:before {
+  content: "\e6a5";
+}
+
+.custom-icon-shouye-blue:before {
+  content: "\e774";
+}
+
+.custom-icon-shijieditu:before {
+  content: "\e775";
+}
+
+.custom-icon-shouye:before {
+  content: "\e776";
+}
+
+.custom-icon-wo:before {
+  content: "\e777";
+}
+
+.custom-icon-shiwuzhaoling1:before {
+  content: "\e773";
+}
+
+.custom-icon-shiwuzhaoling:before {
+  content: "\e600";
+}
+
+.custom-icon-fabu:before {
+  content: "\e69b";
+}
+
+.custom-icon-xunwuqishi:before {
+  content: "\e6a0";
+}
+
+.custom-icon-sousuo:before {
+  content: "\e649";
+}
+
+.custom-icon-sousuo-blue:before {
+  content: "\e670";
+}
+
+.custom-icon-file-add:before {
+  content: "\e66f";
+}
+
+.custom-icon-file-add-blue:before {
+  content: "\e671";
+}

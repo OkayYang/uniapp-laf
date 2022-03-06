@@ -1,0 +1,103 @@
+comments: [
+	{
+		"cid": 1,
+		"pid": null,
+		"name": "zhangsan",
+		"avatar": "/static/uni.png",
+		"time": "2022-12-13 13:19:32",
+		"describe": "我捡到了一部iphone13，速来8722领取！速来8722领取！",
+		"photo": null,
+		"goodNum": 1000,
+		"badNum": 0,
+		"isGood": false,
+		"replys": [{
+				"cid": 5,
+				"pid": 1,
+				"name": "路人甲",
+				"avatar": "/static/logo.png",
+				"time": "2022-12-17 08:15:32",
+				"describe": "你在说什么啊？你在说什么啊？你在说什么啊？你在说什么啊？",
+				"photo": "/static/my.png",
+				"goodNum": 0,
+				"badNum": 0,
+				"isGood": false,
+				"replys": []
+			}, {
+				"cid": 6,
+				"pid": 1,
+				"name": "路人乙",
+				"avatar": "/static/logo.png",
+				"time": "2022-12-17 08:15:32",
+				"describe": "怎么还是有人偷外卖啊！",
+				"photo": "/static/my.png",
+				"goodNum": 0,
+				"badNum": 0,
+				"isGood": false,
+				"replys": []
+			},
+			{
+				"cid": 7,
+				"pid": 1,
+				"name": "吴迪的马宝国",
+				"avatar": "/static/logo.png",
+				"time": "2022-12-17 08:15:32",
+				"describe": "来骗来偷袭我69岁老同志是吧！",
+				"photo": "/static/my.png",
+				"goodNum": 0,
+				"badNum": 0,
+				"isGood": false,
+				"replys": [{
+					"cid": 8,
+					"pid": 7,
+					"name": "路人甲",
+					"avatar": "/static/logo.png",
+					"time": "2022-12-17 08:15:32",
+					"describe": "报国，我是你的粉丝，我超爱看你的视频！！我想学混元太极拳！！！",
+					"photo": "/static/my.png",
+					"goodNum": 0,
+					"badNum": 0,
+					"isGood": false,
+					"replys": []
+				}]
+			}]
+	}, {
+		"cid": 2,
+		"pid": null,
+		"name": "lisi",
+		"avatar": "/static/square.png",
+		"time": "2021-11-24 07:15:32",
+		"describe": "我捡到了一部iphone13，速来8722领取！笑死我了，你在干甚么啊玩的像个僵尸一样要我怎么评价啊，你怎么还有脸问啊，是我我就找个堆埋下去了我捡到了一部iphone13，速来8722领取！笑死我了，你在干甚么啊玩的像个僵尸一样要我怎么评价啊，你怎么还有脸问啊，是我我就找个堆埋下去了我捡到了一部iphone13，速来8722领取！笑死我了，你在干甚么啊玩的像个僵尸一样要我怎么评价啊，你怎么还有脸问啊，是我我就找个堆埋下去了我捡到了一部iphone13，速来8722领取！笑死我了，你在干甚么啊玩的像个僵尸一样要我怎么评价啊，你怎么还有脸问啊，是我我就找个堆埋下去了我捡到了一部iphone13，速来8722领取！笑死我了，你在干甚么啊玩的像个僵尸一样要我怎么评价啊，你怎么还有脸问啊，是我我就找个堆埋下去了",
+		"photo": "/static/dog2.jpg",
+		"goodNum": 1,
+		"badNum": 0,
+		"isGood": true,
+		"replys": []
+
+	}, {
+		"cid": 3,
+		"pid": null,
+		"name": "wangwu",
+		"avatar": "/static/index.png",
+		"time": "2022-12-15 07:12:32",
+		"describe": "我捡到了一个身份证，速来6栋男寝领取！",
+		"photo": null,
+		"goodNum": 0,
+		"badNum": 0,
+		"isGood": false,
+		"replys": []
+
+
+	}, {
+		"cid": 4,
+		"pid": null,
+		"name": "zhangsan",
+		"avatar": "/static/logo.png",
+		"time": "2022-12-17 08:15:32",
+		"describe": "我家的狗捡到了一个女性内裤，速来8722领取！",
+		"photo": "/static/my.png",
+		"goodNum": 0,
+		"badNum": 0,
+		"isGood": false,
+		"replys": []
+	}
+]

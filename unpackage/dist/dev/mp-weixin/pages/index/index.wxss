@@ -1,0 +1,8 @@
+
+page {
+
+	width: 100%;
+	background-color: #ffffff;
+	min-height: 100%;
+}
+

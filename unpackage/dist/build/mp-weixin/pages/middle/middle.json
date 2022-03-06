@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "发布",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
+    "u-gap": "/uni_modules/uview-ui/components/u-gap/u-gap",
+    "u-grid": "/uni_modules/uview-ui/components/u-grid/u-grid",
+    "u-grid-item": "/uni_modules/uview-ui/components/u-grid-item/u-grid-item",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text"
+  }
+}
