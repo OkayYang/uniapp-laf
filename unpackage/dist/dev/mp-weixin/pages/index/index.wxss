@@ -1,4 +1,7 @@
 
+.wrap {
+	padding: 24rpx;
+}
 page {
 
 	width: 100%;

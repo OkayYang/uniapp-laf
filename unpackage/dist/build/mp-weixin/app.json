@@ -1,15 +1,19 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/middle/middle",
+        "pages/personal/personal",
+        "pages/lost/lost",
+        "pages/public/public",
+        "pages/form/form",
         "pages/user/user",
-        "pages/detail/detail"
+        "pages/contact/contact",
+        "pages/detail/detail",
+        "pages/myPublish/myPublish"
     ],
     "subPackages": [],
     "window": {
-        "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "失物招领",
         "navigationBarBackgroundColor": "#449bf8",
+        "navigationBarTextStyle": "white",
         "backgroundColor": "#F8F8F8"
     },
     "tabBar": {
@@ -17,15 +21,15 @@
         "list": [
             {
                 "pagePath": "pages/index/index",
-                "iconPath": "static/index.png",
-                "selectedIconPath": "static/首页blue.png",
-                "text": "首页"
-            },
-            {
-                "pagePath": "pages/middle/middle",
                 "iconPath": "static/square.png",
                 "selectedIconPath": "static/广场blue.png",
                 "text": "广场"
+            },
+            {
+                "pagePath": "pages/public/public",
+                "iconPath": "static/public.png",
+                "selectedIconPath": "static/发布blue.png",
+                "text": "发布"
             },
             {
                 "pagePath": "pages/user/user",
@@ -35,6 +39,10 @@
             }
         ]
     },
-    "usingComponents": {},
+    "usingComponents": {
+        "van-tab": "/wxcomponents/vant/tab/index",
+        "van-tabs": "/wxcomponents/vant/tabs/index",
+        "van-swipe-cell": "/wxcomponents/vant/swipe-cell/index"
+    },
     "sitemapLocation": "sitemap.json"
 }

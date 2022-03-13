@@ -2,13 +2,14 @@
 
 	<view class="square">
 		<view class="header" style="margin-top: 20rpx;width: 700rpx; margin: 20rpx auto;height: 165rpx;">
-
-			<u-search placeholder="请输入搜索内容" v-model="msg" shape="round" bgColor="#f4f4f4" :showAction="false" @search="onSearch">
+			<u-search placeholder="请输入搜索内容" v-model="msg" shape="round" bgColor="#f4f4f4" :showAction="false"
+				@search="onSearch">
 			</u-search>
 			<ren-dropdown-filter :filterData='filterData' :defaultIndex='defaultIndex' @onSelected='onSelected'
 				@dateCauseList='dateCauseList'>
 			</ren-dropdown-filter>
 		</view>
+
 
 		<view v-for="info in releaseList">
 			<view class="item"
@@ -30,11 +31,11 @@
 						style="width:370rpx;display: flex; align-items:flex-end;justify-content: space-around">
 						<view style="margin: 0 0 0 30rpx;width: 155rpx;">
 							<u-tag shape="circle" :text="info.relStatus==1?'失物招领':'寻物启事'"
-								:type="info.relStatus==1?'primary':'warning'" ></u-tag>
+								:type="info.relStatus==1?'primary':'warning'"></u-tag>
 						</view>
 						<view style="margin: 0 0 0 0rpx;">
 							<u-tag shape="circle" :type="info.relFlag==1?'error':'success'"
-								:text="info.relFlag==1?'待解决':'已解决'" ></u-tag>
+								:text="info.relFlag==1?'待解决':'已解决'"></u-tag>
 						</view>
 					</view>
 				</view>
@@ -69,7 +70,12 @@
 				</view>
 			</view>
 		</view>
+		<view class="wrap">
+			<u-loadmore :status="uStatus" :line="isEnd==true?true:false" />
+		</view>
 	</view>
+
+
 </template>
 
 <script>
@@ -86,30 +92,10 @@
 				return value
 			}
 		},
-		// onLoad() {
-		// 	// let that=this;
-		// 	// uni.request({
-		// 	// 	url: '/static/json/list.json',
-		// 	// 	success: (res) => {
-		// 	// 		that.infos=res.data.infos;
 
-		// 	// 		// console.log("success");
-		// 	// 	}
-		// 	// })
-		// 	request.postRequest('/wx/api/release/list?pageNum=1&pageSize=1',
-		// 		{},
-		// 		(open)=>{
-		// 			console.log(open);
-		// 		}
-
-
-		// 	)
-
-		// 	this.filterInfos('全部', '全部类型', '待解决');
-
-		// },
 		data() {
 			return {
+				uStatus: 'loading ',
 				msg: '',
 				filterData: [
 					[{
@@ -172,9 +158,13 @@
 		 * 生命周期函数--监听页面加载
 		 */
 		onLoad: function() {
+			// uni.navigateTo({
+			// 	url: "../form/form?type=1"
+			// })
+			
 			console.log('onLoad');
 			this.onLoadClone3389();
-			
+
 		},
 		/**
 		 * 生命周期函数--监听页面初次渲染完成
@@ -188,7 +178,9 @@
 		 * 生命周期函数--监听页面显示
 		 */
 		onShow: function() {
-
+			if (this.$store.state.fresh) {
+				this.onLoadClone3389();
+			}
 			console.log('onshow'); //页面刷新显示发布列表请求
 
 		},
@@ -219,24 +211,30 @@
 
 			// 最后一页了，取消下拉功能
 			if (this.isLastPage) {
-
+				this.uStatus = 'nomore';
 				this.isEnd = true;
 
 				return;
-			}
-			uni.showToast({
-				icon: 'loading',
-				title: '加载中...',
-				duration: 300,
-				success: () => {
+			} else {
+				setTimeout(() => {
+					this.uStatus = 'loading';
 					this.loadRelease();
-				}
-			})
+				}, 300)
+			}
+
+			// uni.showToast({
+			// 	icon: 'loading',
+			// 	title: '加载中...',
+			// 	duration: 300,
+			// 	success: () => {
+			// 		this.loadRelease();
+			// 	}
+			// })
 
 
 		},
 
-		
+
 		methods: {
 			test: function() {
 
@@ -362,30 +360,30 @@
 				}
 			},
 
-			
+
 
 			onSearch(res) {
 				let out = res.replace(/\ +/g, "")
-				if(out==''){
+				if (out == '') {
 					this.msg = '';
 					this.initSearchData();
 					this.lafRelease.relTitle = null;
 					this.loadRelease();
-				}else{
+				} else {
 					console.log(res)
 					this.initSearchData();
 					this.lafRelease.relTitle = res;
 					this.loadRelease();
 				}
-				
-				
-				
+
+
+
 				//console.log(res)
-				
+
 				//console.log('搜索' + this.searchValue);
 			},
 
-			
+
 
 			//下拉事件
 			//失物招领筛选
@@ -436,6 +434,10 @@
 </script>
 
 <style>
+	.wrap {
+		padding: 24rpx;
+	}
+
 	page {
 
 		width: 100%;

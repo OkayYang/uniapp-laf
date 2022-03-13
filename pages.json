@@ -1,82 +1,119 @@
 {
-	"pages": [
-		
-		{
+	"pages": [{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh":true
+				"enablePullDownRefresh": true
 			}
-			
-			
 		},
 		{
-			"path": "pages/middle/middle",
+			"path": "pages/personal/personal",
 			"style": {
-				"navigationBarTitleText": "发布",
-				"enablePullDownRefresh":true
+				"navigationBarTitleText": "个人信息"
 			}
 		},
-		
+
+
+
+		{
+			"path": "pages/lost/lost",
+			"style": {
+				"navigationBarTitleText": "招领"
+			}
+		},
+
+		{
+			"path": "pages/public/public",
+			"style": {
+				"navigationBarBackgroundColor": "#F5f5f5"
+			}
+		},
+		{
+			"path": "pages/form/form",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F5F5F5",
+				"navigationBarTitleText": "表单",
+				"backgroundColor": "#F5F5F5"
+
+
+
+			}
+		},
+
 		{
 			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#449bf8"
-				
-				
-				
+				"navigationBarTitleText": ""
 			}
-		},{
-			"path":"pages/detail/detail",
+		},
+
+		{
+			"path": "pages/contact/contact",
 			"style": {
-				// "navigationBarBackgroundColor": "#449bf8"
-				"enablePullDownRefresh":true
+				"navigationBarTitleText": "联系客服"
 			}
-			
+		},
+
+
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "页面详细",
+				"enablePullDownRefresh": true
+				// "navigationBarBackgroundColor": "#449bf8"
+			}
+
+		},
+		{
+			"path": "pages/myPublish/myPublish"
 		}
-		
+
+
 	],
 	"globalStyle": {
+		"usingComponents": {
+			"van-tab": "/wxcomponents/vant/tab/index",
+			"van-tabs": "/wxcomponents/vant/tabs/index",
+			"van-swipe-cell": "/wxcomponents/vant/swipe-cell/index"
+		},
 
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "失物招领",
 		"navigationBarBackgroundColor": "#449bf8",
+		"navigationBarTextStyle": "white",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
 		}
-		
 
 	},
 	"tabBar": {
-		"selectedColor":"#1296db",
+		"selectedColor": "#1296db",
 
 		"list": [{
-
 				"pagePath": "pages/index/index",
-				"iconPath":"static/index.png",
-				"selectedIconPath":"static/首页blue.png",
-				"text":"首页"
+				"iconPath": "static/square.png",
+				"selectedIconPath": "static/广场blue.png",
+				"text": "广场"
 			},
 			{
-				"pagePath": "pages/middle/middle",
-				"iconPath":"static/square.png",
-				"selectedIconPath":"static/广场blue.png",
-				"text":"广场"
+				"pagePath": "pages/public/public",
+				"iconPath": "static/public.png",
+				"selectedIconPath": "static/发布blue.png",
+				"text": "发布"
 			}, {
 
 				"pagePath": "pages/user/user",
-				"iconPath":"static/my.png",
-				"selectedIconPath":"static/我的blue.png",
-				"text":"我的"
+				"iconPath": "static/my.png",
+				"selectedIconPath": "static/我的blue.png",
+				"text": "我的"
 			}
 		]
 	},
 	"easycom": {
-			"autoscan": true,
-			"custom": {
-				"tui-(.*)": "thorui-uni/lib/thorui/tui-$1/tui-$1.vue"
-			}
+		"autoscan": true,
+		"custom": {
+			"tui-(.*)": "thorui-uni/lib/thorui/tui-$1/tui-$1.vue"
 		}
+
+	}
 }

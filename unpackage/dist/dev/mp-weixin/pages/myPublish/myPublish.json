@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "u-swipe-action": "/uni_modules/uview-ui/components/u-swipe-action/u-swipe-action",
+    "u-swipe-action-item": "/uni_modules/uview-ui/components/u-swipe-action-item/u-swipe-action-item",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-tag": "/uni_modules/uview-ui/components/u-tag/u-tag",
+    "tui-modal": "/components/thorui/tui-modal/tui-modal",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

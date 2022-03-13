@@ -1,0 +1,46 @@
+
+.form.data-v-c4d460f4 {
+	width: 92%;
+	margin: auto;
+}
+.u-input.data-v-c4d460f4 .input-placeholder {
+	color: red;
+}
+.head.data-v-c4d460f4 {
+	margin: 0;
+}
+.bgcard.data-v-c4d460f4 {
+	position: relative;
+	margin: auto;
+	display: flex;
+	width: 96%;
+	height: 40%;
+	justify-content: center;
+	background: url(https://pic.imgdb.cn/item/622348ad5baa1a80ab787abd.png) no-repeat fixed center;
+	background-size: 670rpx;
+	background-position: 40% 1%;
+	border-radius: 50rpx;
+}
+.card.data-v-c4d460f4 {
+	width: 100%;
+	height: 100%;
+	/* margin: 50rpx 0; */
+	/*设置阴影*/
+	box-shadow: 15rpx 15rpx 20rpx rgba(0, 0, 0, 0.3);
+	/*设置圆角*/
+	border-radius: 50rpx;
+	/*设置上边界和左边界亮纹，使card有一种层次感*/
+	border-top: 1px solid rgba(255, 0, 0, 0.5);
+	border-left: 1px solid rgba(255, 0, 0, 0.5);
+
+	/*设置背景样式*/
+	background: rgba(255, 0, 0, 0.1);
+	/*让透过card的底部元素模糊化,达到毛玻璃效果*/
+	-webkit-backdrop-filter: blur(5rpx);
+	        backdrop-filter: blur(5rpx);
+}
+page.data-v-c4d460f4 {
+	height: 100%;
+	background-color: #f5f5f5;
+}
+

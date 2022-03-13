@@ -28,7 +28,7 @@
 		<view class='item'
 			style="width:720rpx;margin: 30rpx auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);overflow: hidden;background-color: #FFFFFF;border-radius: 20rpx;">
 			<u-grid :border="false" col="4">
-				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex">
+				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex" @click="itemClick(baseListItem.url)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="baseListItem.name" :size="22"></u-icon>
 					<text class="grid-text">{{baseListItem.title}}</text>
 				</u-grid-item>
@@ -37,7 +37,7 @@
 		<view class='list'
 			style="width:720rpx;margin: 30rpx auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);border-radius: 20rpx;background-color: #FFFFFF;">
 			<u-cell-group v-for="item in itemList">
-				<u-cell :title="item.title" arrow-direction="left" :isLink="true"
+				<u-cell :title="item.title" arrow-direction="left" :isLink="true" :url="item.url"
 					style="display: flex;justify-content: center;">
 
 					<u-icon slot="icon" size="32" :name="item.icon"></u-icon>
@@ -51,14 +51,14 @@
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto;">
 			<u-button type="error" size="large" text="退出登录" @click="exit" plain></u-button>
 		</view>
-
+		
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
 	</view>
 </template>
 
 <script>
-	import request from '../../utils/request.js';
+	import request from '@/utils/request.js';
 	export default {
 		name: 'user',
 		data() {
@@ -73,37 +73,51 @@
 				},
 				baseList: [{
 						name: '/static/love.png',
-						title: '我的收藏'
+						title: '我的收藏',
+						url:'/pages/myPublish/myPublish'
 					},
 					{
 						name: '/static/output.png',
-						title: '我的发布'
+						title: '我的发布',
+						url:'/pages/myPublish/myPublish?id=1'
 					},
 					{
 						name: '/static/message.png',
-						title: '我的消息'
+						title: '我的消息',
+						url:'/pages/myPublish/myPublish'
 					},
 					{
 						name: '/static/claim.png',
-						title: '我的认领'
+						title: '我的认领',
+						url:'/pages/myPublish/myPublish?id=4'
 					},
 				],
 				itemList: [{
 						title: '个人信息',
 						icon: '/static/personInfo.png',
-					}, {
+						url: '/pages/personal/personal',
+					},
+					{
+						title: '绑定教务',
+						icon: '/static/bind.png',
+						url: '/pages/school/school'
+					},{
 						title: '使用帮助',
 						icon: '/static/help.png',
+						url: '/pages/personal/personal'
 					}, {
-						title: '关于我们',
+						title: '联系客服',
 						icon: '/static/aboutMe.png',
+						url: '/pages/contact/contact'
 					},
 					{
 						title: '分享小程序',
 						icon: '/static/share.png',
+						url: '/pages/personal/personal'
 					}, {
 						title: '打赏作者',
 						icon: '/static/gift.png',
+						url: '#'
 					},
 				]
 
@@ -111,42 +125,6 @@
 		},
 		methods: {
 			login() {
-				uni.getUserProfile({
-					desc: '展示用户信息',
-					// 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-					success: (file) => {
-						console.log(file);
-						uni.login({
-							success: (res) => {
-								console.log(res);
-								request.postRequest(
-									'/wx/api/login/check', {
-										code: res.code,
-										nickName: file.userInfo.nickName,
-										gender: file.userInfo.gender,
-										avatarUrl: file.userInfo.avatarUrl
-									},
-									(open) => {
-										console.log(open);
-										this.setData({
-											hasUserInfo: true,
-											userInfo: {
-												stuNick: open.data.userInfo.stuNick,
-												stuImage: open.data.userInfo.stuImage
-											}
-										});
-									},
-									(res) => {
-										Toast.fail('网络拥挤');
-									}
-								);
-
-							}
-						});
-					}
-				});
-			},
-			login: function() {
 				let that = this;
 
 				if (!this.isLogin) {
@@ -158,8 +136,7 @@
 							uni.login({
 								success: (res) => {
 									request.postRequest(
-										'/wx/api/login/check', 
-										{
+										'/wx/api/login/check', {
 											code: res.code,
 											nickName: file.userInfo.nickName,
 											gender: file.userInfo.gender,
@@ -175,9 +152,9 @@
 												duration: 1000
 											});
 										},
-										(error)=>{
+										(error) => {
 											uni.showToast({
-												icon:"error",
+												icon: "error",
 												title: '登陆失败!',
 												duration: 1000
 											});
@@ -199,32 +176,37 @@
 				this.notify.show = false;
 				let that = this;
 				uni.removeStorage({
-					key:"userInfo"
-				}),
-				uni.removeStorage({
-					key:"token",
-					success() {
-						uni.showToast({
-							title: '已退出登录!',
-							duration: 1000
-						});
-						that.isLogin = false;
-						that.src = '/static/avatar.png';
-					},
-					fail() {
-						uni.showToast({
-							icon:"error",
-							title: '退出失败!',
-							duration: 1000
-						});
-					}
-				})
-				
+						key: "userInfo"
+					}),
+					uni.removeStorage({
+						key: "token",
+						success() {
+							uni.showToast({
+								title: '已退出登录!',
+								duration: 1000
+							});
+							that.isLogin = false;
+							that.src = '/static/avatar.png';
+						},
+						fail() {
+							uni.showToast({
+								icon: "error",
+								title: '退出失败!',
+								duration: 1000
+							});
+						}
+					})
+
 
 			},
 			cancel() {
 				this.notify.show = false;
 			},
+			itemClick(url){
+				uni.navigateTo({
+					url:url,
+				})
+			}
 
 		},
 
