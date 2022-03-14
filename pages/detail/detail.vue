@@ -35,7 +35,7 @@
 					<view style="margin: 0 0 20rpx 0;">
 						<text style="font-weight: 700;">{{info.relTitle}}</text>
 					</view>
-					<view style="margin: 0 0 20rpx 0;">
+					<view style="margin: 0 0 20rpx 0;" v-if="info.relDesc!=null">
 						<u-read-more>
 							{{info.relDesc}}
 						</u-read-more>
@@ -47,12 +47,12 @@
 							<u-tag :text="category[info.relCateId-1]" plain size="mini"></u-tag>
 						</view>
 					</view>
-					<text>联系方式:{{info.relContact}}</text>
-					<view style="margin: 0 0 20rpx 0;">
+					<text v-if="info.relContact!=null">联系方式:{{info.relContact}}</text>
+					<view v-if="info.createPlace!=null" style="margin: 0 0 20rpx 0;">
 						<text>地点:{{info.createPlace}}</text>
 					</view>
 
-					<view>
+					<view v-if="info.relImage!=null">
 						<image :src="baseUrl+info.relImage" mode="aspectFit" style="width: 350rpx;height: 350rpx;"
 							@click.stop="previewImage(baseUrl+info.relImage)">
 						</image>
