@@ -1,0 +1,19 @@
+{
+  "usingComponents": {
+    "van-search": "../../wxcomponents/vant/search/index",
+    "van-cell": "../../wxcomponents/vant/cell/index",  
+    "van-cell-group": "../../wxcomponents/vant/cell-group/index", 
+    "van-swipe-cell": "../../wxcomponents/vant/swipe-cell/index",
+    "van-tab": "../../wxcomponents/vant/tab/index",
+    "van-tabs": "../../wxcomponents/vant/tabs/index",
+    "van-card": "../../wxcomponents/vant/card/index",
+    "van-dialog":"../../wxcomponents/vant/dialog/index",
+    "van-toast":"../../wxcomponents/vant/toast/index",
+    "van-notify":"../../wxcomponents/vant/notify/index"
+  },
+  "navigationBarTitleText": "我的",
+  "navigationBarBackgroundColor": "#4498f8",
+  "backgroundTextStyle": "light",
+  "backgroundColorTop":"#a0deee"
+
+}

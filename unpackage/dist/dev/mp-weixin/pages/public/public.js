@@ -96,19 +96,19 @@ var components
 try {
   components = {
     uGrid: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 319))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 325))
     },
     uGridItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 327))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 333))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 286))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 292))
     },
     tuiModal: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 335))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 341))
     },
     tuiButton: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 342))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 348))
     }
   }
 } catch (e) {
@@ -348,7 +348,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 //
 //
 //
-var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 427));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiModal: tuiModal }, data: function data() {return { choose: [{ 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png', 'name': '招领', 'url': '../form/form?type=1' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png', 'name': '寻物', 'url': '../form/form?type=2' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png', 'name': '推送' }], week01: '', year01: '', month01: '', day01: '', info: null, author: { "uid": null }, loginPane: { show: false } };}, onLoad: function onLoad() {this.reload();var time = this.getTime();console.log(time + 'hhhhhhhh');var that = this;setInterval(function () {that.getTime();}, 1000);}, onShow: function onShow() {uni.hideTabBar();}, onHide: function onHide() {uni.showTabBar();}, methods: { jump: function jump(url) {wx.navigateTo({ url: url });}, close: function close() {wx.switchTab({ url: '../index/index' //因为我的是本目录，路径就是这样，把路径写对就能实现跳转了
+var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 355));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiModal: tuiModal }, data: function data() {return { choose: [{ 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png', 'name': '招领', 'url': '../form/form?type=1' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png', 'name': '寻物', 'url': '../form/form?type=2' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png', 'name': '推送' }], week01: '', year01: '', month01: '', day01: '', info: null, author: { "uid": null }, loginPane: { show: false } };}, onLoad: function onLoad() {this.reload();var time = this.getTime();console.log(time + 'hhhhhhhh');var that = this;setInterval(function () {that.getTime();}, 1000);}, onShow: function onShow() {uni.hideTabBar();}, onHide: function onHide() {uni.showTabBar();}, methods: { jump: function jump(url) {wx.navigateTo({ url: url });}, close: function close() {wx.switchTab({ url: '../index/index' //因为我的是本目录，路径就是这样，把路径写对就能实现跳转了
       });}, getTime: function getTime() {var date = new Date(),year = date.getFullYear(),month = date.getMonth() + 1,day = date.getDate(),hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();month >= 1 && month <= 9 ? month = "0" + month : "";
       var timer = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 

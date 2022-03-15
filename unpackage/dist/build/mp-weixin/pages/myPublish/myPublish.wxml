@@ -1,0 +1,63 @@
+<!--pages/publish_all/publish_all.wxml-->
+<view class="search">
+      <van-search
+      value="{{ value }}"
+      shape="round"
+      background="#4498f8"
+      placeholder="请输入搜索关键词"
+      bind:search = "onSearch"
+    />
+</view>
+<view  class="topbar">
+  <van-tabs active="{{ index }}" bind:change="onChange">
+    <van-tab title="失物">
+      <block wx:for="{{shiwu}}" wx:key="item">
+        <template is="shiwu" data="{{...item,...{url:baseUrl,index:0} }}"></template>
+      </block>
+      
+    </van-tab>
+    <van-tab title="寻物">
+      <block wx:for="{{zhaoling}}" wx:key="item">
+        <template is="shiwu" data="{{...item,...{url:baseUrl,index:1} }}"></template>
+      </block>
+    </van-tab>
+    <van-tab title="我的认领">
+      <block wx:for="{{successlist}}" wx:key="item">
+        <template is="shiwu" data="{{...item,...{url:baseUrl,index:2} }}"></template>
+      </block>
+    </van-tab>
+  </van-tabs>
+</view>
+
+<template name="shiwu">
+  <view class="card" >
+    <van-swipe-cell right-width="{{ 65 }}"  async-close data-relId = "{{relId}}" data-index = "{{index}}"  bind:close="onClose" bind:click="clickCard">
+      <van-cell-group >
+        <van-card  title="标题：{{relTitle}}" thumb="{{url}}{{relImage }}">
+          <view slot="desc">
+              <view>
+                <text>内容：{{relDesc.length<15?relDesc:util.sub(relDesc)}}</text>
+              </view>
+              <view>
+                <text>发布时间：{{createTime}}</text>
+              </view>
+          </view>
+        </van-card>
+      </van-cell-group>
+      <view slot="right">删除</view>
+    </van-swipe-cell>
+  </view>
+</template>
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<!-- 在页面内添加对应的节点 -->
+<van-notify id="van-notify" />
+<!-- 字符串截取 -->
+<wxs module="util">
+    var sub = function(val) {
+        return val.substring(0, 15)+'......'
+    }
+    module.exports.sub = sub;
+</wxs>
+

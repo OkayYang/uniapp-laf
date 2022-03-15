@@ -28,17 +28,18 @@
 		<view class='item'
 			style="width:720rpx;margin: 30rpx auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);overflow: hidden;background-color: #FFFFFF;border-radius: 20rpx;">
 			<u-grid :border="false" col="4">
-				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex" @click="itemClick(baseListItem.url)">
+				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex"
+					@click="itemClick(baseListItem.url)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="baseListItem.name" :size="22"></u-icon>
 					<text class="grid-text">{{baseListItem.title}}</text>
 				</u-grid-item>
 			</u-grid>
 		</view>
 		<view class='list'
-			style="width:720rpx;margin: 30rpx auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);border-radius: 20rpx;background-color: #FFFFFF;">
+			style="width:720rpx;margin: 30rpx auto;border-radius: 20rpx;background-color: #FFFFFF;">
 			<u-cell-group v-for="item in itemList">
-				<u-cell :title="item.title" arrow-direction="left" :isLink="true" :url="item.url"
-					style="display: flex;justify-content: center;">
+				<u-cell v-if="isLogin?true:item.show" :title="item.title" arrow-direction="left" :isLink="true"
+					:url="item.url" style="display: flex;justify-content: center;">
 
 					<u-icon slot="icon" size="32" :name="item.icon"></u-icon>
 
@@ -47,11 +48,11 @@
 
 			</u-cell-group>
 		</view>
-		
+		<u-toast ref="uToast"></u-toast>
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto;">
 			<u-button type="error" size="large" text="退出登录" @click="exit" plain></u-button>
 		</view>
-		
+
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
 	</view>
@@ -74,50 +75,56 @@
 				baseList: [{
 						name: '/static/love.png',
 						title: '我的收藏',
-						url:'/pages/myPublish/myPublish'
+						url: '/pages/myPublish/myPublish'
 					},
 					{
 						name: '/static/output.png',
 						title: '我的发布',
-						url:'/pages/myPublish/myPublish?id=1'
+						url: '/pages/myPublish/myPublish?id=1'
 					},
 					{
 						name: '/static/message.png',
 						title: '我的消息',
-						url:'/pages/myPublish/myPublish'
+						url: '/pages/myPublish/myPublish'
 					},
 					{
 						name: '/static/claim.png',
 						title: '我的认领',
-						url:'/pages/myPublish/myPublish?id=4'
+						url: '/pages/myPublish/myPublish?id=4'
 					},
 				],
 				itemList: [{
 						title: '个人信息',
 						icon: '/static/personInfo.png',
 						url: '/pages/personal/personal',
+						show: false,
 					},
 					{
 						title: '绑定教务',
 						icon: '/static/bind.png',
-						url: '/pages/school/school'
-					},{
+						url: '/pages/school/school',
+						show: false,
+					}, {
 						title: '使用帮助',
 						icon: '/static/help.png',
-						url: '/pages/personal/personal'
+						url: '#',
+						show: true,
 					}, {
 						title: '联系客服',
 						icon: '/static/aboutMe.png',
-						url: '/pages/contact/contact'
+						url: '/pages/contact/contact',
+						show: true,
 					},
 					{
 						title: '分享小程序',
 						icon: '/static/share.png',
-						url: '/pages/personal/personal'
+						url: '/pages/personal/personal',
+						show: false,
 					}, {
 						title: '打赏作者',
 						icon: '/static/gift.png',
-						url: '#'
+						url: '#',
+						show: true,
 					},
 				]
 
@@ -202,10 +209,19 @@
 			cancel() {
 				this.notify.show = false;
 			},
-			itemClick(url){
-				uni.navigateTo({
-					url:url,
-				})
+			itemClick(url) {
+				if (this.isLogin) {
+					uni.navigateTo({
+						url: url,
+					})
+				} else {
+					this.$refs.uToast.show({
+						type: 'error',
+						message: "请先登陆!",
+						iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+					});
+				}
+
 			}
 
 		},

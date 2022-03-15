@@ -323,6 +323,18 @@
 
 
 			postForm() {
+				uni.requestSubscribeMessage({
+					tmplIds:['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI'],
+					success(res){
+						console.log("SubscribeMessageSuccess");
+						console.log(res);
+					},
+					fail(res){
+						console.log("SubscribeMessageError");
+						console.log(res);
+					}
+				});
+				
 				request.postRequest('/wx/api/release/auth/add/check', {
 						relCampus: this.model1.userInfo.campus,
 						relCateId: this.model1.userInfo.value,

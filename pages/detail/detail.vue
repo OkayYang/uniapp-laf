@@ -428,18 +428,7 @@
 				
 				if (this.isLogin()) {
 					
-					uni.requestSubscribeMessage({
-						tmplIds:['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI'],
-						success(res){
-							console.log("SubscribeMessageSuccess");
-							console.log(res);
-						},
-						fail(res){
-							console.log("SubscribeMessageError");
-							console.log(res);
-						}
-					});
-
+					
 
 					if (this.input.msg.length < 1 && !this.input.isUpload) {
 						this.$refs.uToast.show({

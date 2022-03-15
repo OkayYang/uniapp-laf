@@ -64,10 +64,17 @@
 				// "navigationBarBackgroundColor": "#449bf8"
 			}
 
+		},{
+			"path":"pages/myPublish/myPublish",
+			"style":{
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+				
+			}
 		}
 		
-
-	],
+	    
+    ],
 	"globalStyle": {
 		
 		"navigationBarBackgroundColor": "#449bf8",

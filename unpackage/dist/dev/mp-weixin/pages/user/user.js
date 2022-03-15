@@ -96,28 +96,31 @@ var components
 try {
   components = {
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 216))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 222))
     },
     uButton: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 311))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 317))
     },
     uGrid: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 319))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 325))
     },
     uGridItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 327))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 333))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 286))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 292))
     },
     uCellGroup: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 240))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 246))
     },
     uCell: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 248))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 254))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 370))
     },
     uModal: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 364))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 377))
     }
   }
 } catch (e) {
@@ -254,6 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -313,7 +317,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 //
 //
 //
-var _default = { name: 'user', data: function data() {return { isLogin: false, src: '/static/avatar.png', nickName: '', notify: { show: false, content: '是否退出登录？', title: '警告' }, baseList: [{ name: '/static/love.png', title: '我的收藏', url: '/pages/myPublish/myPublish' }, { name: '/static/output.png', title: '我的发布', url: '/pages/myPublish/myPublish?id=1' }, { name: '/static/message.png', title: '我的消息', url: '/pages/myPublish/myPublish' }, { name: '/static/claim.png', title: '我的认领', url: '/pages/myPublish/myPublish?id=4' }], itemList: [{ title: '个人信息', icon: '/static/personInfo.png', url: '/pages/personal/personal' }, { title: '绑定教务', icon: '/static/bind.png', url: '/pages/school/school' }, { title: '使用帮助', icon: '/static/help.png', url: '/pages/personal/personal' }, { title: '联系客服', icon: '/static/aboutMe.png', url: '/pages/contact/contact' }, { title: '分享小程序', icon: '/static/share.png', url: '/pages/personal/personal' }, { title: '打赏作者', icon: '/static/gift.png', url: '#' }] };
+//
+var _default = { name: 'user', data: function data() {return { isLogin: false, src: '/static/avatar.png', nickName: '', notify: { show: false, content: '是否退出登录？', title: '警告' }, baseList: [{ name: '/static/love.png', title: '我的收藏', url: '/pages/myPublish/myPublish' }, { name: '/static/output.png', title: '我的发布', url: '/pages/myPublish/myPublish?id=1' }, { name: '/static/message.png', title: '我的消息', url: '/pages/myPublish/myPublish' }, { name: '/static/claim.png', title: '我的认领', url: '/pages/myPublish/myPublish?id=4' }], itemList: [{ title: '个人信息', icon: '/static/personInfo.png', url: '/pages/personal/personal', show: false }, { title: '绑定教务', icon: '/static/bind.png', url: '/pages/school/school', show: false }, { title: '使用帮助', icon: '/static/help.png', url: '#', show: true }, { title: '联系客服', icon: '/static/aboutMe.png', url: '/pages/contact/contact', show: true }, { title: '分享小程序', icon: '/static/share.png', url: '/pages/personal/personal', show: false },
+      {
+        title: '打赏作者',
+        icon: '/static/gift.png',
+        url: '#',
+        show: true }] };
 
 
 
@@ -399,8 +409,17 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
       this.notify.show = false;
     },
     itemClick: function itemClick(url) {
-      uni.navigateTo({
-        url: url });
+      if (this.isLogin) {
+        uni.navigateTo({
+          url: url });
+
+      } else {
+        this.$refs.uToast.show({
+          type: 'error',
+          message: "请先登陆!",
+          iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+      }
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

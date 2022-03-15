@@ -7,7 +7,8 @@
         "pages/form/form",
         "pages/user/user",
         "pages/contact/contact",
-        "pages/detail/detail"
+        "pages/detail/detail",
+        "pages/myPublish/myPublish"
     ],
     "subPackages": [],
     "window": {
