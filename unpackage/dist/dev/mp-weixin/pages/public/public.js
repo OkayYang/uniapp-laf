@@ -96,13 +96,19 @@ var components
 try {
   components = {
     uGrid: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 327))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 319))
     },
     uGridItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 335))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 327))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 294))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 286))
+    },
+    tuiModal: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 335))
+    },
+    tuiButton: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 342))
     }
   }
 } catch (e) {
@@ -137,6 +143,12 @@ var render = function() {
       a0: a0
     }
   })
+
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.loginPane.show = false
+    }
+  }
 
   _vm.$mp.data = Object.assign(
     {},
@@ -179,134 +191,171 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-
-  data: function data() {
-    return {
-      choose: [{
-        'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png',
-        'name': '招领',
-        'url': '../form/form?type=1' },
-      {
-        'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png',
-        'name': '寻物',
-        'url': '../form/form?type=2' },
-
-      {
-        'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png',
-        'name': '推送' }],
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
-      week01: '',
-      year01: '',
-      month01: '',
-      day01: '' };
-
-  },
 
 
-  onLoad: function onLoad() {
-    var time = this.getTime();
-    console.log(time + 'hhhhhhhh');
-    var that = this;
-
-    setInterval(function () {
-      that.getTime();
-
-    }, 1000);
-
-  },
-  onShow: function onShow() {
-    uni.hideTabBar();
-  },
-  onHide: function onHide() {
-    uni.showTabBar();
-  },
 
 
-  methods: {
-    jump: function jump(url) {
-      wx.navigateTo({
-        url: url });
-
-    },
-    close: function close() {
-      wx.switchTab({
-        url: '../index/index' //因为我的是本目录，路径就是这样，把路径写对就能实现跳转了
-      });
-    },
 
 
-    getTime: function getTime() {
-      var date = new Date(),
-      year = date.getFullYear(),
-      month = date.getMonth() + 1,
-      day = date.getDate(),
-      hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),
-      minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
-      second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-      month >= 1 && month <= 9 ? month = "0" + month : "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 427));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiModal: tuiModal }, data: function data() {return { choose: [{ 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png', 'name': '招领', 'url': '../form/form?type=1' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png', 'name': '寻物', 'url': '../form/form?type=2' }, { 'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png', 'name': '推送' }], week01: '', year01: '', month01: '', day01: '', info: null, author: { "uid": null }, loginPane: { show: false } };}, onLoad: function onLoad() {this.reload();var time = this.getTime();console.log(time + 'hhhhhhhh');var that = this;setInterval(function () {that.getTime();}, 1000);}, onShow: function onShow() {uni.hideTabBar();}, onHide: function onHide() {uni.showTabBar();}, methods: { jump: function jump(url) {wx.navigateTo({ url: url });}, close: function close() {wx.switchTab({ url: '../index/index' //因为我的是本目录，路径就是这样，把路径写对就能实现跳转了
+      });}, getTime: function getTime() {var date = new Date(),year = date.getFullYear(),month = date.getMonth() + 1,day = date.getDate(),hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours(),minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();month >= 1 && month <= 9 ? month = "0" + month : "";
       var timer = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
 
       this.year01 = year;
       var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
       'October', 'November', 'December'];
+
       for (var i = 1; i <= months.length; i++) {
         if (month == i) {
           month = months[i - 1];
@@ -317,6 +366,34 @@ var _default =
       var h = date.getDay();
       var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
       this.week01 = week[h];
+    },
+
+
+    reload: function reload() {var _this = this;
+      if (this.author.uid == null) {
+        uni.getStorage({
+          key: 'userInfo',
+          success: function success(res) {
+            _this.author.uid = res.data.stuId;
+          } });
+
+      }
+
+    },
+    login: function login() {
+      wx.switchTab({
+        url: '../user/user' });
+
+    },
+    present: function present(url) {
+      if (this.author.uid) {
+        this.loginPane.show = false;
+        this.jump(url);
+        console.log("已登录成功");
+      } else {
+        this.loginPane.show = true;
+        console.log("请先登录");
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

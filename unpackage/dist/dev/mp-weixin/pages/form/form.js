@@ -95,26 +95,35 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uNoticeBar: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-notice-bar/u-notice-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-notice-bar/u-notice-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 349))
+    },
+    uUpload: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-upload/u-upload.vue */ 256))
+    },
     "u-Form": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 274))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 266))
     },
     uFormItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 280))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 272))
     },
     "u-Input": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 288))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 280))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 294))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 286))
     },
     uActionSheet: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 303))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 295))
     },
     "u-Textarea": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--textarea/u--textarea */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--textarea/u--textarea")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--textarea/u--textarea.vue */ 313))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--textarea/u--textarea */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--textarea/u--textarea")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--textarea/u--textarea.vue */ 305))
     },
     uButton: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 319))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 311))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 357))
     }
   }
 } catch (e) {
@@ -188,7 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 36));
 
 
 
@@ -283,10 +292,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   data: function data() {var _ref;
     return _ref = {
+      baseUrl: _request.default.getHost(),
       rel_status: null,
       navbar: null,
       showCampus: false,
@@ -300,7 +311,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
     {
       userInfo: {
         name: '',
-        sort: '' } }), _defineProperty(_ref, "actions",
+        sort: '',
+        value: '' } }), _defineProperty(_ref, "actions",
 
 
     [{
@@ -314,7 +326,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
 
     [{
-      name: '校园卡' },
+      name: '学生证' },
+
 
     {
       name: '身份证' },
@@ -358,33 +371,20 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
 
 
+
     ''), _defineProperty(_ref, "switchVal",
     false), _defineProperty(_ref, "value3",
+    ''), _defineProperty(_ref, "photoUrl",
+    ''), _defineProperty(_ref, "fileList1",
+    []), _defineProperty(_ref, "name",
+    ''), _defineProperty(_ref, "type",
+    ''), _defineProperty(_ref, "campusText",
+    ''), _defineProperty(_ref, "id",
     ''), _ref;
+
 
   },
   onLoad: function onLoad(options) {
-    // request.postRequest('/wx/api/release/auth/add/check', {
-    // 			"relCampus": "南昌校区", //校区
-    // 			"relCateId": 2, //类别的value
-    // 			"relContact": "1", //联系方式
-    // 			"relDesc": "sdsadasd", //内容
-    // 			"relImage": "/img/user/tiezi/wDEbmeeRgTWMc6f76911d74279584875503a867e7d4f.png", //upload返回的image
-    // 			"relSatus": "1", //进入页面的type值
-    // 			"relTitle": "1", //标题
-    // 		},
-    // 		(success) => {
-    // 			console.log("success");
-    // 			console.log(success);
-
-    // 		},
-    // 		(error) => {
-
-    // 			console.log("error");
-    // 			console.log(error);
-    // 		}
-    // 	);
-
     this.onLoadClone3389(options);
   },
   methods: {
@@ -429,33 +429,129 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
       }
     },
 
-
-
     campusSelect: function campusSelect(e) {
       this.model1.userInfo.campus = e.name;
       // this.$refs.form1.validateField('userInfo.campus')
     },
     sortSelect: function sortSelect(e) {
       this.model1.userInfo.sort = e.name;
+      this.model1.userInfo.value = e.value;
+      console.log(e.name);
+      console.log(e.value);
       // this.$refs.form1.validateField('userInfo.campus')
     },
-    add: function add() {
-      _request.default.postRequest('/wx/api/release/auth/add/check', {
-        "relCampus": "南昌校区", //校区
-        "relCateId": 2, //类别的value
-        "relContact": "1", //联系方式
-        "relDesc": "sdsadasd", //内容
-        "relImage": "/img/user/tiezi/wDEbmeeRgTWMc6f76911d74279584875503a867e7d4f.png", //upload返回的image
-        "relSatus": "1", //进入页面的type值
-        "relTitle": "1" //标题
-      },
-      function (success) {
-        console.log(success);
 
-      },
-      function (error) {
-        console.log(error);
+
+    // 删除图片
+    deletePic: function deletePic(event) {
+      this["fileList".concat(event.name)].splice(event.index, 1);
+    },
+    // 新增图片
+    afterRead: function afterRead(event) {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var lists, fileListLen, i, result, item;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+                lists = [].concat(event.file);
+                fileListLen = _this2["fileList".concat(event.name)].length;
+                lists.map(function (item) {
+                  _this2["fileList".concat(event.name)].push(_objectSpread(_objectSpread({},
+                  item), {}, {
+                    status: 'uploading',
+                    message: '上传中' }));
+
+
+                });
+                i = 0;case 4:if (!(i < lists.length)) {_context.next = 14;break;}_context.next = 7;return (
+                  _this2.uploadFilePromise(lists[i].url));case 7:result = _context.sent;
+                item = _this2["fileList".concat(event.name)][fileListLen];
+                _this2["fileList".concat(event.name)].splice(fileListLen, 1, Object.assign(item, {
+                  status: 'success',
+                  message: '',
+                  url: result }));
+
+                fileListLen++;case 11:i++;_context.next = 4;break;case 14:case "end":return _context.stop();}}}, _callee);}))();
+
+
+    },
+
+
+    uploadFilePromise: function uploadFilePromise(url) {var _this3 = this;
+
+      return new Promise(function (resolve, reject) {
+        var that = _this3;
+        var a = uni.uploadFile({
+          url: that.baseUrl + '/wx/api/release/upload',
+          filePath: url,
+          name: 'file',
+          formData: {
+            user: 'test' },
+
+          success: function success(res) {
+            setTimeout(function () {
+              resolve(res.data.data);
+            }, 1000);
+            console.log(res);
+            var data = res.data;
+            // console.log(data)
+            // console.log(JSON.parse(data).name)
+            that.name = JSON.parse(data).name;
+            that.type = JSON.parse(data).type;
+            that.number = JSON.parse(data).number;
+            that.photoUrl = JSON.parse(data).photoUrl;
+            console.log(that.type);
+            if (that.type == 'sfz') {
+              var strcard = that.number.replace(/^(.{4})(?:\d+)(.{4})$/,
+              "$1******$2");
+              that.model1.userInfo.title = '捡到' + _this3.name + '的身份证';
+              that.value3 = '身份证号为' + strcard;
+              that.model1.userInfo.sort = "身份证";
+              that.model1.userInfo.value = 2;
+
+              console.log('捡到身份证');
+            } else if (that.type == 'xsz') {
+              var strcard = that.number.replace(/^(.{2})(?:\d+)(.{2})$/,
+              "$1******$2");
+              that.model1.userInfo.title = '捡到' + _this3.name + '的学生证';
+              that.value3 = '学生证号为' + strcard;
+              that.model1.userInfo.sort = "学生证";
+              that.model1.userInfo.value = 3;
+            }
+            console.log(that.type);
+          } });
+
       });
+    },
+
+
+    postForm: function postForm() {var _this4 = this;
+      _request.default.postRequest('/wx/api/release/auth/add/check', {
+        relCampus: this.model1.userInfo.campus,
+        relCateId: this.model1.userInfo.value,
+        relContact: this.model1.userInfo.contact,
+        relDesc: this.value3,
+        relImage: this.photoUrl,
+        relStatus: this.rel_status,
+        relTitle: this.model1.userInfo.title,
+        createPlace: this.model1.userInfo.clue },
+
+      function (res) {
+        if (res.data.code == 0) {
+          uni.switchTab({
+            url: '../index/index',
+            success: function success() {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            } });
+
+        } else {
+          _this4.$refs.uToast.show({
+            type: 'error',
+            message: "发布失败!",
+            iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+        }
+      });
+
+
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

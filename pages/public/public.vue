@@ -1,10 +1,9 @@
 <template>
 	<view class="public01">
 
-<!-- 这里是发布 -->
+		<!-- 这里是发布 -->
 
 		<view class="text" style="margin-top: 20rpx;">
-
 
 
 			<view style="width: 100%; height: 100rpx;">
@@ -23,6 +22,7 @@
 
 
 
+
 			<view class="blur">
 				<view class="poem" style="width: 580rpx;  margin: auto;margin-top: 100rpx;">
 					世之奇伟、瑰怪、非常之观，常在于险远。
@@ -37,7 +37,9 @@
 		<view class="btn">
 			<u-grid :border="false">
 				<u-grid-item v-for="(item,index) in choose" :key="index">
-					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="item.src" :size="60" @click="jump(item.url)"></u-icon>
+					<!-- <u-icon :customStyle="{paddingTop:20+'rpx'}" :name="item.src" :size="60" @click="jump(item.url)"></u-icon> -->
+					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="item.src" :size="60" @click="present(item.url)">
+					</u-icon>
 					<text class="grid-text" style="font-size: 25rpx;margin-top: 10rpx;">{{item.name}}</text>
 				</u-grid-item>
 			</u-grid>
@@ -49,23 +51,48 @@
 			<image src="https://pic.imgdb.cn/item/621efd38a86b6edc746b3d8f.png" mode="" @click="close"></image>
 		</view>
 
+		
+		<tui-modal :show="loginPane.show" custom>
+			<view class="tui-modal-custom">
+				
+				<view class="tui-modal-custom-text" style="display: flex;justify-content: center;margin: 0 0 20rpx 0;">
+					<text style="color: #606266;font-size: 30rpx;">您还未登陆，请先登录!</text>
+				</view>
+				<view style="display: flex;justify-content: center;">
+					<view class="alert" style="margin: 0 30rpx 0 0;">
+						<tui-button height="72rpx" :size="28" type="danger" shape="circle" @click="loginPane.show=false"
+							:plain="true">取消</tui-button>
+					</view>
+					<view class="alert" style="margin: 0 0 0 30rpx;">
+						<tui-button height="72rpx" :size="28" type="danger" shape="circle" @click="login()">登陆
+						</tui-button>
+					</view>
+				</view>
+			</view>
+		</tui-modal>
+
+
 	</view>
 
 </template>
 
 <script>
+	import request from '@/utils/request.js';
+	import tuiModal from "@/components/thorui/tui-modal/tui-modal"
 	export default {
-
+		components: {
+			tuiModal,
+		},
 		data() {
 			return {
 				choose: [{
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png',
 						'name': '招领',
-						'url':'../form/form?type=1'
+						'url': '../form/form?type=1'
 					}, {
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png',
 						'name': '寻物',
-						'url':'../form/form?type=2'
+						'url': '../form/form?type=2'
 					},
 					{
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png',
@@ -76,11 +103,20 @@
 				year01: '',
 				month01: '',
 				day01: '',
+				info: null,
+				author: {
+					"uid": null,
+				},
+				loginPane: {
+					show: false,
+				},
+
 			}
 		},
-		
-		
+
+
 		onLoad() {
+			this.reload();
 			var time = this.getTime();
 			console.log(time + 'hhhhhhhh');
 			var that = this;
@@ -97,12 +133,12 @@
 		onHide() {
 			uni.showTabBar();
 		},
-		
-		
+
+
 		methods: {
-			jump(url){
+			jump(url) {
 				wx.navigateTo({
-					url:url
+					url: url
 				})
 			},
 			close() {
@@ -111,7 +147,7 @@
 				})
 			},
 
-			
+
 			getTime: function() {
 				var date = new Date(),
 					year = date.getFullYear(),
@@ -125,7 +161,8 @@
 
 				this.year01 = year;
 				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-					'October', 'November', 'December'];
+					'October', 'November', 'December'
+				];
 				for (var i = 1; i <= months.length; i++) {
 					if (month == i) {
 						month = months[i - 1];
@@ -134,12 +171,42 @@
 				this.month01 = month;
 				this.day01 = day;
 				var h = date.getDay();
-				var week = ['星期日','星期一', '星期二', '星期三', '星期四', '星期五', '星期六', ];
+				var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', ];
 				this.week01 = week[h];
 			},
 
 
+			reload() {
+				if (this.author.uid == null) {
+					uni.getStorage({
+						key: 'userInfo',
+						success: (res) => {
+							this.author.uid = res.data.stuId;
+						}
+					});
+				}
+
+			},
+			login() {
+				wx.switchTab({
+					url: '../user/user',
+				})
+			},
+			present(url) {
+				if (this.author.uid) {
+					this.loginPane.show = false;
+					this.jump(url)
+					console.log("已登录成功")
+				} else {
+					this.loginPane.show = true;
+					console.log("请先登录")
+				}
+			}
+
 		},
+
+		
+
 
 	}
 </script>
@@ -178,6 +245,9 @@
 		left: 350rpx;
 	}
 
-	.public01 {
+	.alert {
+		width: 250rpx;
 	}
+
+	.public01 {}
 </style>

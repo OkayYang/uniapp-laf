@@ -29,4 +29,7 @@ image.data-v-e1a4b4b4 {
   bottom: 40rpx;
   left: 350rpx;
 }
+.alert.data-v-e1a4b4b4 {
+  width: 250rpx;
+}
 

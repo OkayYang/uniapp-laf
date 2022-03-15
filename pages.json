@@ -64,20 +64,12 @@
 				// "navigationBarBackgroundColor": "#449bf8"
 			}
 
-		},
-		{
-			"path": "pages/myPublish/myPublish"
 		}
-
+		
 
 	],
 	"globalStyle": {
-		"usingComponents": {
-			"van-tab": "/wxcomponents/vant/tab/index",
-			"van-tabs": "/wxcomponents/vant/tabs/index",
-			"van-swipe-cell": "/wxcomponents/vant/swipe-cell/index"
-		},
-
+		
 		"navigationBarBackgroundColor": "#449bf8",
 		"navigationBarTextStyle": "white",
 		"backgroundColor": "#F8F8F8",

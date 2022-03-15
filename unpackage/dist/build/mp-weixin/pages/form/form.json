@@ -4,6 +4,8 @@
   "navigationBarTitleText": "表单",
   "backgroundColor": "#F5F5F5",
   "usingComponents": {
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
     "u--form": "/uni_modules/uview-ui/components/u--form/u--form",
     "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
     "u--input": "/uni_modules/uview-ui/components/u--input/u--input",

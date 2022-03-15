@@ -178,6 +178,7 @@
 		 * 生命周期函数--监听页面显示
 		 */
 		onShow: function() {
+			uni.showTabBar();
 			if (this.$store.state.fresh) {
 				this.onLoadClone3389();
 			}
