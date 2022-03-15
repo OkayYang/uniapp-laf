@@ -176,7 +176,7 @@
 				radio: '',
 				switchVal: false,
 				value3: '',
-				photoUrl: '',
+				photoUrl: null,
 				fileList1: [],
 				name: '',
 				type: '',
