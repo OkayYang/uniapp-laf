@@ -128,6 +128,8 @@
 
 		},
 		onShow() {
+			this.author.uid=null;
+			this.reload();
 			uni.hideTabBar();
 		},
 		onHide() {
@@ -188,15 +190,16 @@
 
 			},
 			login() {
+				this.loginPane.show=false;
 				wx.switchTab({
 					url: '../user/user',
 				})
 			},
 			present(url) {
-				if (this.author.uid) {
+				if (this.author.uid!=null) {
 					this.loginPane.show = false;
-					this.jump(url)
-					console.log("已登录成功")
+					this.jump(url);
+					console.log("已登录成功");
 				} else {
 					this.loginPane.show = true;
 					console.log("请先登录")
