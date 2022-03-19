@@ -6,7 +6,7 @@
 			<view class="identityCard_front" style="margin-left: 270rpx;margin-top: 100rpx;">
 				<u-upload :fileList="fileList1" @afterRead="afterRead" @delete="deletePic" name="1" multiple
 					:maxCount="1" :previewFullImage="true" width="210rpx" height="210rpx" uploadText="上传照片">
-					<image src="https://pic.imgdb.cn/item/62237ee95baa1a80aba4ef20.png" mode="widthFix"
+					<image src="../../static/camera.png" mode="widthFix"
 						style="width: 350rpx;height: 350rpx;margin:auto;margin-left: -70rpx;margin-top: -100rpx;">
 					</image>
 				</u-upload>
@@ -176,7 +176,7 @@
 					},
 
 				},
-
+				
 				radio: '',
 				switchVal: false,
 				value3: null,
@@ -187,6 +187,7 @@
 				campusText: null,
 				id: '',
 				status: '',
+				thumb:'',
 			};
 		},
 		onLoad: function(options) {
@@ -291,6 +292,7 @@
 						message: '',
 						url: result,
 						thumb:this.apiHost+this.photoUrl
+						
 					}))
 					fileListLen++
 				}
@@ -329,6 +331,7 @@
 								that.value3 = '身份证号为' + strcard;
 								that.model1.userInfo.sort = "身份证"
 								that.model1.userInfo.value = 2
+								
 
 								console.log('捡到身份证')
 							} else if (that.type == 'xsz') {
@@ -338,6 +341,7 @@
 								that.value3 = '学生证号为' + strcard;
 								that.model1.userInfo.sort = "学生证"
 								that.model1.userInfo.value = 3
+								
 							}
 							if (that.model1.userInfo.campus == null || that.model1.userInfo.campus ==
 								'') {
