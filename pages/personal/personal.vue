@@ -11,30 +11,34 @@
 					</u-popup> -->
 			<u-cell-group>
 				<u-cell icon="https://pic.imgdb.cn/item/62177c832ab3f51d91a39e09.png" title="头像" isLink="true">
+					<image :src = "userInfo.stuImage" slot="value"
+						style="border-radius: 30rpx;width: 120rpx;height: 120rpx;overflow: hidden;"></image>
 
-					<open-data type="userAvatarUrl" slot="value"
-						style="border-radius: 30rpx;width: 120rpx;height: 120rpx;overflow: hidden;"></open-data>
+					<!-- <open-data type="userAvatarUrl" slot="value"
+						style="border-radius: 30rpx;width: 120rpx;height: 120rpx;overflow: hidden;"></open-data> -->
 				</u-cell>
 
 
-				<u-cell icon="https://pic.imgdb.cn/item/621f65285baa1a80abff47d1.png" title="昵称" :value="item.wname"
+				<u-cell icon="https://pic.imgdb.cn/item/621f65285baa1a80abff47d1.png" title="昵称" :value="userInfo.stuNick"
 					isLink="true" @click="show = true"></u-cell>
 
-				<u-cell icon="https://pic.imgdb.cn/item/621f66725baa1a80ab0005ce.png" title="QQ" :value="item.qq"
+				<u-cell icon="https://pic.imgdb.cn/item/621f66725baa1a80ab0005ce.png" title="QQ" :value="userInfo.stuQq"
 					isLink="true"></u-cell>
 			</u-cell-group>
-			<view class="" style="height: 60rpx;margin-top: 30rpx;margin-left:35rpx;font-size: 35rpx;color: grey;">[教务信息]</view>
+			<view class="" style="height: 60rpx;margin-top: 30rpx;margin-left:35rpx;font-size: 35rpx;color: grey;">
+				[教务信息]</view>
 			<u-cell-group>
-				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284ae.png" title="姓名" :value="item.name"
+				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284ae.png" title="姓名"
+					:value="userInfo.stuName" isLink="true"></u-cell>
+				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284ba.png" title="学号" :value="userInfo.stuXh"
 					isLink="true"></u-cell>
-				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284ba.png" title="学号" :value="item.sno"
+				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284a8.png" title="专业" :value="userInfo.stuMajor"
 					isLink="true"></u-cell>
-				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284c3.png" title="班级" :value="item.class"
+				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284c3.png" title="班级" :value="userInfo.stuClassname"
 					isLink="true"></u-cell>
 				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284a3.png" title="院系"
-					:value="item.department" isLink="true"></u-cell>
-				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284a8.png" title="专业" :value="item.major"
-					isLink="true"></u-cell>
+					:value="userInfo.stuDepartment" isLink="true"></u-cell>
+
 			</u-cell-group>
 		</view>
 	</view>
@@ -44,23 +48,38 @@
 	export default {
 		data() {
 			return {
-				item: {
-					'qq': '2330295306',
-					'wname': 'Evy',
-					'wname2':'',
-					'name': '曹嘉雯',
-					'sno': 5720191601,
-					'class': '软开193班',
-					'department': '软件工程',
-					'major': '软件开发',
-					'sex': '女',
-					'sname': 'Evy',
+				userInfo: {
+					"stuNick": "某某",
+					"stuName": "某某某",
+					"stuSex": "3",
+					"stuXh": "********",
+					"stuDepartment": "********",
+					"stuMajor": "********",
+					"stuClassname": "********",
+					"stuQq": "********",
+					"stuEmail": "********",
+					"stuImage":''
 
 				},
+				
 				show: false
-
 			}
 		},
+		onLoad() {
+			uni.getStorage({
+				key: 'userInfo',
+				success: (res) => {
+					this.userInfo = res.data;
+				}
+			});
+			// uni.getStorage({
+			// 	key:'userInfo',
+			// 	success(res)=>{
+			// 		this.userInfo = res.data;
+			// 	}
+			// });
+		},
+		
 		methods: {
 			open() {
 				// console.log('open');
@@ -72,10 +91,10 @@
 			// save(){
 			// 	this.show = false
 			// }
-			
+
 		},
-		
-		
+
+
 
 
 	}

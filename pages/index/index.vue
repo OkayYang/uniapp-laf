@@ -29,11 +29,11 @@
 					</view>
 					<view class="tag"
 						style="width:370rpx;display: flex; align-items:flex-end;justify-content: space-around">
-						<view style="margin: 0 0 0 30rpx;width: 155rpx;">
+						<view style="margin: 0 0 0 30rpx;">
 							<u-tag shape="circle" :text="info.relStatus==1?'失物招领':'寻物启事'"
 								:type="info.relStatus==1?'primary':'warning'"></u-tag>
 						</view>
-						<view style="margin: 0 0 0 0rpx;">
+						<view style="margin: 0 0 0 -10rpx;">
 							<u-tag shape="circle" :type="info.relFlag==1?'error':'success'"
 								:text="info.relFlag==1?'待解决':'已解决'"></u-tag>
 						</view>
@@ -124,7 +124,24 @@
 					[{
 						text: '所有种类',
 						value: '0',
-					}, ],
+					}, 
+					{
+						text: '其他',
+						value: '1',
+					},
+					{
+						text: '身份证',
+						value: '2',
+					},
+					{ 
+						text: '学生证',    
+						value: '3',
+					},
+					{
+						text: '衣物',    
+						value: '4',
+					},
+					],
 
 				],
 				defaultIndex: [0, 0, 0],
@@ -161,7 +178,7 @@
 			// uni.navigateTo({
 			// 	url: "../form/form?type=1"
 			// })
-			
+
 			console.log('onLoad');
 			this.onLoadClone3389();
 
@@ -182,6 +199,7 @@
 			if (this.$store.state.fresh) {
 				this.onLoadClone3389();
 			}
+			this.$store.state.fresh = false;
 			console.log('onshow'); //页面刷新显示发布列表请求
 
 		},
@@ -306,7 +324,7 @@
 				request.getRequest('/wx/api/announce/list', null, (res) => {
 					this.notice = res.data.annContent
 				});
-
+				//组件问题无法刷新
 				request.getRequest('/wx/api/category/treeData', null, (res) => {
 					let option = [];
 					res.data.forEach((element) => {
@@ -315,13 +333,15 @@
 							value: element.id
 						});
 					});
-					this.filterData[2].push(...option);
+					
+					//this.filterData[2].push(...option);
+					this.category=[]
 					this.filterData[2].forEach((item) => {
 						this.category.push(item.text);
 					});
-					this.loadRelease();
-
+					
 				});
+				this.loadRelease();
 				console.log("!!!!");
 
 			},

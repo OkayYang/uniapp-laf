@@ -9,3 +9,22 @@
   text-align: center;
   background-color: #f44;
 }
+.styleTime{
+  margin-top: 50rpx;
+}
+ .van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  height: 44px;
+  font-size: 15px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+.van-empty__description{
+  text-align: center;
+}

@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uCellGroup: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 246))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 244))
     },
     uCell: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 254))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 252))
     }
   }
 } catch (e) {
@@ -161,7 +161,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
 //
 //
 //
@@ -207,23 +211,38 @@ var _default =
 {
   data: function data() {
     return {
-      item: {
-        'qq': '2330295306',
-        'wname': 'Evy',
-        'wname2': '',
-        'name': '曹嘉雯',
-        'sno': 5720191601,
-        'class': '软开193班',
-        'department': '软件工程',
-        'major': '软件开发',
-        'sex': '女',
-        'sname': 'Evy' },
+      userInfo: {
+        "stuNick": "某某",
+        "stuName": "某某某",
+        "stuSex": "3",
+        "stuXh": "********",
+        "stuDepartment": "********",
+        "stuMajor": "********",
+        "stuClassname": "********",
+        "stuQq": "********",
+        "stuEmail": "********",
+        "stuImage": '' },
+
 
 
       show: false };
 
-
   },
+  onLoad: function onLoad() {var _this = this;
+    uni.getStorage({
+      key: 'userInfo',
+      success: function success(res) {
+        _this.userInfo = res.data;
+      } });
+
+    // uni.getStorage({
+    // 	key:'userInfo',
+    // 	success(res)=>{
+    // 		this.userInfo = res.data;
+    // 	}
+    // });
+  },
+
   methods: {
     open: function open() {
       // console.log('open');
@@ -236,6 +255,7 @@ var _default =
     // 	this.show = false
     // }
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

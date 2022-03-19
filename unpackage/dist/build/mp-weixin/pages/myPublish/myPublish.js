@@ -95,9 +95,7 @@ Page({
      */
     clickCard(event){
         if(event.detail=='cell'){
-            console.log(event)
             const tid = event.currentTarget.dataset.relid;
-            console.log(tid)
             wx.navigateTo({
                 url: '/pages/detail/detail?tid='+tid,
                 success: function(res) {

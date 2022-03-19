@@ -9,11 +9,14 @@
     "van-card": "../../wxcomponents/vant/card/index",
     "van-dialog":"../../wxcomponents/vant/dialog/index",
     "van-toast":"../../wxcomponents/vant/toast/index",
-    "van-notify":"../../wxcomponents/vant/notify/index"
+    "van-notify":"../../wxcomponents/vant/notify/index",
+    "van-tag": "../../wxcomponents/vant/tag/index",
+    "van-empty": "../../wxcomponents/vant/empty/index"
   },
   "navigationBarTitleText": "我的",
   "navigationBarBackgroundColor": "#4498f8",
-  "backgroundTextStyle": "light",
-  "backgroundColorTop":"#a0deee"
-
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+  
+  
 }

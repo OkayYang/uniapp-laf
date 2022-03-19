@@ -96,19 +96,19 @@ var components
 try {
   components = {
     uSearch: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 207))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 205))
     },
     renDropdownFilter: function() {
-      return __webpack_require__.e(/*! import() | components/ren-dropdown-filter/ren-dropdown-filter */ "components/ren-dropdown-filter/ren-dropdown-filter").then(__webpack_require__.bind(null, /*! @/components/ren-dropdown-filter/ren-dropdown-filter.vue */ 215))
+      return __webpack_require__.e(/*! import() | components/ren-dropdown-filter/ren-dropdown-filter */ "components/ren-dropdown-filter/ren-dropdown-filter").then(__webpack_require__.bind(null, /*! @/components/ren-dropdown-filter/ren-dropdown-filter.vue */ 213))
     },
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 222))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 220))
     },
     uTag: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 230))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 228))
     },
     uLoadmore: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 238))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 236))
     }
   }
 } catch (e) {
@@ -349,15 +349,32 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
 //
 //
 // import data from '../../static/json/list.json'
-var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {if (!value) return '';if (value.length > 15) {return value.slice(0, 15) + '...';}return value;} }, data: function data() {return { uStatus: 'loading ', msg: '', filterData: [[{ text: '所有发布', value: '0' }, { text: '失物招领', value: '1' }, { text: '寻物启事', value: '2' }], [{ text: '待解决', value: '1' }, { text: '已解决', value: '2' }, { text: '全部状态', value: '0' }], [{ text: '所有种类', value: '0' }]], defaultIndex: [0, 0, 0], selectInfos: [], type: '全部', species: '全部类型', status: '待解决', baseUrl: _request.default.getHost(), userInfo: {}, notice: '在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准', searchValue: '', isLastPage: false, pageNum: 1, pageSize: 5, isEnd: false, releaseList: [], lafRelease: { relTitle: null, relDesc: null, relCateId: null, relCampus: null, relStatus: null, relFlag: null, createTime: null }, category: [] };}, /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * 生命周期函数--监听页面加载
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */onLoad: function onLoad() {// uni.navigateTo({
+var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {if (!value) return '';if (value.length > 15) {return value.slice(0, 15) + '...';}return value;} }, data: function data() {return { uStatus: 'loading ', msg: '', filterData: [[{ text: '所有发布', value: '0' }, { text: '失物招领', value: '1' }, { text: '寻物启事', value: '2' }], [{ text: '待解决', value: '1' }, { text: '已解决', value: '2' }, { text: '全部状态', value: '0' }], [{ text: '所有种类', value: '0' }, { text: '其他', value: '1' }, { text: '身份证', value: '2' }, { text: '学生证', value: '3' }, { text: '衣物', value: '4' }]], defaultIndex: [0, 0, 0], selectInfos: [], type: '全部', species: '全部类型', status: '待解决', baseUrl: _request.default.getHost(), userInfo: {}, notice: '在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准', searchValue: '', isLastPage: false, pageNum: 1, pageSize: 5, isEnd: false, releaseList: [], lafRelease: { relTitle: null, relDesc: null,
+        relCateId: null,
+        relCampus: null,
+        relStatus: null,
+        relFlag: null,
+        createTime: null },
+
+      category: [] };
+
+
+  },
+  /**
+      * 生命周期函数--监听页面加载
+      */
+  onLoad: function onLoad() {
+    // uni.navigateTo({
     // 	url: "../form/form?type=1"
     // })
-    console.log('onLoad');this.onLoadClone3389();},
+
+    console.log('onLoad');
+    this.onLoadClone3389();
+
+  },
   /**
-                                                     * 生命周期函数--监听页面初次渲染完成
-                                                     */
+      * 生命周期函数--监听页面初次渲染完成
+      */
   onReady: function onReady() {
     console.log('onready');
 
@@ -371,6 +388,7 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
     if (this.$store.state.fresh) {
       this.onLoadClone3389();
     }
+    this.$store.state.fresh = false;
     console.log('onshow'); //页面刷新显示发布列表请求
 
   },
@@ -495,8 +513,8 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
       _request.default.getRequest('/wx/api/announce/list', null, function (res) {
         _this3.notice = res.data.annContent;
       });
-
-      _request.default.getRequest('/wx/api/category/treeData', null, function (res) {var _this3$filterData$;
+      //组件问题无法刷新
+      _request.default.getRequest('/wx/api/category/treeData', null, function (res) {
         var option = [];
         res.data.forEach(function (element) {
           option.push({
@@ -504,13 +522,15 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
             value: element.id });
 
         });
-        (_this3$filterData$ = _this3.filterData[2]).push.apply(_this3$filterData$, option);
+
+        //this.filterData[2].push(...option);
+        _this3.category = [];
         _this3.filterData[2].forEach(function (item) {
           _this3.category.push(item.text);
         });
-        _this3.loadRelease();
 
       });
+      this.loadRelease();
       console.log("!!!!");
 
     },

@@ -16,14 +16,12 @@
 
 <style lang="scss">
 	/*每个页面公共css */
-	/* #ifdef MP-WEIXIN */
-		@import  "wxcomponents/vant/common/index.wxss";
-	/* #endif */
-	@import  "static/icon-font/iconfont.css";
+	
+	
 	@import "@/uni_modules/uview-ui/index.scss";
 	@import '@/uni_modules/uni-scss/index.scss';
 	/* #ifndef APP-NVUE */
-	@import '@/static/customicons.css';
+	
 	
 	// 设置整个项目的背景色
 	page {

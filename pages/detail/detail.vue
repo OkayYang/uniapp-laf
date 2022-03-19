@@ -101,19 +101,13 @@
 							<view class="comment_function"
 								style="display: flex;justify-content: flex-start;margin: 30rpx 0 0 0;">
 								<view style="margin:0 0 0 450rpx;display: flex;">
-									<view class="custom-icon custom-icon-dianzan1"
-										:style="{color: comment.isGood?'#d80544':'#909399',fontSize:40+'rpx'}"
-										@click.stop="changeGood(comment)"></view>
-									<view class="comment_function_num" style="width: 100rpx;">
-										<text style="color: #909399;"
-											@click.stop="changeGood(comment)">{{comment.goodNum}}</text>
-									</view>
+									
 								</view>
 								<view class="reply"
-									style="display: flex;align-items: center;justify-content: center;height: 100rpx;width:50rpx;margin: -30rpx 0 0 0rpx;"
+									style="display: flex;align-items: center;justify-content: center;height: 100rpx;width:50rpx;margin: -30rpx 0 0 145rpx;"
 									@click.stop="replyInfo(comment.mainComments,comment.mainComments.comment.comId)">
-									<view class="custom-icon custom-icon-pinglun"
-										style="color: #878a8f;font-size: 40rpx;">
+									<view style="margin: 0 0 0 0;">
+										<image src="../../static/comment.png" style="width: 45rpx;height: 45rpx;"></image>
 									</view>
 								</view>
 							</view>
@@ -269,14 +263,12 @@
 <script>
 	import tuiButton from "@/components/thorui/tui-button/tui-button"
 	import tuiModal from "@/components/thorui/tui-modal/tui-modal"
-	import tuiDropdownList from "@/components/thorui/tui-dropdown-list/tui-dropdown-list"
 	import formatTime from "@/utils/formatTime.js"
 	import request from "@/utils/request.js"
 
 	export default {
 		components: {
 			tuiButton,
-			tuiDropdownList,
 			tuiModal,
 		},
 
@@ -352,16 +344,22 @@
 			}
 			return {
 				title: '页面详细',
-				path: '../message/message?tid=1'
+				path: '../detail/detail?tid='+this.tid,
 			}
 		},
 		onPullDownRefresh() {
-			this.reload(this.option);
+			uni.showNavigationBarLoading();
+			uni.stopPullDownRefresh({
+				success: (res) => {
+					this.reload(this.option);
+					uni.hideNavigationBarLoading();
+				}
+			});
+			
 		},
 
 		methods: {
 			reload(option) {
-				this.$store.state.fresh=false;
 				this.option = option;
 				this.tid = option.tid;
 				this.category = [];
@@ -428,7 +426,17 @@
 				
 				if (this.isLogin()) {
 					
-					
+					uni.requestSubscribeMessage({
+						tmplIds:['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI','lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'],
+						success(res){
+							console.log("SubscribeMessageSuccess");
+							console.log(res);
+						},
+						fail(res){
+							console.log("SubscribeMessageError");
+							console.log(res);
+						}
+					});
 
 					if (this.input.msg.length < 1 && !this.input.isUpload) {
 						this.$refs.uToast.show({
@@ -621,17 +629,7 @@
 				}
 			},
 			acceptClick(res) {
-				uni.requestSubscribeMessage({
-					tmplIds:['lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'],
-					success(res){
-						console.log("SubscribeMessageSuccess");
-						console.log(res);
-					},
-					fail(res){
-						console.log("SubscribeMessageError");
-						console.log(res);
-					}
-				});
+				
 				if (res.index == 0) {
 					this.renling.show = false;
 				} else {
@@ -645,8 +643,9 @@
 									duration: 700,
 									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
 								});
-								this.reload(this.option);
 								this.$store.state.fresh=true;
+								this.reload(this.option);
+								
 							}else{
 								this.renling.show = false;
 								this.paneAlert();

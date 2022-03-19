@@ -14,19 +14,16 @@
 		},
 
 
-
-		{
-			"path": "pages/lost/lost",
-			"style": {
-				"navigationBarTitleText": "招领"
-			}
-		},
-
 		{
 			"path": "pages/public/public",
 			"style": {
-				"navigationBarBackgroundColor": "#F5f5f5"
+				"navigationBarBackgroundColor": "#F5f5f5",
+				"disableScroll":true
+				
+				
 			}
+			
+			
 		},
 		{
 			"path": "pages/form/form",
@@ -72,8 +69,16 @@
 				
 			}
 		}
-		
-	    
+	
+        ,{
+            "path" : "pages/share/share",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分享",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		

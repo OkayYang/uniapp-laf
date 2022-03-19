@@ -7,9 +7,11 @@
   margin: auto;
 }
 .btn.data-v-e1a4b4b4 {
-  width: 770rpx;
   position: fixed;
-  bottom: 200rpx;
+  bottom: 250rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .blur.data-v-e1a4b4b4 {
   position: absolute;
@@ -21,13 +23,6 @@
   background: rgba(255, 255, 255, 0.3);
   border-radius: 50rpx 50rpx;
   box-shadow: 10rpx 10rpx 5rpx #d0d1d2;
-}
-image.data-v-e1a4b4b4 {
-  width: 60rpx;
-  height: 60rpx;
-  position: fixed;
-  bottom: 40rpx;
-  left: 350rpx;
 }
 .alert.data-v-e1a4b4b4 {
   width: 250rpx;

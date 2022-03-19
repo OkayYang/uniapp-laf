@@ -1,7 +1,8 @@
 //var apiHost = 'http://localhost:80';
-var apiHost = "http://101.42.222.167"
+//var apiHost = "http://101.42.222.167"
 //var apiHost = "http://xiaoyang.asia"
 //var apiHost = "http://192.168.3.32:80";
+var apiHost = "https://laf.4w3w.com"
 //yang
 //var apiHost = "http://192.168.3.104:80";
 

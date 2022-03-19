@@ -35,8 +35,7 @@
 				</u-grid-item>
 			</u-grid>
 		</view>
-		<view class='list'
-			style="width:720rpx;margin: 30rpx auto;border-radius: 20rpx;background-color: #FFFFFF;">
+		<view class='list' style="width:720rpx;margin: 30rpx auto;border-radius: 20rpx;background-color: #FFFFFF;">
 			<u-cell-group v-for="item in itemList">
 				<u-cell v-if="isLogin?true:item.show" :title="item.title" arrow-direction="left" :isLink="true"
 					:url="item.url" style="display: flex;justify-content: center;">
@@ -75,18 +74,19 @@
 				baseList: [{
 						name: '/static/love.png',
 						title: '我的收藏',
-						url: '/pages/myPublish/myPublish'
+						url: '#'
+					},
+					{
+						name: '/static/message.png',
+						title: '我的消息',
+						url: '#'
 					},
 					{
 						name: '/static/output.png',
 						title: '我的发布',
 						url: '/pages/myPublish/myPublish?id=1'
 					},
-					{
-						name: '/static/message.png',
-						title: '我的消息',
-						url: '/pages/myPublish/myPublish'
-					},
+					
 					{
 						name: '/static/claim.png',
 						title: '我的认领',
@@ -118,7 +118,7 @@
 					{
 						title: '分享小程序',
 						icon: '/static/share.png',
-						url: '/pages/personal/personal',
+						url: '/pages/share/share',
 						show: false,
 					}, {
 						title: '打赏作者',
@@ -129,6 +129,21 @@
 				]
 
 			}
+		},
+		
+		onLoad() {
+			uni.getStorage({
+				key: 'userInfo',
+				success: (res) => {
+					this.isLogin = true;
+					this.src = res.data.stuImage;
+					this.nickName = res.data.stuNick;
+
+				}
+			});
+		},
+		onShow() {
+			uni.showTabBar();
 		},
 		methods: {
 			login() {

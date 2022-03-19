@@ -47,14 +47,14 @@
 
 
 
-		<view class="img">
-			<image src="https://pic.imgdb.cn/item/621efd38a86b6edc746b3d8f.png" mode="" @click="close"></image>
+		<view class="img" style="position: absolute;top: 88%;left: 50%;margin-left:-25rpx ;">
+			<image src="https://pic.imgdb.cn/item/621efd38a86b6edc746b3d8f.png" mode="" @click="close" style="width: 50rpx;height: 50rpx;display: block;"></image>
 		</view>
 
-		
+
 		<tui-modal :show="loginPane.show" custom>
 			<view class="tui-modal-custom">
-				
+
 				<view class="tui-modal-custom-text" style="display: flex;justify-content: center;margin: 0 0 20rpx 0;">
 					<text style="color: #606266;font-size: 30rpx;">您还未登陆，请先登录!</text>
 				</view>
@@ -87,16 +87,16 @@
 			return {
 				choose: [{
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png',
-						'name': '招领',
+						'name': '失物招领',
 						'url': '../form/form?type=1'
 					}, {
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png',
-						'name': '寻物',
+						'name': '寻物启事',
 						'url': '../form/form?type=2'
 					},
 					{
 						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png',
-						'name': '推送'
+						'name': '服务推送'
 					},
 				],
 				week01: '',
@@ -128,6 +128,8 @@
 
 		},
 		onShow() {
+			this.author.uid = null;
+			this.reload();
 			uni.hideTabBar();
 		},
 		onHide() {
@@ -188,15 +190,16 @@
 
 			},
 			login() {
+				this.loginPane.show = false;
 				wx.switchTab({
 					url: '../user/user',
 				})
 			},
 			present(url) {
-				if (this.author.uid) {
+				if (this.author.uid != null) {
 					this.loginPane.show = false;
-					this.jump(url)
-					console.log("已登录成功")
+					this.jump(url);
+					console.log("已登录成功");
 				} else {
 					this.loginPane.show = true;
 					console.log("请先登录")
@@ -205,7 +208,7 @@
 
 		},
 
-		
+
 
 
 	}
@@ -219,10 +222,12 @@
 	}
 
 	.btn {
-		width: 770rpx;
-		position: fixed;
-		bottom: 200rpx;
-	}
+			position: fixed;
+			bottom: 250rpx;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
 
 	.blur {
 		position: absolute;
@@ -237,13 +242,7 @@
 
 	}
 
-	image {
-		width: 60rpx;
-		height: 60rpx;
-		position: fixed;
-		bottom: 40rpx;
-		left: 350rpx;
-	}
+
 
 	.alert {
 		width: 250rpx;

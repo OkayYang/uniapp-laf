@@ -13,7 +13,6 @@
     "u-tabbar": "/uni_modules/uview-ui/components/u-tabbar/u-tabbar",
     "tui-modal": "/components/thorui/tui-modal/tui-modal",
     "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
-    "tui-button": "/components/thorui/tui-button/tui-button",
-    "tui-dropdown-list": "/components/thorui/tui-dropdown-list/tui-dropdown-list"
+    "tui-button": "/components/thorui/tui-button/tui-button"
   }
 }
