@@ -39,12 +39,8 @@
 			<u-cell-group v-for="item in itemList">
 				<u-cell v-if="isLogin?true:item.show" :title="item.title" arrow-direction="left" :isLink="true"
 					:url="item.url" style="display: flex;justify-content: center;">
-
 					<u-icon slot="icon" size="32" :name="item.icon"></u-icon>
-
-					<!-- <u-badge count="99" :absolute="false" slot="right-icon"></u-badge> -->
 				</u-cell>
-
 			</u-cell-group>
 		</view>
 		<u-toast ref="uToast"></u-toast>
@@ -86,7 +82,7 @@
 						title: '我的发布',
 						url: '/pages/myPublish/myPublish?id=1'
 					},
-					
+
 					{
 						name: '/static/claim.png',
 						title: '我的认领',
@@ -98,39 +94,45 @@
 						icon: '/static/personInfo.png',
 						url: '/pages/personal/personal',
 						show: false,
+						now: false,
 					},
 					{
 						title: '绑定教务',
 						icon: '/static/bind.png',
 						url: '/pages/school/school',
 						show: false,
+						now: false,
 					}, {
 						title: '使用帮助',
 						icon: '/static/help.png',
 						url: '#',
 						show: true,
+						now: false
 					}, {
 						title: '联系客服',
 						icon: '/static/aboutMe.png',
 						url: '/pages/contact/contact',
 						show: true,
+						now: true,
 					},
 					{
 						title: '分享小程序',
 						icon: '/static/share.png',
 						url: '/pages/share/share',
 						show: false,
+						now: true,
 					}, {
 						title: '打赏作者',
 						icon: '/static/gift.png',
 						url: '#',
 						show: true,
+						now: false,
 					},
 				]
 
 			}
 		},
-		
+
 		onLoad() {
 			uni.getStorage({
 				key: 'userInfo',
@@ -253,5 +255,28 @@
 
 	.u-cell__title-text {
 		margin: 0 0 0 30rpx;
+	}
+
+	button {
+		background-color: #FFFFFF;
+	}
+
+	button::after {
+		border: none;
+
+	}
+
+	button::after {
+		border: 0;
+	}
+
+	button[disabled] {
+		background-color: #FFFFFF;
+		color: #FFFFFF;
+	}
+
+	.button-hover {
+		color: rgba(0, 0, 0, 0.6);
+		background-color: #f3f3f3;
 	}
 </style>

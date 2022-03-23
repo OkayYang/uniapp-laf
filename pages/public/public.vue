@@ -48,7 +48,7 @@
 
 
 		<view class="img" style="position: absolute;top: 88%;left: 50%;margin-left:-25rpx ;">
-			<image src="https://pic.imgdb.cn/item/621efd38a86b6edc746b3d8f.png" mode="" @click="close" style="width: 50rpx;height: 50rpx;display: block;"></image>
+			<image src="../../static/closePage.png" mode="" @click="close" style="width: 50rpx;height: 50rpx;display: block;"></image>
 		</view>
 
 
@@ -86,16 +86,16 @@
 		data() {
 			return {
 				choose: [{
-						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b63.png',
+						'src': require('@/static/lostandfound.png'),
 						'name': '失物招领',
 						'url': '../form/form?type=1'
 					}, {
-						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b54.png',
+						'src': require('@/static/searchthing.png'),
 						'name': '寻物启事',
 						'url': '../form/form?type=2'
 					},
 					{
-						'src': 'https://pic.imgdb.cn/item/621f63995baa1a80abfe5b4f.png',
+						'src': require('@/static/messagePush.png'),
 						'name': '服务推送'
 					},
 				],
