@@ -156,7 +156,7 @@
 				isLastPage: false,
 				pageNum: 1,
 				pageSize: 5,
-				isEnd: false,
+				isEnd: true,
 				releaseList: [],
 				lafRelease: {
 					relTitle: null,
@@ -228,36 +228,13 @@
 		 */
 		onReachBottom: function() {
 
-			// 最后一页了，取消下拉功能
-			if (this.isLastPage) {
-				this.uStatus = 'nomore';
-				this.isEnd = true;
-
-				return;
-			} else {
-				setTimeout(() => {
-					this.uStatus = 'loading';
-					this.loadRelease();
-				}, 300)
-			}
-
-			// uni.showToast({
-			// 	icon: 'loading',
-			// 	title: '加载中...',
-			// 	duration: 300,
-			// 	success: () => {
-			// 		this.loadRelease();
-			// 	}
-			// })
-
-
+			this.onReachBottom1();
+			
 		},
 
 
 		methods: {
-			test: function() {
-
-			},
+			
 			share: function() {
 				uni.share({
 					provider: "weixin",
@@ -371,7 +348,11 @@
 								let array = this.releaseList.concat(res.data.list);
 								this.releaseList = array;
 								this.isLastPage = res.data.isLastPage;
+								if(this.isLastPage){
+									this.onReachBottom1();
+								}
 								this.pageNum = res.data.nextPage;
+								
 							}
 						},
 						(res) => {
@@ -442,7 +423,19 @@
 				this.loadRelease();
 
 			},
-
+			onReachBottom1(){
+				// 最后一页了，取消下拉功能
+				if (this.isLastPage) {
+					this.uStatus = 'nomore';
+					this.isEnd = true;
+					return;
+				} else {
+					setTimeout(() => {
+						this.uStatus = 'loading';
+						this.loadRelease();
+					}, 300)
+				}
+			}
 
 
 
