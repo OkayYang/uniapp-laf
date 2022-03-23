@@ -156,7 +156,7 @@
 				isLastPage: false,
 				pageNum: 1,
 				pageSize: 5,
-				isEnd: true,
+				isEnd: false,
 				releaseList: [],
 				lafRelease: {
 					relTitle: null,

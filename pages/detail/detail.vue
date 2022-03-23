@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-loading-page :loading="load.show"></u-loading-page>
-		<view v-if="!load.show" class="MainPage">
+		<view v-if="!load.show" class="MainPage" >
 			<view class='message'
 				style="background-color: #FFFFFF;width: 95%;margin: 0 auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);border-radius: 20rpx;"
 				@click="blur()">
@@ -57,13 +57,17 @@
 							@click.stop="previewImage(baseUrl+info.relImage)">
 						</image>
 					</view>
+					<view style="display: flex;">
+						<image src="../../static/watch.png" style="width: 35rpx;height: 35rpx;"></image>
+						<view style="margin: -10rpx 0 0 10rpx;"><text
+								style="color: #b3b3b3;font-size: 30rpx;">{{info.relFlow}}</text></view>
+					</view>
 				</view>
 
 			</view>
-			<view class='comment'
+			<view v-if="comments.length!=0" class='comment'
 				style="background-color: #FFFFFF;;width: 95%;margin: 0 auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);border-radius: 20rpx;margin: 20rpx auto 0 auto;">
-
-				<view v-if="comments.length!=0">
+				<view>
 					<view class="comment_header" style="display: flex;justify-content: space-between;" @click="blur()">
 						<view style="margin: 18rpx 0 0 25rpx;">
 							<text>评论</text>
@@ -73,7 +77,8 @@
 						<view class="userComment" style="margin: -5rpx 0 15rpx 0;" @click="blur()">
 							<view class="user-header" style="display: flex;margin: 0 0 0 20rpx;">
 								<view @click.stop="previewImage(comment.mainComments.comm_user.avatar)">
-									<u-avatar :src="comment.mainComments.comm_user.avatar" style="margin-top: 10rpx;" size="72rpx">
+									<u-avatar :src="comment.mainComments.comm_user.avatar" style="margin-top: 10rpx;"
+										size="72rpx">
 									</u-avatar>
 								</view>
 								<view class="info" style="display: flex;flex-direction: column;margin: 0 0 0 20rpx;">
@@ -101,13 +106,14 @@
 							<view class="comment_function"
 								style="display: flex;justify-content: flex-start;margin: 30rpx 0 0 0;">
 								<view style="margin:0 0 0 450rpx;display: flex;">
-									
+
 								</view>
 								<view class="reply"
 									style="display: flex;align-items: center;justify-content: center;height: 100rpx;width:50rpx;margin: -30rpx 0 0 145rpx;"
 									@click.stop="replyInfo(comment.mainComments,comment.mainComments.comment.comId)">
 									<view style="margin: 0 0 0 0;">
-										<image src="../../static/comment.png" style="width: 45rpx;height: 45rpx;"></image>
+										<image src="../../static/comment.png" style="width: 45rpx;height: 45rpx;">
+										</image>
 									</view>
 								</view>
 							</view>
@@ -136,28 +142,25 @@
 						<u-line color="#d4d8dd"></u-line>
 					</view>
 				</view>
-				<view v-else>
-					<u-empty mode="message" icon="http://cdn.uviewui.com/uview/empty/message.png"
-						:text="emptyComment.text">
-						<view style="margin: -85rpx 0 0 0;">
-							<text style="color: #c0c4cc;">评论为空</text>
-						</view>
-					</u-empty>
-				</view>
-
-				<u-toast ref="uToast"></u-toast>
-				<u-popup :show="isPopup" mode="bottom" bgColor="transparent">
-					<view style="background-color: #b4b4b4;border-radius: 30rpx;">
-						<view class="popup" style="margin: 0 0 10rpx 0;" @click.stop="deleteComment()"><text
-								style="color: #ff0004;">删除</text>
-						</view>
-						<view class="popup" @click.stop="isPopup=false"><text style="color: #2979FF;">取消</text>
-						</view>
-					</view>
-				</u-popup>
 			</view>
-
-
+			<view v-else @click="blur()" style="padding: 30rpx 0 0 0;">
+				<u-empty mode="message" icon="http://cdn.uviewui.com/uview/empty/message.png" :text="emptyComment.text"
+					width="200" height="200">
+					<view style="margin: -85rpx 0 0 0;">
+						<text style="color: #c0c4cc;">评论为空</text>
+					</view>
+				</u-empty>
+			</view>
+			<u-toast ref="uToast"></u-toast>
+			<u-popup :show="isPopup" mode="bottom" bgColor="transparent">
+				<view style="background-color: #b4b4b4;border-radius: 30rpx;">
+					<view class="popup" style="margin: 0 0 10rpx 0;" @click.stop="deleteComment()"><text
+							style="color: #ff0004;">删除</text>
+					</view>
+					<view class="popup" @click.stop="isPopup=false"><text style="color: #2979FF;">取消</text>
+					</view>
+				</view>
+			</u-popup>
 			<u-tabbar style="display: flex;align-items: center;position:relative;top:0;" :border="false">
 				<view v-if="!input.focus" class="unfocus-tabbar" style="display: flex;width: 100%;align-items: center;">
 					<view>
@@ -344,7 +347,7 @@
 			}
 			return {
 				title: '页面详细',
-				path: '../detail/detail?tid='+this.tid,
+				path: 'pages/detail/detail?tid=' + this.tid,
 			}
 		},
 		onPullDownRefresh() {
@@ -355,7 +358,7 @@
 					uni.hideNavigationBarLoading();
 				}
 			});
-			
+
 		},
 
 		methods: {
@@ -368,6 +371,7 @@
 						this.category.push(element.name);
 					});
 				});
+				request.getRequest('/wx/api/release/skim?tid=' + this.tid, null);
 				if (this.author.uid == null) {
 					uni.getStorage({
 						key: 'userInfo',
@@ -423,16 +427,17 @@
 
 			},
 			comment() {
-				
 				if (this.isLogin()) {
-					
+
 					uni.requestSubscribeMessage({
-						tmplIds:['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI','lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'],
-						success(res){
+						tmplIds: ['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI',
+							'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'
+						],
+						success(res) {
 							console.log("SubscribeMessageSuccess");
 							console.log(res);
 						},
-						fail(res){
+						fail(res) {
 							console.log("SubscribeMessageError");
 							console.log(res);
 						}
@@ -629,7 +634,7 @@
 				}
 			},
 			acceptClick(res) {
-				
+
 				if (res.index == 0) {
 					this.renling.show = false;
 				} else {
@@ -643,10 +648,10 @@
 									duration: 700,
 									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
 								});
-								this.$store.state.fresh=true;
+								this.$store.state.fresh = true;
 								this.reload(this.option);
-								
-							}else{
+
+							} else {
 								this.renling.show = false;
 								this.paneAlert();
 							}
@@ -692,13 +697,13 @@
 					request.getRequest(
 						'/wx/api/info/auth/unClaim?relId=' + this.tid, null,
 						(res) => {
-							if(res.data.code==0){
+							if (res.data.code == 0) {
 								this.reload(this.option);
-								this.$store.state.fresh=true;
-							}else{
+								this.$store.state.fresh = true;
+							} else {
 								this.paneAlert();
 							}
-							
+
 						}
 					);
 				}
