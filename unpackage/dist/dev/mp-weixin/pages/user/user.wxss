@@ -5,4 +5,21 @@ page {
 .u-cell__title-text {
 	margin: 0 0 0 30rpx;
 }
+button {
+	background-color: #FFFFFF;
+}
+button::after {
+	border: none;
+}
+button::after {
+	border: 0;
+}
+button[disabled] {
+	background-color: #FFFFFF;
+	color: #FFFFFF;
+}
+.button-hover {
+	color: rgba(0, 0, 0, 0.6);
+	background-color: #f3f3f3;
+}
 
