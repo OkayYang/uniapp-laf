@@ -1,6 +1,5 @@
 {
   "navigationBarBackgroundColor": "#F5f5f5",
-  "disableScroll": true,
   "usingComponents": {
     "u-grid": "/uni_modules/uview-ui/components/u-grid/u-grid",
     "u-grid-item": "/uni_modules/uview-ui/components/u-grid-item/u-grid-item",

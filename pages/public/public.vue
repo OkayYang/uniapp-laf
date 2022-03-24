@@ -4,7 +4,7 @@
 <script>
 	export default {
 		onShow: function() {
-			wx.redirectTo({
+			uni.navigateTo({
 				url: '/pages/public/public01'
 			})
 		}
