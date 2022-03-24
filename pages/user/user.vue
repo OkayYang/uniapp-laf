@@ -31,7 +31,7 @@
 				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex"
 					@click="itemClick(baseListItem.url)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="baseListItem.name" :size="22"></u-icon>
-					<text class="grid-text">{{baseListItem.title}}</text>
+					<text class="grid-text" style="font-size: 30rpx;margin-top: 10rpx;">{{baseListItem.title}}</text>
 				</u-grid-item>
 			</u-grid>
 		</view>

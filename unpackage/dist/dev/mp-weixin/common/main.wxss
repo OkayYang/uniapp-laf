@@ -2567,6 +2567,7 @@
   border-color: #e9e9eb;
 }
 page {
+  font-family: Simsun;
   background-color: #f5f5f5;
 }
 .example-info {

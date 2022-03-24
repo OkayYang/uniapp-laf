@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.text.data-v-79d837a7 {
+  width: 650rpx;
+  height: 350rpx;
+  margin: auto;
+}
+.blur.data-v-79d837a7 {
+  margin-top: 120rpx;
+  padding: 50rpx 0rpx;
+  position: absolute;
+  min-height: 150rpx;
+  width: 650rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 40rpx;
+  box-shadow: 10rpx 10rpx 5rpx #d0d1d2;
+}
+.poem.data-v-79d837a7 {
+  width: 600rpx;
+  position: absolute;
+  left: 30rpx;
+}
+.info.data-v-79d837a7 {
+  position: absolute;
+  bottom: 20%;
+  width: 650rpx;
+  margin: auto;
+}
+.alert.data-v-79d837a7 {
+  width: 250rpx;
+}
+.img.data-v-79d837a7 {
+  display: flex;
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -50rpx;
+  margin-top: 150rpx;
+  background: linear-gradient(225deg, rgba(230, 230, 230, 0.8), rgba(255, 255, 255, 0.6));
+  border-radius: 60rpx;
+  box-shadow: -10px 10px 44px #cccccc, 12px -12px 44px white;
+}
+.public01.data-v-79d837a7 {
+  width: 100%;
+}
+.btn.data-v-79d837a7 {
+  width: 100%;
+}
+.icon.data-v-79d837a7 {
+  display: flex;
+  align-items: center;
+  margin-top: 650rpx;
+  transition: all 0.2s easy-out;
+}
+

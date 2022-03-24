@@ -1,5 +1,6 @@
 {
-	"pages": [{
+	"pages": [
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
@@ -16,6 +17,15 @@
 
 		{
 			"path": "pages/public/public",
+			"style": {
+				"navigationBarBackgroundColor": "#F5f5f5",
+				"disableScroll":true
+				
+				
+			}	
+		},
+		{
+			"path": "pages/public/public01",
 			"style": {
 				"navigationBarBackgroundColor": "#F5f5f5",
 				"disableScroll":true
