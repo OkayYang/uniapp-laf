@@ -4,7 +4,7 @@
 			"path": "pages/public/public01",
 			"style": {
 				"navigationBarBackgroundColor": "#F5f5f5"
-				// "disableScroll":true	
+				// "disableScroll":true	hello bug 
 			}
 		},
 		{
