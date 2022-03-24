@@ -201,7 +201,6 @@
 			}
 			this.$store.state.fresh = false;
 			console.log('onshow'); //页面刷新显示发布列表请求
-
 		},
 		/**
 		 * 生命周期函数--监听页面隐藏
