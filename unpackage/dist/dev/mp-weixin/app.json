@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/public/public01",
     "pages/index/index",
     "pages/personal/personal",
     "pages/public/public",
-    "pages/public/public01",
     "pages/form/form",
     "pages/user/user",
     "pages/contact/contact",
@@ -40,5 +40,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

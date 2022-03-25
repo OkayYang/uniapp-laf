@@ -1,6 +1,6 @@
 <template>
 	<view class="public01">
-		<view class="text" style="margin-top: 20rpx;">
+		<view class="text" style="margin-top: 150rpx;">
 
 			<view style="width: 100%; height: 100rpx;">
 				<view style="font-size: 80rpx;float: left;margin-right: 30rpx; ">
@@ -142,8 +142,8 @@
 			this.author.uid = null;
 			this.reload();
 			wx.hideHomeButton();
-		},
 		
+		},
 
 		methods: {
 			jump(url) {
@@ -273,7 +273,8 @@
 	}
 
 	.public01 {
-		width: 100%;		
+		width: 100%;	
+			height: 1000rpx;
 	}
 
 
