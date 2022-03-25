@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/public/public01",
     "pages/index/index",
     "pages/personal/personal",
     "pages/public/public",

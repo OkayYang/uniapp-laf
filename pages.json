@@ -1,13 +1,13 @@
 {
 	"pages": [
-		{
-			"path": "pages/public/public01",
-			"style": {
-				"navigationBarBackgroundColor": "#F5f5f5"
-				// "disableScroll":true	hello bug 
-				// "disableScroll":true	hello bug 
-			}
-		},
+		// {
+		// 	"path": "pages/public/public01",
+		// 	"style": {
+		// 		"navigationBarBackgroundColor": "#F5f5f5"
+		// 		// "disableScroll":true	hello bug 
+		// 		// "disableScroll":true	hello bug 
+		// 	}
+		// },
 		{
 			"path": "pages/index/index",
 			"style": {
