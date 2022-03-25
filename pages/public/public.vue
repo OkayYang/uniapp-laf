@@ -141,7 +141,7 @@
 		onShow() {
 			this.author.uid = null;
 			this.reload();
-			wx.hideHomeButton();
+			uni.hideTabBar({});
 		
 		},
 
@@ -263,7 +263,7 @@
 		width: 100rpx;
 		height: 100rpx;
 		position: absolute;
-		bottom: 20rpx;
+		bottom: 50rpx;
 		left: 50%;
 		margin-left: -50rpx;
 		margin-top: 150rpx;
@@ -282,7 +282,7 @@
 	.btn {
 		width: 100%;
 		position: absolute;
-		bottom: 200rpx;
+		bottom: 300rpx;
 	}
 
 	.icon {
