@@ -95,17 +95,32 @@
 					this.userInfo.stuQq = this.change
 				}
 
+
 				request.postRequest('/wx/api/student/auth/edit', {
 						stuNick: this.userInfo.stuNick,
 						stuQq: this.userInfo.stuQq,
 					},
 					(res) => {
-						console.log(res)
-						if (res.data.code == 0&&res.statusCode==200) {
-								console.log("成功")
-						} else {
-						}
-					})
+						if (res.data.code == 0 && res.statusCode == 200) {
+							request.getRequest('/wx/api/student/auth/my', {
+							
+							},
+									(res)=>{
+											console.log(res)
+										uni.setStorage({
+										
+											key:'userInfo',
+											data:res.data
+										})
+									}
+								
+							)
+							}
+						else {}
+					}
+
+				)
+
 			}
 
 
