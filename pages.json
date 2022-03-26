@@ -1,5 +1,6 @@
 {
 	"pages": [
+<<<<<<< HEAD
 		// {
 		// 	"path": "pages/public/public01",
 		// 	"style": {
@@ -8,6 +9,9 @@
 		// 		// "disableScroll":true	hello bug 
 		// 	}
 		// },
+=======
+		
+>>>>>>> 18441a944b61cf11eabff0e59529e7158e32e165
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -26,8 +30,8 @@
 		{
 			"path": "pages/public/public",
 			"style": {
-				"navigationBarBackgroundColor": "#F5f5f5"
-				// "disableScroll":true
+				"navigationBarBackgroundColor": "#F5f5f5",
+				"disableScroll":true
 				
 				
 			}	
@@ -39,7 +43,8 @@
 				"navigationBarTextStyle": "black",
 				"navigationBarBackgroundColor": "#F5F5F5",
 				"navigationBarTitleText": "表单",
-				"backgroundColor": "#F5F5F5"
+				"backgroundColor": "#F5F5F5",
+				"disableScroll":true
 
 
 
@@ -49,7 +54,8 @@
 		{
 			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "",
+				"disableScroll":true
 			}
 		},
 
@@ -83,6 +89,24 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "分享",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/message/message",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/notice/notice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             

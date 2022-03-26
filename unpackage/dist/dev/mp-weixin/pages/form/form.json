@@ -3,6 +3,7 @@
   "navigationBarBackgroundColor": "#F5F5F5",
   "navigationBarTitleText": "表单",
   "backgroundColor": "#F5F5F5",
+  "disableScroll": true,
   "usingComponents": {
     "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
     "u--form": "/uni_modules/uview-ui/components/u--form/u--form",
