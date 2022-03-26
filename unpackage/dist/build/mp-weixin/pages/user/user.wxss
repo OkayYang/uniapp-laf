@@ -1,1 +1,1 @@
-page{background-color:#f6f7fa}.u-cell__title-text{margin:0 0 0 30rpx}
+page{background-color:#f6f7fa}.u-cell__title-text{margin:0 0 0 30rpx}button{background-color:#fff}button::after{border:none}button::after{border:0}button[disabled]{background-color:#fff;color:#fff}.button-hover{color:rgba(0,0,0,.6);background-color:#f3f3f3}

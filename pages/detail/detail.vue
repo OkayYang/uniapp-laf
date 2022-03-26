@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<u-loading-page :loading="load.show"></u-loading-page>
-		<view v-if="!load.show" class="MainPage" >
+		<view v-if="!load.show" class="MainPage">
 			<view class='message'
 				style="background-color: #FFFFFF;width: 95%;margin: 0 auto;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);border-radius: 20rpx;"
 				@click="blur()">
@@ -58,10 +58,15 @@
 						</image>
 					</view>
 					<view style="display: flex;">
-						<image src="../../static/watch.png" style="width: 35rpx;height: 35rpx;"></image>
-						<view style="margin: -10rpx 0 0 10rpx;"><text
-								style="color: #b3b3b3;font-size: 30rpx;">{{info.relFlow}}</text></view>
+						<view>
+							<image src="../../static/watch.png" style="width: 35rpx;height: 35rpx;"></image>
+						</view>
+						<view style="margin: -0.8% 0 0 1%;">
+							<text style="color: #b3b3b3;font-size: 35rpx;">{{info.relFlow}}</text>
+						</view>
 					</view>
+
+
 				</view>
 
 			</view>
@@ -431,7 +436,8 @@
 
 					uni.requestSubscribeMessage({
 						tmplIds: ['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI',
-							'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'
+							'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM',
+							'vnDNGaWHPOnrg-VkHcflNo9fWwFxZNLsQph8utdgQ8Y'
 						],
 						success(res) {
 							console.log("SubscribeMessageSuccess");

@@ -75,7 +75,7 @@
 					{
 						name: '/static/message.png',
 						title: '我的消息',
-						url: '#'
+						url: '/pages/message/message'
 					},
 					{
 						name: '/static/output.png',
