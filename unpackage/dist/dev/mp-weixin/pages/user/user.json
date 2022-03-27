@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "",
+  "disableScroll": true,
   "usingComponents": {
     "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
     "u-button": "/uni_modules/uview-ui/components/u-button/u-button",

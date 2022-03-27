@@ -2,13 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/personal/personal",
+    "pages/myPublish/myPublish",
     "pages/public/public",
     "pages/form/form",
     "pages/user/user",
     "pages/contact/contact",
     "pages/detail/detail",
-    "pages/myPublish/myPublish",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/message/message",
+    "pages/notice/notice"
   ],
   "subPackages": [],
   "window": {
