@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0fd8e60296541218de1237f70f01182de6cbff9f
   "pages": [
     "pages/index/index",
     "pages/personal/personal",
@@ -42,4 +46,53 @@
     ]
   },
   "usingComponents": {}
+<<<<<<< HEAD
+=======
+=======
+    "pages": [
+        "pages/index/index",
+        "pages/personal/personal",
+        "pages/public/public",
+        "pages/form/form",
+        "pages/user/user",
+        "pages/contact/contact",
+        "pages/detail/detail",
+        "pages/myPublish/myPublish",
+        "pages/share/share",
+        "pages/message/message",
+        "pages/notice/notice"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarBackgroundColor": "#449bf8",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "selectedColor": "#1296db",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "static/square.png",
+                "selectedIconPath": "static/广场blue.png",
+                "text": "广场"
+            },
+            {
+                "pagePath": "pages/public/public",
+                "iconPath": "static/public.png",
+                "selectedIconPath": "static/发布blue.png",
+                "text": "发布"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "iconPath": "static/my.png",
+                "selectedIconPath": "static/我的blue.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "usingComponents": {},
+    "sitemapLocation": "sitemap.json"
+>>>>>>> 18441a944b61cf11eabff0e59529e7158e32e165
+>>>>>>> 0fd8e60296541218de1237f70f01182de6cbff9f
 }
