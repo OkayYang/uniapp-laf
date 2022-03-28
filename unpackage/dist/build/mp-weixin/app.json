@@ -7,13 +7,22 @@
         "pages/user/user",
         "pages/contact/contact",
         "pages/detail/detail",
-        "pages/myPublish/myPublish",
-        "pages/share/share",
-        "pages/message/message",
-        "pages/notice/notice"
+        "pages/share/share"
+       
     ],
-    "subPackages": [],
-    "disableScroll":true,
+    "lazyCodeLoading": "requiredComponents",
+    "subPackages": [
+        {
+            "root": "original",
+            "name": "original",
+            "pages": [
+                "pages/message/message",
+                "pages/notice/notice",
+                "pages/myPublish/myPublish"
+            ],
+            "independent": true
+        }
+    ],
     "window": {
         "navigationBarBackgroundColor": "#449bf8",
         "navigationBarTextStyle": "white",

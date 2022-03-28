@@ -4,7 +4,7 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": true,
         "enhance": true,
         "postcss": true,
@@ -42,7 +42,7 @@
         "minifyWXML": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.23.1",
+    "libVersion": "",
     "appid": "wx8a13127914667c1c",
     "projectname": "uniapp-laf",
     "condition": {

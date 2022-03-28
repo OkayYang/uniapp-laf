@@ -638,7 +638,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
         uni.requestSubscribeMessage({
           tmplIds: ['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI',
-          'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM'],
+          'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM',
+          'vnDNGaWHPOnrg-VkHcflNo9fWwFxZNLsQph8utdgQ8Y'],
 
           success: function success(res) {
             console.log("SubscribeMessageSuccess");
