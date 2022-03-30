@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "首页",
-  "enablePullDownRefresh": true,
   "usingComponents": {
     "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
     "ren-dropdown-filter": "/components/ren-dropdown-filter/ren-dropdown-filter",

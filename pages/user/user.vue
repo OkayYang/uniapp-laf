@@ -69,7 +69,7 @@
 				},
 				baseList: [{
 						name: '/static/love.png',
-						title: '我的收藏',
+						title: '我的订阅',
 						url: '#'
 					},
 					{

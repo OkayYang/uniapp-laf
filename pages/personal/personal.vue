@@ -7,7 +7,7 @@
 					<view style="text-align: center;margin:40rpx 0;">修改{{title}}</view>
 					<input type="text" v-model="change" confirm-type="done" cursor-spacing=3
 						style="background-color: #e5eeff;width: 400rpx;height: 70rpx; margin: auto;border-radius: 20rpx;padding-left:.5rem;" />
-					<button style="width: 150rpx;height: 80rpx;line-height: calc(170%);margin-top: 50rpx;"
+					<button style="width: 150rpx;height: 80rpx;margin-top: 50rpx;line-height: 200%;"
 						@click="save">确定</button>
 				</view>
 			</u-popup>
