@@ -554,6 +554,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
     //提交表单
     postForm: function postForm() {var _this4 = this;
       var that = this;
+      this.isActive = false;
+
       this.$refs.form1.validate().then(function (res) {
         if (!_this4.check) {
           _this4.isActive = true;
@@ -610,6 +612,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         this.check = false;
       } else {
         this.check = true;
+        this.isActive = false;
       }
 
     } } };exports.default = _default;

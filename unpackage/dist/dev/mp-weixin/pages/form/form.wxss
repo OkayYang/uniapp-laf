@@ -21,8 +21,8 @@ page.data-v-c4d460f4 {
 	transition: 0.3s ease;
 }
 .move.data-v-c4d460f4{
-    -webkit-animation: finger-data-v-c4d460f4 .5s 1;
-            animation: finger-data-v-c4d460f4 .5s 1;
+    -webkit-animation: finger-data-v-c4d460f4 .5s;
+            animation: finger-data-v-c4d460f4 .5s;
 }
 @-webkit-keyframes finger-data-v-c4d460f4 {
 0% {

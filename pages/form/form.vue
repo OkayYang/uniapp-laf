@@ -364,11 +364,13 @@
 			//提交表单
 			postForm() {
 				var that = this
+				this.isActive=false
+				
 				this.$refs.form1.validate().then(res => {
-					if (!this.check) {
-						this.isActive=true
-					return
-					}
+				if (!this.check) {
+					this.isActive=true
+				return
+				}
 					request.postRequest('/wx/api/release/auth/add/check', {
 							relCampus: that.model1.userInfo.campus,
 							relCateId: that.model1.userInfo.value,
@@ -420,6 +422,7 @@
 					this.check = false
 				} else {
 					this.check = true
+					this.isActive=false
 				}
 
 			}
@@ -458,7 +461,7 @@
 	}
 	
 	.move{
-	    animation: finger .5s 1;
+	    animation: finger .5s;
 		
 	}
 	
