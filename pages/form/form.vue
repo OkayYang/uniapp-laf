@@ -2,12 +2,13 @@
 	<view class="main">
 		<!-- 失物招领 -->
 
-		<view class="head" style="height: 350rpx;">
-			<view class="identityCard_front" style="margin-left: 270rpx;margin-top: 100rpx;">
+		<view class="head" style="height: 300rpx;">
+			<view class="identityCard_front" style="margin-left: 270rpx;margin-top: 75rpx;">
+				<!-- //照片下来100rpx,对应的原来占位的图就要上去100rpx -->
 				<u-upload :fileList="fileList1" @afterRead="afterRead" @delete="deletePic" name="1" multiple
 					:maxCount="1" :previewFullImage="true" width="210rpx" height="210rpx" uploadText="上传照片">
 					<image src="../../static/camera.png" mode="widthFix"
-						style="width: 350rpx;height: 350rpx;margin:auto;margin-left: -70rpx;margin-top: -100rpx;">
+						style="width: 350rpx;height: 350rpx;margin:auto;margin-left: -70rpx;margin-top: -85rpx;">
 					</image>
 				</u-upload>
 			</view>
@@ -65,15 +66,18 @@
 					<u--input v-model="model1.userInfo.contact" border="none" placeholder=" QQ/电话等" bin></u--input>
 				</u-form-item>
 
-				<view style="margin-top: 50rpx; ">
-					<view style="margin-top: 50rpx; ">
-					<!-- 	<u-button :custom-style="submitBtnStyle" @click="postForm()" :ripple="true"
-							ripple-bg-color="#909399" size="large" color="#07c160">
-							发 &nbsp;&nbsp;&nbsp;&nbsp;布
-						</u-button> -->
-						
-						<button class="btn" style="width: 500rpx;height: 100rpx;" @click="postForm()" >发 &nbsp;&nbsp;&nbsp;&nbsp;布</button>
-					</view>
+
+				<view style="font-size: 30rpx;margin-top: 30rpx;color: grey;" :class="{'move':isActive}">
+
+					<radio :checked="check" style="transform:scale(.6) translateY(-5rpx) ;" color='#449bf8'
+						@click='changeRadio' />
+					已阅读并同意<text style='color:#449bf8' @click="openWord" >江理失物招领小程序隐私保护指引</text>
+
+				</view>
+
+				<view style="margin-top: 100rpx; ">
+					<button class="btn" style="width: 500rpx;height: 100rpx;" @click="postForm()">发
+						&nbsp;&nbsp;&nbsp;&nbsp;布</button>
 				</view>
 
 			</u--form>
@@ -96,7 +100,7 @@
 	export default {
 		data() {
 			return {
-				apiHost:request.getHost(),
+				apiHost: request.getHost(),
 				err: true,
 				isShow: true,
 				rel_status: null,
@@ -176,7 +180,7 @@
 					},
 
 				},
-				
+
 				radio: '',
 				switchVal: false,
 				value3: null,
@@ -187,7 +191,9 @@
 				campusText: null,
 				id: '',
 				status: '',
-				thumb:'',
+				thumb: '',
+				check: false,
+				isActive:false,
 			};
 		},
 		onLoad: function(options) {
@@ -200,14 +206,14 @@
 					uni.getStorage({
 						key: 'userInfo',
 						success: (res) => {
-							if(res.data.stuQq!=null){
-								this.model1.userInfo.contact = 'QQ:'+res.data.stuQq;
+							if (res.data.stuQq != null) {
+								this.model1.userInfo.contact = 'QQ:' + res.data.stuQq;
 							}
-							
+
 						}
 					});
 				}
-				
+
 				let that = this;
 				//option列表
 				request.getRequest('/wx/api/category/treeData', null, (res) => {
@@ -291,8 +297,8 @@
 						status: 'success',
 						message: '',
 						url: result,
-						thumb:this.apiHost+this.photoUrl
-						
+						thumb: this.apiHost + this.photoUrl
+
 					}))
 					fileListLen++
 				}
@@ -305,7 +311,7 @@
 				return new Promise((resolve, reject) => {
 					var that = this
 					let a = uni.uploadFile({
-						url: this.apiHost+'/wx/api/release/upload',
+						url: this.apiHost + '/wx/api/release/upload',
 						filePath: url,
 						name: 'file',
 						formData: {
@@ -331,7 +337,7 @@
 								that.value3 = '身份证号为' + strcard;
 								that.model1.userInfo.sort = "身份证"
 								that.model1.userInfo.value = 2
-								
+
 
 								console.log('捡到身份证')
 							} else if (that.type == 'xsz') {
@@ -341,23 +347,28 @@
 								that.value3 = '学生证号为' + strcard;
 								that.model1.userInfo.sort = "学生证"
 								that.model1.userInfo.value = 3
-								
+
 							}
 							if (that.model1.userInfo.campus == null || that.model1.userInfo.campus ==
 								'') {
 								that.model1.userInfo.campus = "南昌校区"
 							}
 
-						}
+						},
+
 					});
 				})
 			},
+
+
+			//提交表单
 			postForm() {
 				var that = this
-				this.$refs.form1.validate().then(res =>{
-					// if (!valid) {
-					// return
-					// }
+				this.$refs.form1.validate().then(res => {
+					if (!this.check) {
+						this.isActive=true
+					return
+					}
 					request.postRequest('/wx/api/release/auth/add/check', {
 							relCampus: that.model1.userInfo.campus,
 							relCateId: that.model1.userInfo.value,
@@ -387,15 +398,31 @@
 							}
 						}
 					)
-					
-					
-				})
-				
-					
 
-				
+
+				})
+
+
+
+
 			},
 
+
+			//打开服务协议
+			openWord() {
+				uni.navigateTo({
+					url: '../word/word'
+				})
+			},
+
+			changeRadio() {
+				if (this.check) {
+					this.check = false
+				} else {
+					this.check = true
+				}
+
+			}
 
 
 		},
@@ -405,8 +432,6 @@
 	};
 </script>
 <style scoped>
-	
-
 	.u-input /deep/ .input-placeholder {
 		color: red;
 	}
@@ -416,16 +441,51 @@
 		height: 100%;
 		background-color: #f5f5f5;
 	}
+
 	.btn {
-	  width: 15rem;
-	  height: 4rem;
-	  border-radius: 1rem;
-	  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-	  justify-self: center;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  cursor: pointer;
-	  transition: 0.3s ease;
+		width: 15rem;
+		height: 4rem;
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+			inset 18px 18px 30px rgba(0, 0, 0, 0.1),
+			inset -18px -18px 30px rgba(255, 255, 255, 1);
+		justify-self: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		border: none;
+		transition: 0.3s ease;
+	}
+	
+	.move{
+	    animation: finger .5s 1;
+		
+	}
+	
+	@keyframes finger {
+	0% {
+	
+	    transform: translate(-5px)
+	}
+	
+	
+	25% {
+	    transform: translate(5px)
+	}
+	
+	
+	50% {
+	    transform: translate(-5px)
+	}
+	
+	
+	75% {
+	    transform: translate(5px)
+	}
+	
+	100% {
+	    transform: translate(-5px)
+	}
+	
 	}
 </style>
