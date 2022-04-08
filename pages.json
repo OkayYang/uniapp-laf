@@ -1,0 +1,151 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/public/public",
+			"style": {
+				"navigationBarBackgroundColor": "#F5f5f5",
+				"disableScroll": true
+		
+		
+			}
+		},
+		{
+			"path": "pages/word/word",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F5F5F5",
+				"navigationBarTitleText": "用户隐私保护指引",
+				"backgroundColor": "#F5F5F5"
+			}
+		},
+	
+		{
+			"path": "pages/form/form",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F5F5F5",
+				"navigationBarTitleText": "表单",
+				"backgroundColor": "#F5F5F5"
+			}
+		},
+		{
+				"path": "pages/subscribe/subscribe",
+				"style": {
+					"navigationBarTitleText": "订阅",
+					"enablePullDownRefresh": true
+				}
+			},
+		
+
+		{
+			"path": "pages/myPublish/myPublish",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+
+			}
+		},
+
+		{
+			"path": "pages/personal/personal",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"disableScroll": true
+			}
+		},
+		
+
+		{
+			"path": "pages/contact/contact",
+			"style": {
+				"navigationBarTitleText": "联系客服"
+			}
+		},
+
+
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "页面详细",
+				"enablePullDownRefresh": true
+				// "navigationBarBackgroundColor": "#449bf8"
+			}
+
+		},
+		{
+			"path": "pages/share/share",
+			"style": {
+				"navigationBarTitleText": "分享",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/notice/notice",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+
+		"navigationBarBackgroundColor": "#449bf8",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+
+	},
+	"tabBar": {
+		"selectedColor": "#1296db",
+
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/square.png",
+				"selectedIconPath": "static/广场blue.png",
+				"text": "广场"
+			},
+			{
+				"pagePath": "pages/public/public",
+				"iconPath": "static/public.png",
+				"selectedIconPath": "static/发布blue.png",
+				"text": "发布"
+			}, {
+
+				"pagePath": "pages/user/user",
+				"iconPath": "static/my.png",
+				"selectedIconPath": "static/我的blue.png",
+				"text": "我的"
+			}
+		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"tui-(.*)": "thorui-uni/lib/thorui/tui-$1/tui-$1.vue"
+		}
+
+	}
+}

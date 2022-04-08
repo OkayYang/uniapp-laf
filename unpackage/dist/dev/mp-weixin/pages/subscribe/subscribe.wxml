@@ -1,0 +1,1 @@
+<u-transition vue-id="231c9b2a-1" show="{{show}}" class="data-v-11a6115c" bind:__l="__l" vue-slots="{{['default']}}"><view class="transition data-v-11a6115c" style="width:200rpx;height:100rpx;background-color:pink;"></view></u-transition>
