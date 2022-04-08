@@ -1,0 +1,16 @@
+/* pages/notice/notice.wxss */
+page{
+    background-color: #ffffff;
+}
+.main{
+    margin: 50rpx;
+}
+.artical{
+    text-indent:2em;
+    font-size: larger;
+}
+.title{
+
+    font-size: large;
+    font-weight: bold;
+}
