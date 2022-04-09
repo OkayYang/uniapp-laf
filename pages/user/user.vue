@@ -8,13 +8,13 @@
 			<view
 				style="width: 800rpx;height: 800rpx;border-radius: 800rpx;background:#449bf8;position: absolute;top:-370rpx;left:-26rpx;display: flex;justify-content: center;align-items: center;">
 				<view class='userInfo' @click="login"
-					style="width:200rpx;height:270rpx;margin: 250rpx 0 0 0;display:flex;flex-direction:column;justify-content: flex-end;align-items: center;">
+					style="height:270rpx;margin: 250rpx 0 0 0;display:flex;flex-direction:column;justify-content: flex-end;align-items: center;">
 					<view class="avatar">
 						<u-avatar :src="src" size="70"></u-avatar>
 					</view>
 
 					<view class='name'
-						style="height: 90rpx;width: 200rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
+						style="height: 90rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
 						<u-button v-if="!isLogin" shape="circle" text="请先登录" style="width: 200rpx;"></u-button>
 						<text v-else>{{nickName}}</text>
 					</view>
@@ -31,20 +31,25 @@
 				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex"
 					@click="itemClick(baseListItem.url)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="baseListItem.name" :size="22"></u-icon>
-					<text class="grid-text" style="font-size: 30rpx;margin-top: 10rpx;">{{baseListItem.title}}</text>
+					<text class="grid-text" style="font-size: 30rpx;margin: 10rpx 0 5rpx;">{{baseListItem.title}}</text>
 				</u-grid-item>
 			</u-grid>
 		</view>
 		<view class='list' style="width:720rpx;margin: 30rpx auto;border-radius: 20rpx;background-color: #FFFFFF;">
-			<u-cell-group v-for="item in itemList">
-				<u-cell v-if="isLogin?true:item.show" :title="item.title" arrow-direction="left" :isLink="true"
-					:url="item.url" style="display: flex;justify-content: center;">
-					<u-icon slot="icon" size="32" :name="item.icon"></u-icon>
-				</u-cell>
-			</u-cell-group>
+			<view v-for="item in itemList">
+				<button type="default" plain=true :open-type='item.open'
+					style="border: none;height: 100rpx;font-size: 30rpx;display: flex;align-items: center;"
+					@click='open(item.url)' v-show="item.show">
+					<image :src='item.icon' mode="aspectFit" style="width: 55rpx;height:55rpx;float: left;"></image>
+					<text style="float: left;margin-left: 40rpx;">{{item.title}}</text>
+					<view class="rightArrow"></view>
+					<!--右箭头 -->
+				</button>
+				<view class="underline"></view>
+			</view>
 		</view>
 		<u-toast ref="uToast"></u-toast>
-		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto;">
+		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto 100rpx;">
 			<u-button type="error" size="large" text="退出登录" @click="exit" plain></u-button>
 		</view>
 
@@ -70,7 +75,7 @@
 				baseList: [{
 						name: '/static/love.png',
 						title: '我的订阅',
-						url: '#'
+						url: '/pages/subscribe/subscribe'
 					},
 					{
 						name: '/static/message.png',
@@ -95,6 +100,7 @@
 						url: '/pages/personal/personal',
 						show: false,
 						now: false,
+						open: ''
 					},
 					{
 						title: '绑定教务',
@@ -102,31 +108,39 @@
 						url: '/pages/school/school',
 						show: false,
 						now: false,
-					}, {
-						title: '使用帮助',
+						open: ''
+					},
+					{
+						title: '联系客服',
+						icon: '/static/aboutMe.png',
+						url: '#',
+						show: true,
+						now: true,
+						open: 'contact'
+					},
+					{
+						title: '反馈与投诉',
 						icon: '/static/help.png',
 						url: '#',
 						show: true,
-						now: false
-					}, {
-						title: '联系客服',
-						icon: '/static/aboutMe.png',
-						url: '/pages/contact/contact',
-						show: true,
-						now: true,
+						now: false,
+						open: 'feedback'
 					},
 					{
 						title: '分享小程序',
 						icon: '/static/share.png',
-						url: '/pages/share/share',
-						show: false,
+						url: '#',
+						show: true,
 						now: true,
-					}, {
-						title: '打赏作者',
+						open: 'share'
+					},
+					{
+						title: '打赏开发者',
 						icon: '/static/gift.png',
 						url: '#',
 						show: true,
 						now: false,
+						open: ''
 					},
 				]
 
@@ -140,15 +154,23 @@
 					this.isLogin = true;
 					this.src = res.data.stuImage;
 					this.nickName = res.data.stuNick;
-
+					this.itemList[0].show = true
+					this.itemList[1].show = true
 				}
 			});
 		},
 		onShow() {
 			uni.showTabBar();
 			this.onChange();
+
 		},
 		methods: {
+			// show() {
+			// 	if (this.nickName != '') {
+			// 		this.itemList[0].show = true
+			// 		this.itemList[1].show = true
+			// 	}
+			// },
 			login() {
 				let that = this;
 
@@ -160,6 +182,8 @@
 							console.log(file);
 							uni.login({
 								success: (res) => {
+									that.itemList[0].show = true
+									that.itemList[1].show = true
 									request.postRequest(
 										'/wx/api/login/check', {
 											code: res.code,
@@ -192,6 +216,7 @@
 
 					});
 				}
+
 			},
 			exit() {
 				this.notify.show = true;
@@ -199,6 +224,8 @@
 
 			confirm() {
 				this.notify.show = false;
+				this.itemList[0].show = false
+				this.itemList[1].show = false
 				let that = this;
 				uni.removeStorage({
 						key: "userInfo"
@@ -212,6 +239,8 @@
 							});
 							that.isLogin = false;
 							that.src = '/static/avatar.png';
+							that.itemList[0].show = false
+							that.itemList[1].show = false
 						},
 						fail() {
 							uni.showToast({
@@ -241,21 +270,24 @@
 				}
 
 			},
-			onChange(){
+			onChange() {
 				let that = this
-				request.getRequest('/wx/api/student/auth/my', {
-				
-				},
-						(res)=>{
-								console.log(res)
-							uni.setStorage({
-								key:'userInfo',
-								data:res.data
-							})
-							that.nickName = res.data.stuNick;
-						}
-					
+				request.getRequest('/wx/api/student/auth/my', {},
+					(res) => {
+						console.log(res)
+						uni.setStorage({
+							key: 'userInfo',
+							data: res.data
+						})
+						that.nickName = res.data.stuNick;
+					}
+
 				)
+			},
+			open(url) {
+				wx.navigateTo({
+					url: url
+				});
 			}
 
 		},
@@ -295,5 +327,19 @@
 	.button-hover {
 		color: rgba(0, 0, 0, 0.6);
 		background-color: #f3f3f3;
+	}
+
+	.rightArrow {
+		width: 19rpx;
+		height: 19rpx;
+		border-top: 1.5px solid #999;
+		border-right: 1.5px solid #999;
+		transform: rotate(45deg);
+		margin-left: auto;
+	}
+
+	.underline {
+		border: 4rpx solid rgb(241, 242, 244);
+		width: 99%;
 	}
 </style>

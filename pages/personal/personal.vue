@@ -25,7 +25,7 @@
 				<u-cell icon="https://pic.imgdb.cn/item/621f66725baa1a80ab0005ce.png" title="QQ" :value="userInfo.stuQq"
 					isLink="true" @click="open('QQ')"></u-cell>
 			</u-cell-group>
-			<view class="" style="height: 60rpx;margin-top: 30rpx;margin-left:35rpx;font-size: 35rpx;color: grey;">
+			<!-- <view class="" style="height: 60rpx;margin-top: 30rpx;margin-left:35rpx;font-size: 35rpx;color: grey;">
 				[教务信息]</view>
 			<u-cell-group>
 				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284ae.png" title="姓名"
@@ -39,7 +39,7 @@
 				<u-cell icon="https://pic.imgdb.cn/item/62177c1f2ab3f51d91a284a3.png" title="院系"
 					:value="userInfo.stuDepartment" isLink="true"></u-cell>
 
-			</u-cell-group>
+			</u-cell-group> -->
 		</view>
 	</view>
 </template>
@@ -116,7 +116,6 @@
 								
 							)
 							}
-						else {}
 					}
 
 				)

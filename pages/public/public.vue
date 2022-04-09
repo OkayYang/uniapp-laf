@@ -16,7 +16,6 @@
 				</view>
 			</view>
 
-
 			<view class="blur">
 				<view style="margin-top:-25rpx;margin-bottom: 15rpx;">
 					<image src="../../static/present.png" mode="" style="width: 50rpx;height: 50rpx;margin-left: 5%; margin-right:10rpx ;margin-bottom:-8rpx ;"></image>

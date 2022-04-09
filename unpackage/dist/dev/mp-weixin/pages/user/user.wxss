@@ -22,4 +22,17 @@ button[disabled] {
 	color: rgba(0, 0, 0, 0.6);
 	background-color: #f3f3f3;
 }
+.rightArrow {
+	width: 19rpx;
+	height: 19rpx;
+	border-top: 1.5px solid #999;
+	border-right: 1.5px solid #999;
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	margin-left: auto;
+}
+.underline {
+	border: 4rpx solid rgb(241, 242, 244);
+	width: 99%;
+}
 
