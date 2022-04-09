@@ -33,9 +33,9 @@
 				<view class="detail" style="width: 93%;margin:20rpx auto 0 auto;">
 					<!-- <u--text :text="info.describe"></u--text> -->
 					<view style="margin: 0 0 20rpx 0;">
-						<text style="font-weight: 700;">{{info.relTitle}}</text>
+						<text >{{info.relTitle}}</text>
 					</view>
-					<view style="margin: 0 0 20rpx 0;" v-if="info.relDesc!=null">
+					<view style="margin: 0 0 20rpx -64rpx;" v-if="info.relDesc!=null">
 						<u-read-more>
 							{{info.relDesc}}
 						</u-read-more>
@@ -444,9 +444,9 @@
 				if (this.isLogin()) {
 
 					uni.requestSubscribeMessage({
-						tmplIds: ['fTUA7CP8Wh1hbv-3x4QrrK_BRl5y8dnHMBnbTqdN9dI',
-							'lhQ8vRjYydEDLDni5sWTUndbzrbtfvycNyP-SHMWMmM',
-							'vnDNGaWHPOnrg-VkHcflNo9fWwFxZNLsQph8utdgQ8Y'
+						tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
+							'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
+							'yN2LMy5FBS8ha9Fq-akQTag3SWgx9uvgTG5J3ABVGYw'
 						],
 						success(res) {
 							console.log("SubscribeMessageSuccess");
