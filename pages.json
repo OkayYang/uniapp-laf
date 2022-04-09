@@ -1,20 +1,41 @@
 {
 	"pages": [
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"disableScroll": false
+			}
+		},
+		// {
+		// 		"path": "pages/subscribe/subscribe",
+		// 		"style": {
+		// 			"navigationBarTitleText": "订阅",
+		// 			"enablePullDownRefresh": true
+		// 		}
+		// 	},
+			
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh":true
+			}
+		},
 		
 		{
 			"path": "pages/public/public",
 			"style": {
 				"navigationBarBackgroundColor": "#F5f5f5",
 				"disableScroll": true
-		
-		
 			}
 		},
+	
+		
+	
 		{
 			"path": "pages/word/word",
 			"style": {
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#F5F5F5",
 				"navigationBarTitleText": "用户隐私保护指引",
 				"backgroundColor": "#F5F5F5"
 			}
@@ -29,19 +50,8 @@
 				"backgroundColor": "#F5F5F5"
 			}
 		},
-		{
-				"path": "pages/subscribe/subscribe",
-				"style": {
-					"navigationBarTitleText": "订阅",
-					"enablePullDownRefresh": true
-				}
-			},
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+		
+	
 
 		{
 			"path": "pages/myPublish/myPublish",
@@ -58,23 +68,6 @@
 				"navigationBarTitleText": "个人信息"
 			}
 		},
-		
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "",
-				"disableScroll": true
-			}
-		},
-		
-
-		{
-			"path": "pages/contact/contact",
-			"style": {
-				"navigationBarTitleText": "联系客服"
-			}
-		},
-
 
 		{
 			"path": "pages/detail/detail",
@@ -85,14 +78,7 @@
 			}
 
 		},
-		{
-			"path": "pages/share/share",
-			"style": {
-				"navigationBarTitleText": "分享",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
+		 {
 			"path": "pages/message/message",
 			"style": {
 				"navigationBarTitleText": "",
