@@ -59,10 +59,7 @@
 					</view>
 					<view style="display: flex;">
 						<view>
-							<image src="../../static/watch.png" style="width: 35rpx;height: 35rpx;"></image>
-						</view>
-						<view style="margin: -0.8% 0 0 1%;">
-							<text style="color: #b3b3b3;font-size: 35rpx;">{{info.relFlow}}</text>
+							<text style="color: #909399;font-size: 30rpx;">阅读量:{{info.relFlow}}</text>
 						</view>
 					</view>
 
@@ -211,9 +208,10 @@
 								</view>
 						</view>
 					</view>
-					<tui-modal :show="renling.show" title="提示" content="确定认领吗？" :button="renling.button" shape="circle"
+					<tui-modal :show="renling.show" :title="info.relStatus==1?'请勿冒领！':'提示'"
+						:content="info.relStatus==1?'确定认领吗？':'确定已找到该物品？'" :button="renling.button" shape="circle"
 						@click="acceptClick" :size="30" color="#606266"></tui-modal>
-					<tui-modal :show="renling.reShow" title="提示" content="确定取消认领吗？" :button="renling.button"
+					<tui-modal :show="renling.reShow" title="提示" content="确定取消认领吗？" :button="renling.button1"
 						shape="circle" @click="cancelAccept" :size="30" color="#606266"></tui-modal>
 
 				</view>
@@ -318,6 +316,7 @@
 					'marginTop': "20rpx"
 				},
 				timeout: 0,
+				waitTime: 5,
 				isPopup: false,
 				renling: {
 					show: false,
@@ -328,7 +327,17 @@
 							plain: true
 						},
 						{
-							text: "确定",
+							text: "5s",
+							type: "gray",
+						}
+					],
+					button1: [{
+							text: "取消",
+							type: "red",
+							plain: true
+						},
+						{
+							text: "确认",
 							type: "red",
 						}
 					],
@@ -635,34 +644,54 @@
 			accept() {
 				if (this.isLogin()) {
 					this.renling.show = true;
+					this.timer = setInterval(() => {
+						this.waitTime--;
+						console.log(this.waitTime);
+						// console.log(this.renling.button[2]);
+						this.renling.button[1].text = this.waitTime + "s";
+						if (this.waitTime === 0) {
+							clearInterval(this.timer);
+							this.renling.button[1].text = "确认";
+							this.renling.button[1].type = "red";
+						}
+					}, 1000)
 				} else {
 					this.loginPane.show = true;
 				}
 			},
 			acceptClick(res) {
-
 				if (res.index == 0) {
+					clearInterval(this.timer);
+					this.waitTime = 5;
 					this.renling.show = false;
+					this.renling.button[1].text = "5s";
+					this.renling.button[1].type = "gray";
 				} else {
-					request.getRequest(
-						'/wx/api/info/auth/claim?relId=' + this.tid, null, (res) => {
-							if (res.data.code == 0) {
-								this.renling.show = false;
-								this.$refs.uToast.show({
-									type: 'success',
-									message: "认领成功",
-									duration: 700,
-									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
-								});
-								this.$store.state.fresh = true;
-								this.reload(this.option);
+					if (this.waitTime == 0) {
+						request.getRequest(
+							'/wx/api/info/auth/claim?relId=' + this.tid, null, (res) => {
+								if (res.data.code == 0) {
+									// this.renling.show = false;
+									this.$refs.uToast.show({
+										type: 'success',
+										message: "认领成功",
+										duration: 700,
+										iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
+									});
+									this.renling.show = false;
+									this.waitTime = 5;
+									this.renling.button[1].text = "5s";
+									this.renling.button[1].type = "gray";
+									this.$store.state.fresh = true;
+									this.reload(this.option);
 
-							} else {
-								this.renling.show = false;
-								this.paneAlert();
+								} else {
+									this.renling.show = false;
+									this.paneAlert();
+								}
 							}
-						}
-					)
+						)
+					}
 				}
 			},
 			/**

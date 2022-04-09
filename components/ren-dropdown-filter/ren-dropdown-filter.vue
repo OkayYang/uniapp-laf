@@ -8,7 +8,8 @@
 				<view class="c-flex-align" :class="{ 'c-flex-center': index > 0, actNav: index === actNav }"
 					v-for="(item, index) in navData" :key="index" @click="navClick(index)">
 					<view v-for="(child, childx) in item" :key="childx" v-if="child.select" style="font-size: 27rpx;">
-						{{ child.text }}</view>
+						{{ child.text }}
+					</view>
 					<image src="https://i.loli.net/2020/07/15/QsHxlr1gbSImvWt.png" mode="" class="icon-triangle"
 						v-if="index === actNav"></image>
 					<image src="https://i.loli.net/2020/07/15/xjVSvzWcH9NO7al.png" mode="" class="icon-triangle" v-else>
@@ -21,7 +22,7 @@
 							<view style="font-size: 24rpx;">{{ selDate }}</view>
 							<image v-if="!close" src="https://i.loli.net/2020/07/15/xjVSvzWcH9NO7al.png" mode=""
 								class="icon-triangle"></image>
-							<view  v-else style="margin: 0 0 0 5rpx;">
+							<view v-else style="margin: 0 0 0 5rpx;">
 								<image @click.stop="closeTime" src="../../static/close.png"
 									style="width: 28rpx;height: 28rpx;"></image>
 							</view>
@@ -43,6 +44,7 @@
 
 <script>
 	// import { getCurDateTime } from '@/libs/utils.js';
+	import request from '../../utils/request.js'
 	export default {
 		props: {
 			height: {
@@ -60,9 +62,9 @@
 			filterData: {
 				//必填
 				type: Array,
-				default: () => {
-					return [];
-				}
+				// default: () => {
+				// 	return [];
+				// }
 			},
 			defaultIndex: {
 				//默认选中条件索引,超出一类时必填
@@ -84,14 +86,24 @@
 			};
 		},
 		created() {
-			// this.navData = this.filterData;
-			// this.selIndex = this.defaultIndex;
-			// this.keepStatus();
-		},
-		mounted() {
 			this.navData = this.filterData;
 			this.selIndex = this.defaultIndex;
 			this.keepStatus();
+		},
+		mounted() {
+			request.getRequest('/wx/api/category/treeData', null, (res) => {
+				let option = [];
+				res.data.forEach((element) => {
+					option.push({
+						text: element.name,
+						value: element.id
+					});
+				});
+				this.navData[2].push(...option);
+				console.log(this.navData);
+			})
+			// this.selIndex = this.defaultIndex;
+			// this.keepStatus();
 			// this.selDate = getCurDateTime().formatDate;
 		},
 		methods: {
