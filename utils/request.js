@@ -2,9 +2,9 @@
 //var apiHost = "http://101.42.222.167"
 //var apiHost = "http://xiaoyang.asia"
 //var apiHost = "http://192.168.3.32:80";
-var apiHost = "https://laf.4w3w.com"
+//var apiHost = "https://laf.4w3w.com"
 //yang
-//var apiHost = "http://192.168.3.104:80";
+var apiHost = "http://192.168.3.104:80";
 
 
 var tokenKey = 'token'; // 登录地址, 根据这个地址来设置token

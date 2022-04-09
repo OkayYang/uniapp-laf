@@ -125,22 +125,22 @@
 						text: '所有种类',
 						value: '0',
 					}, 
-					{
-						text: '其他',
-						value: '1',
-					},
-					{
-						text: '身份证',
-						value: '2',
-					},
-					{ 
-						text: '学生证',    
-						value: '3',
-					},
-					{
-						text: '衣物',    
-						value: '4',
-					},
+					// {
+					// 	text: '其他',
+					// 	value: '1',
+					// },
+					// {
+					// 	text: '身份证',
+					// 	value: '2',
+					// },
+					// { 
+					// 	text: '学生证',    
+					// 	value: '3',
+					// },
+					// {
+					// 	text: '衣物',    
+					// 	value: '4',
+					
 					],
 
 				],
@@ -201,6 +201,7 @@
 			}
 			this.$store.state.fresh = false;
 			console.log('onshow'); //页面刷新显示发布列表请求
+		
 		},
 		/**
 		 * 生命周期函数--监听页面隐藏
@@ -311,13 +312,16 @@
 					});
 					
 					//this.filterData[2].push(...option);
-					this.category=[]
+					this.category=[];
+					this.filterData[2].push(...option);
+					console.log(this.filterData[2]);
 					this.filterData[2].forEach((item) => {
 						this.category.push(item.text);
 					});
 					
 				});
 				this.loadRelease();
+				
 				console.log("!!!!");
 
 			},
@@ -434,8 +438,7 @@
 						this.loadRelease();
 					}, 300)
 				}
-			}
-
+			},
 
 
 

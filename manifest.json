@@ -54,7 +54,7 @@
                 },
                 "share" : {
                     "weixin" : {
-                        "appid" : "wx8a13127914667c1c",
+                        "appid" : "wx39b85c8911cd3be5",
                         "UniversalLinks" : ""
                     }
                 }
@@ -65,7 +65,7 @@
     "quickapp" : {},
     /* 快应用特有相关 */
     "mp-weixin" : {
-        "appid" : "wx8a13127914667c1c",
+        "appid" : "wx39b85c8911cd3be5",
         "setting" : {
             "urlCheck" : false
         },

@@ -69,7 +69,7 @@
 				},
 				baseList: [{
 						name: '/static/love.png',
-						title: '我的收藏',
+						title: '我的订阅',
 						url: '#'
 					},
 					{
@@ -146,6 +146,7 @@
 		},
 		onShow() {
 			uni.showTabBar();
+			this.onChange();
 		},
 		methods: {
 			login() {
@@ -239,6 +240,22 @@
 					});
 				}
 
+			},
+			onChange(){
+				let that = this
+				request.getRequest('/wx/api/student/auth/my', {
+				
+				},
+						(res)=>{
+								console.log(res)
+							uni.setStorage({
+								key:'userInfo',
+								data:res.data
+							})
+							that.nickName = res.data.stuNick;
+						}
+					
+				)
 			}
 
 		},
