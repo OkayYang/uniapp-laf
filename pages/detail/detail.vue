@@ -33,9 +33,9 @@
 				<view class="detail" style="width: 93%;margin:20rpx auto 0 auto;">
 					<!-- <u--text :text="info.describe"></u--text> -->
 					<view style="margin: 0 0 20rpx 0;">
-						<text style="font-weight: 700;">{{info.relTitle}}</text>
+						<text >{{info.relTitle}}</text>
 					</view>
-					<view style="margin: 0 0 20rpx 0;" v-if="info.relDesc!=null">
+					<view style="margin: 0 0 20rpx -64rpx;" v-if="info.relDesc!=null">
 						<u-read-more>
 							{{info.relDesc}}
 						</u-read-more>

@@ -1,16 +1,13 @@
 {
   "pages": [
+    "pages/user/user",
+    "pages/index/index",
     "pages/public/public",
     "pages/word/word",
     "pages/form/form",
-    "pages/subscribe/subscribe",
-    "pages/index/index",
     "pages/myPublish/myPublish",
     "pages/personal/personal",
-    "pages/user/user",
-    "pages/contact/contact",
     "pages/detail/detail",
-    "pages/share/share",
     "pages/message/message",
     "pages/notice/notice"
   ],

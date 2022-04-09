@@ -73,6 +73,10 @@
 		<view class="wrap">
 			<u-loadmore :status="uStatus" :line="isEnd==true?true:false" />
 		</view>
+
+
+		<!-- <image src='./static/button-top.png' class='goTop' ></image> -->
+		<image src='../../static/button-top.png' class='goTop' :hidden=floor  @click='goTop'></image>
 	</view>
 
 
@@ -122,25 +126,25 @@
 					],
 
 					[{
-						text: '所有种类',
-						value: '0',
-					}, 
-					{
-						text: '其他',
-						value: '1',
-					},
-					{
-						text: '身份证',
-						value: '2',
-					},
-					{ 
-						text: '学生证',    
-						value: '3',
-					},
-					{
-						text: '衣物',    
-						value: '4',
-					},
+							text: '所有种类',
+							value: '0',
+						},
+						{
+							text: '其他',
+							value: '1',
+						},
+						{
+							text: '身份证',
+							value: '2',
+						},
+						{
+							text: '学生证',
+							value: '3',
+						},
+						{
+							text: '衣物',
+							value: '4',
+						},
 					],
 
 				],
@@ -168,7 +172,7 @@
 					createTime: null
 				},
 				category: [],
-
+				floor: true,
 			}
 		},
 		/**
@@ -201,7 +205,7 @@
 			}
 			this.$store.state.fresh = false;
 			console.log('onshow'); //页面刷新显示发布列表请求
-		
+
 		},
 		/**
 		 * 生命周期函数--监听页面隐藏
@@ -229,12 +233,12 @@
 		onReachBottom: function() {
 
 			this.onReachBottom1();
-			
+
 		},
 
 
 		methods: {
-			
+
 			share: function() {
 				uni.share({
 					provider: "weixin",
@@ -250,15 +254,6 @@
 				});
 			},
 
-			// changeLove: function(info) {
-			// 	if (info.isLove !== true) {
-			// 		uni.showToast({
-			// 			title: '收藏成功!',
-			// 			duration: 1000
-			// 		});
-			// 	}
-			// 	info.isLove = !info.isLove;
-			// },
 			onSelected(res) {
 				this.initSearchData();
 				console.log(res);
@@ -280,7 +275,6 @@
 				this.loadRelease();
 			},
 
-
 			navigateDetail(tid) {
 				uni.navigateTo({
 					url: "/pages/detail/detail?tid=" + tid,
@@ -291,7 +285,6 @@
 					urls: [src],
 				})
 			},
-
 
 			/**
 			 * 生命周期函数--监听页面加载
@@ -310,13 +303,13 @@
 							value: element.id
 						});
 					});
-					
+
 					//this.filterData[2].push(...option);
-					this.category=[]
+					this.category = []
 					this.filterData[2].forEach((item) => {
 						this.category.push(item.text);
 					});
-					
+
 				});
 				this.loadRelease();
 				console.log("!!!!");
@@ -348,11 +341,11 @@
 								let array = this.releaseList.concat(res.data.list);
 								this.releaseList = array;
 								this.isLastPage = res.data.isLastPage;
-								if(this.isLastPage){
+								if (this.isLastPage) {
 									this.onReachBottom1();
 								}
 								this.pageNum = res.data.nextPage;
-								
+
 							}
 						},
 						(res) => {
@@ -361,8 +354,6 @@
 					);
 				}
 			},
-
-
 
 			onSearch(res) {
 				let out = res.replace(/\ +/g, "")
@@ -384,8 +375,6 @@
 
 				//console.log('搜索' + this.searchValue);
 			},
-
-
 
 			//下拉事件
 			//失物招领筛选
@@ -423,7 +412,7 @@
 				this.loadRelease();
 
 			},
-			onReachBottom1(){
+			onReachBottom1() {
 				// 最后一页了，取消下拉功能
 				if (this.isLastPage) {
 					this.uStatus = 'nomore';
@@ -440,6 +429,29 @@
 
 
 
+			// // 获取滚动条当前位置
+			 onPageScroll: function(e) {
+				console.log(e)
+			 	if (e.scrollTop >300) {
+				this.floor = false
+				} else {
+					this.floor = true
+				}
+			 },
+
+			// 回到顶部
+			 goTop: function(e) {  //一键回到顶部
+			 	if (wx.pageScrollTo) {
+					wx.pageScrollTo({
+					scrollTop: 0
+					})
+			 	} else {
+					wx.showModal({
+						title: '提示',
+						content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+				})
+				}
+			 },
 
 		}
 
@@ -457,5 +469,20 @@
 		background-color: #ffffff;
 		min-height: 100%;
 
+	}
+
+	/* 回到顶部 */
+	.goTop {
+		height: 100rpx;
+		width: 100rpx;
+		position: fixed;
+		bottom: 50rpx;
+		background: rgba(255, 255, 255, 1) !important;
+
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+			inset 4px 4px 10px rgba(0, 0, 0, 0.1),
+			inset -3px -5px 10px rgba(255, 255, 255, 1);
+		right: 30rpx;
+		border-radius: 50%;
 	}
 </style>
