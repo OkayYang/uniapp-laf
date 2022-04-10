@@ -8,13 +8,13 @@
 			<view
 				style="width: 800rpx;height: 800rpx;border-radius: 800rpx;background:#449bf8;position: absolute;top:-370rpx;left:-26rpx;display: flex;justify-content: center;align-items: center;">
 				<view class='userInfo' @click="login"
-					style="width:200rpx;height:270rpx;margin: 250rpx 0 0 0;display:flex;flex-direction:column;justify-content: flex-end;align-items: center;">
+					style="height:270rpx;margin: 250rpx 0 0 0;display:flex;flex-direction:column;justify-content: flex-end;align-items: center;">
 					<view class="avatar">
 						<u-avatar :src="src" size="70"></u-avatar>
 					</view>
 
 					<view class='name'
-						style="height: 90rpx;width: 200rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
+						style="height: 90rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
 						<u-button v-if="!isLogin" shape="circle" text="请先登录" style="width: 200rpx;"></u-button>
 						<text v-else>{{nickName}}</text>
 					</view>

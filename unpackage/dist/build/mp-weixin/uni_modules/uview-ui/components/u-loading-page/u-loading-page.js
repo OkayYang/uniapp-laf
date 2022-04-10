@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["uni_modules/uview-ui/components/u-loading-page/u-loading-page"],{"23a4":function(n,u,t){"use strict";var e=t("7aab"),i=t.n(e);i.a},"483b":function(n,u,t){"use strict";t.r(u);var e=t("5b0a"),i=t.n(e);for(var a in e)"default"!==a&&function(n){t.d(u,n,(function(){return e[n]}))}(a);u["default"]=i.a},"5b0a":function(n,u,t){"use strict";(function(n){Object.defineProperty(u,"__esModule",{value:!0}),u.default=void 0;var e=i(t("ee11"));function i(n){return n&&n.__esModule?n:{default:n}}var a={name:"u-loading-page",mixins:[n.$u.mpMixin,n.$u.mixin,e.default],data:function(){return{}},methods:{}};u.default=a}).call(this,t("543d")["default"])},"7aab":function(n,u,t){},b8e0:function(n,u,t){"use strict";t.r(u);var e=t("dbb2"),i=t("483b");for(var a in i)"default"!==a&&function(n){t.d(u,n,(function(){return i[n]}))}(a);t("23a4");var o,r=t("f0c5"),c=Object(r["a"])(i["default"],e["b"],e["c"],!1,null,"09428520",null,!1,e["a"],o);u["default"]=c.exports},dbb2:function(n,u,t){"use strict";t.d(u,"b",(function(){return i})),t.d(u,"c",(function(){return a})),t.d(u,"a",(function(){return e}));var e={uTransition:function(){return Promise.all([t.e("common/vendor"),t.e("uni_modules/uview-ui/components/u-transition/u-transition")]).then(t.bind(null,"a6ca"))},uLoadingIcon:function(){return Promise.all([t.e("common/vendor"),t.e("uni_modules/uview-ui/components/u-loading-icon/u-loading-icon")]).then(t.bind(null,"19e0"))}},i=function(){var n=this,u=n.$createElement,t=(n._self._c,n.$u.addUnit(n.fontSize));n.$mp.data=Object.assign({},{$root:{g0:t}})},a=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'uni_modules/uview-ui/components/u-loading-page/u-loading-page-create-component',
+    {
+        'uni_modules/uview-ui/components/u-loading-page/u-loading-page-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("b8e0"))
+        })
+    },
+    [['uni_modules/uview-ui/components/u-loading-page/u-loading-page-create-component']]
+]);

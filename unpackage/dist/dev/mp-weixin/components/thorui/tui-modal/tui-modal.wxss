@@ -1,0 +1,218 @@
+
+.tui-modal__container.data-v-6ccfff18 {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+}
+.tui-modal-box.data-v-6ccfff18 {
+	position: relative;
+	opacity: 0;
+	visibility: hidden;
+	box-sizing: border-box;
+	transition: all 0.3s ease-in-out;
+}
+.tui-modal-scale.data-v-6ccfff18 {
+	-webkit-transform: scale(0);
+	        transform: scale(0);
+}
+.tui-modal-normal.data-v-6ccfff18 {
+	-webkit-transform: scale(1);
+	        transform: scale(1);
+}
+.tui-modal-show.data-v-6ccfff18 {
+	opacity: 1;
+	visibility: visible;
+}
+.tui-modal-mask.data-v-6ccfff18 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+}
+.tui-mask-show.data-v-6ccfff18 {
+	visibility: visible;
+	opacity: 1;
+}
+.tui-modal-title.data-v-6ccfff18 {
+	text-align: center;
+	font-size: 34rpx;
+	color: #333;
+	padding-top: 20rpx;
+	font-weight: bold;
+}
+.tui-modal-content.data-v-6ccfff18 {
+	text-align: center;
+	color: #999;
+	font-size: 28rpx;
+	padding-top: 20rpx;
+	padding-bottom: 60rpx;
+}
+.tui-mtop.data-v-6ccfff18 {
+	margin-top: 30rpx;
+}
+.tui-mbtm.data-v-6ccfff18 {
+	margin-bottom: 30rpx;
+}
+.tui-modalBtn-box.data-v-6ccfff18 {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.tui-flex-column.data-v-6ccfff18 {
+	flex-direction: column;
+}
+.tui-modal-btn.data-v-6ccfff18 {
+	width: 46%;
+	height: 68rpx;
+	line-height: 68rpx;
+	position: relative;
+	border-radius: 10rpx;
+	font-size: 26rpx;
+	overflow: visible;
+	margin-left: 0;
+	margin-right: 0;
+}
+.tui-modal-btn.data-v-6ccfff18::after {
+	content: ' ';
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scale(0.5, 0.5) translateZ(0);
+	        transform: scale(0.5, 0.5) translateZ(0);
+	left: 0;
+	top: 0;
+	border-radius: 20rpx;
+	z-index: 2;
+}
+.tui-btn-width.data-v-6ccfff18 {
+	width: 80% !important;
+}
+.tui-primary.data-v-6ccfff18 {
+	background: #5677fc;
+	color: #fff;
+}
+.tui-primary-hover.data-v-6ccfff18 {
+	background: #4a67d6;
+	color: #e5e5e5;
+}
+.tui-primary-outline.data-v-6ccfff18 {
+	color: #5677fc;
+	background: transparent;
+}
+.tui-primary-outline.data-v-6ccfff18::after {
+	border: 1px solid #5677fc;
+}
+.tui-danger.data-v-6ccfff18 {
+	background: #ed3f14;
+	color: #fff;
+}
+.tui-danger-hover.data-v-6ccfff18 {
+	background: #d53912;
+	color: #e5e5e5;
+}
+.tui-danger-outline.data-v-6ccfff18 {
+	color: #ed3f14;
+	background: transparent;
+}
+.tui-danger-outline.data-v-6ccfff18::after {
+	border: 1px solid #ed3f14;
+}
+.tui-red.data-v-6ccfff18 {
+	background: #e41f19;
+	color: #fff;
+}
+.tui-red-hover.data-v-6ccfff18 {
+	background: #c51a15;
+	color: #e5e5e5;
+}
+.tui-red-outline.data-v-6ccfff18 {
+	color: #e41f19;
+	background: transparent;
+}
+.tui-red-outline.data-v-6ccfff18::after {
+	border: 1px solid #e41f19;
+}
+.tui-warning.data-v-6ccfff18 {
+	background: #ff7900;
+	color: #fff;
+}
+.tui-warning-hover.data-v-6ccfff18 {
+	background: #e56d00;
+	color: #e5e5e5;
+}
+.tui-warning-outline.data-v-6ccfff18 {
+	color: #ff7900;
+	background: transparent;
+}
+.tui-warning-outline.data-v-6ccfff18::after {
+	border: 1px solid #ff7900;
+}
+.tui-green.data-v-6ccfff18 {
+	background: #19be6b;
+	color: #fff;
+}
+.tui-green-hover.data-v-6ccfff18 {
+	background: #16ab60;
+	color: #e5e5e5;
+}
+.tui-green-outline.data-v-6ccfff18 {
+	color: #19be6b;
+	background: transparent;
+}
+.tui-green-outline.data-v-6ccfff18::after {
+	border: 1px solid #19be6b;
+}
+.tui-white.data-v-6ccfff18 {
+	background: #fff;
+	color: #333;
+}
+.tui-white-hover.data-v-6ccfff18 {
+	background: #f7f7f9;
+	color: #666;
+}
+.tui-white-outline.data-v-6ccfff18 {
+	color: #333;
+	background: transparent;
+}
+.tui-white-outline.data-v-6ccfff18::after {
+	border: 1px solid #333;
+}
+.tui-gray.data-v-6ccfff18 {
+	background: #ededed;
+	color: #999;
+}
+.tui-gray-hover.data-v-6ccfff18 {
+	background: #d5d5d5;
+	color: #898989;
+}
+.tui-gray-outline.data-v-6ccfff18 {
+	color: #999;
+	background: transparent;
+}
+.tui-gray-outline.data-v-6ccfff18::after {
+	border: 1px solid #999;
+}
+.tui-outline-hover.data-v-6ccfff18 {
+	opacity: 0.6;
+}
+.tui-circle-btn.data-v-6ccfff18 {
+	border-radius: 40rpx !important;
+}
+.tui-circle-btn.data-v-6ccfff18::after {
+	border-radius: 80rpx !important;
+}
+

@@ -13,7 +13,7 @@
 
 		<view v-for="info in releaseList">
 			<view class="item"
-				style="box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);width: 720rpx;margin:0 auto"
+				style="box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);margin:0 auto"
 				@click='navigateDetail(info.relId)'>
 				<view class="item-header" style="display: flex;margin: 30rpx 0 0 0;">
 					<view @click.stop="previewImage(info.stuAvatar)" style="margin:28rpx 0 0 15rpx ;">
@@ -39,7 +39,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="detail" style="display: flex;height: 200rpx;">
+				<view class="detail" style="display: flex;">
 					<image :src="baseUrl+info.relImage"
 						style="height:170rpx;width: 170rpx;border-radius: 30rpx;margin:20rpx 0 10rpx 20rpx;"
 						mode="aspectFill" @click.stop="previewImage(baseUrl+info.relImage)" />
@@ -51,7 +51,7 @@
 							</view>
 						</view>
 						<view style="display: flex;margin: 5rpx 0 0 0;">
-							<view style="width: 85rpx;">
+							<view style="width: 105rpx;">
 								<text style="color: #909399;font-size: 28rpx;flex-basis: 0;">标题：</text>
 							</view>
 							<view>
@@ -59,7 +59,7 @@
 							</view>
 						</view>
 						<view style="display: flex;margin: 8rpx 0 0 0;">
-							<view style="width: 85rpx;">
+							<view style="width: 105rpx;">
 								<text style="color: #909399;font-size: 27rpx;">描述：</text>
 							</view>
 							<view>

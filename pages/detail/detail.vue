@@ -11,7 +11,8 @@
 					</view>
 					<view style="display: flex;flex-direction: column;margin: 10rpx 0 0 20rpx;">
 						<view>
-							<b>{{info.stuNick}}</b>
+							<b style="width: 200rpx;">{{info.stuNick}}</b>
+<!-- 							<b>{{info.stuNick}}</b> -->
 						</view>
 						<view style="width: 240rpx;margin: 1rpx 0 0 0;">
 							<text style="color:#909399;font-size: 23rpx;">{{info.createTime}}</text>
@@ -35,7 +36,7 @@
 					<view style="margin: 0 0 20rpx 0;">
 						<text >{{info.relTitle}}</text>
 					</view>
-					<view style="margin: 0 0 20rpx -64rpx;" v-if="info.relDesc!=null">
+					<view style="margin: 0 0 20rpx 0rpx;" v-if="info.relDesc!=null">
 						<u-read-more>
 							{{info.relDesc}}
 						</u-read-more>
@@ -43,15 +44,19 @@
 					</view>
 					<view style="display: flex;">
 						<text>物品种类:</text>
-						<view style="margin: 0 0 0 20rpx;">
+						<view style="margin: 0 0 8rpx 20rpx;">
 							<u-tag :text="category[info.relCateId-1]" plain size="mini"></u-tag>
 						</view>
 					</view>
+					<view v-if="info.relCampus!=null" style="margin: 0 0 20rpx 0;">
+						<text>校区:{{info.relCampus}}</text>
+					</view>
 					<text v-if="info.relContact!=null">联系方式:{{info.relContact}}</text>
-					<view v-if="info.createPlace!=null" style="margin: 0 0 20rpx 0;">
+					
+					<view v-if="info.createPlace!=null" style="">
 						<text>地点:{{info.createPlace}}</text>
 					</view>
-
+					
 					<view v-if="info.relImage!=null">
 						<image :src="baseUrl+info.relImage" mode="aspectFit" style="width: 350rpx;height: 350rpx;"
 							@click.stop="previewImage(baseUrl+info.relImage)">
@@ -201,9 +206,9 @@
 									<text style="color: #767a82;" user-select>取消认领</text>
 								</view>
 						</view>
-						<view v-else style="margin: 0 0 0 130rpx;display: flex;background-color: #f4f4f4;">
+						<view v-else style="margin: 0 0 0 130rpx;display: flex;">
 							<image src="../../static/accept.png" style="width: 50rpx;height: 50rpx;">
-								<view style="margin: 3rpx 0 0 0;">
+								<view style="margin: 7rpx 0 0 0;">
 									<text style="color: #767a82;" user-select>已认领</text>
 								</view>
 						</view>

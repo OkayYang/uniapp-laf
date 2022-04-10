@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+view.data-v-7369b029, scroll-view.data-v-7369b029, swiper-item.data-v-7369b029 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-cell-group.data-v-7369b029 {
+  flex: 1;
+}
+.u-cell-group__title.data-v-7369b029 {
+  padding: 16px 16px 8px;
+}
+.u-cell-group__title__text.data-v-7369b029 {
+  font-size: 15px;
+  line-height: 16px;
+  color: #303133;
+}
+.u-cell-group__wrapper.data-v-7369b029 {
+  position: relative;
+}
+
