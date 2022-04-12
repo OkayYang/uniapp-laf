@@ -600,7 +600,7 @@
 			touchend(mainComment, acceptPeople) {
 				clearTimeout(this.timeout);
 				mainComment.comment.comStar = "#f3f3f3;";
-				if (this.timeout < 700) {
+				if (this.timeout < 500) {
 					this.replyInfo(mainComment, acceptPeople);
 				}
 			},
@@ -613,8 +613,8 @@
 					mainComment.comment.comStar = "#cbcbcb";
 					that.timeout = setTimeout(function() {
 						that.longClick(acceptPeople);
-						that.timeout = 701;
-					}, 700); //这里设置定时
+						that.timeout = 501;
+					}, 500); //这里设置定时
 				}
 
 
@@ -622,7 +622,7 @@
 			},
 			touchmove() {
 				clearTimeout(this.timeout); //清除定时器
-				this.timeout = 701;
+				this.timeout = 501;
 			},
 			longClick(acceptPeople) {
 				let that = this;

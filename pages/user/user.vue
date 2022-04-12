@@ -192,14 +192,23 @@
 											avatarUrl: file.userInfo.avatarUrl
 										},
 										(open) => {
-											console.log(open);
-											that.isLogin = true;
-											that.src = open.data.userInfo.stuImage;
-											that.nickName = open.data.userInfo.stuNick;
-											uni.showToast({
-												title: '登录成功!',
-												duration: 1000
-											});
+											if(open.data.code==0){
+												console.log(open);
+												that.isLogin = true;
+												that.src = open.data.userInfo.stuImage;
+												that.nickName = open.data.userInfo.stuNick;
+												uni.showToast({
+													title: '登录成功!',
+													duration: 1000
+												});
+											}else{
+												uni.showToast({
+													icon: "error",
+													title: '登陆失败!',
+													duration: 1000
+												});
+											}
+											
 										},
 										(error) => {
 											uni.showToast({

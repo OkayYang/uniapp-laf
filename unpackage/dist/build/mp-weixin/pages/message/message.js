@@ -29,7 +29,7 @@ Page({
                 type: 'loading',
                 message: '加载中...',
                 forbidClick: true,
-                duration:800,
+                duration:500,
                 onClose: () => {
                     this.setData({
                         isReady:true,

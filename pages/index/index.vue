@@ -3,7 +3,7 @@
 	<view class="square">
 		<view class="header" style="margin-top: 20rpx;width: 700rpx; margin: 20rpx auto;height: 165rpx;">
 			<u-search placeholder="请输入搜索内容" v-model="msg" shape="round" bgColor="#f4f4f4" :showAction="false"
-				@search="onSearch">
+				@search="onSearch" @clear="clearSearch">
 			</u-search>
 			<ren-dropdown-filter :filterData='filterData' :defaultIndex='defaultIndex' @onSelected='onSelected'
 				@dateCauseList='dateCauseList'>
@@ -220,11 +220,13 @@
 		 * 页面相关事件处理函数--监听用户下拉动作
 		 */
 		onPullDownRefresh: function() {
+			
 			uni.showNavigationBarLoading();
 			uni.stopPullDownRefresh({
 				success: (res) => {
-					this.onLoadClone3389({});
+					this.onLoadClone3389();
 					uni.hideNavigationBarLoading();
+					
 				}
 			});
 		},
@@ -321,6 +323,7 @@
 				console.log("!!!!");
 
 			},
+			
 
 			initSearchData() {
 
@@ -458,6 +461,11 @@
 				})
 				}
 			 },
+			 clearSearch:function(){
+				 this.initSearchData();
+				 this.lafRelease.relTitle = null;
+				 this.loadRelease();
+			 }
 
 		}
 

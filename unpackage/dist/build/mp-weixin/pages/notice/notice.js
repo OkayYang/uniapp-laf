@@ -30,7 +30,7 @@ Page({
                     type: 'loading',
                     message: '加载中...',
                     forbidClick: true,
-                    duration:1000,
+                    duration:800,
                     onClose: () => {
                         this.setData({
                             isReady:true,

@@ -409,11 +409,13 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
                                      * 页面相关事件处理函数--监听用户下拉动作
                                      */
   onPullDownRefresh: function onPullDownRefresh() {var _this = this;
+
     uni.showNavigationBarLoading();
     uni.stopPullDownRefresh({
       success: function success(res) {
-        _this.onLoadClone3389({});
+        _this.onLoadClone3389();
         uni.hideNavigationBarLoading();
+
       } });
 
   },
@@ -510,6 +512,7 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
       console.log("!!!!");
 
     },
+
 
     initSearchData: function initSearchData() {
 
@@ -646,6 +649,11 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
           content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。' });
 
       }
+    },
+    clearSearch: function clearSearch() {
+      this.initSearchData();
+      this.lafRelease.relTitle = null;
+      this.loadRelease();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
