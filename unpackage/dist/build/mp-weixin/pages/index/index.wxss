@@ -1,1 +1,0 @@
-.wrap{padding:24rpx}page{width:100%;background-color:#fff;min-height:100%}.goTop{height:100rpx;width:100rpx;position:fixed;bottom:50rpx;background:#fff!important;box-shadow:0 0 0 rgba(0,0,0,.2),0 0 0 hsla(0,0%,100%,.8),inset 4px 4px 10px rgba(0,0,0,.1),inset -3px -5px 10px #fff;right:30rpx;border-radius:50%}

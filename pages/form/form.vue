@@ -77,7 +77,7 @@
 
 				<view style="margin-top: 100rpx; ">
 					<button class="btn" style="width: 500rpx;height: 100rpx;" @click="postForm()">发
-						&nbsp;&nbsp;&nbsp;&nbsp;布</button>
+						&nbsp;&nbsp;&nbsp;布</button>
 				</view>
 
 			</u--form>
@@ -96,6 +96,7 @@
 </template>
 
 <script>
+	import {errdata} from '@/utils/errdata.js';
 	import request from '@/utils/request.js';
 	export default {
 		data() {
@@ -383,14 +384,18 @@
 						},
 						(res) => {
 							if (res.data.code == 0) {
-								uni.switchTab({
-									url: '../index/index',
-									success() {
-										var page = getCurrentPages().pop();
-										if (page == undefined || page == null) return;
-										page.onLoad();
-									}
-								})
+								errdata.errlist("正在加载","loading")
+								setTimeout(function(){
+									uni.switchTab({
+										url: '../index/index',
+										success() {
+											var page = getCurrentPages().pop();
+											if (page == undefined || page == null) return;
+											page.onLoad();
+										}
+									})
+								},2000)
+							
 							} else {
 								that.$refs.uToast.show({
 									type: 'error',
@@ -448,9 +453,9 @@
 	.btn {
 		width: 15rem;
 		height: 4rem;
-		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
-			inset 18px 18px 30px rgba(0, 0, 0, 0.1),
-			inset -18px -18px 30px rgba(255, 255, 255, 1);
+		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+			/* inset 18px 18px 30px rgba(0, 0, 0, 0.1), */
+			inset -18px -18px 30px rgba(227, 233, 246, 1.0);
 		justify-self: center;
 		display: flex;
 		align-items: center;
