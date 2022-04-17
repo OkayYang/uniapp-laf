@@ -1,6 +1,6 @@
 {
 	"pages": [
-		
+
 		// {
 		// 		"path": "pages/subscribe/subscribe",
 		// 		"style": {
@@ -8,15 +8,9 @@
 		// 			"enablePullDownRefresh": true
 		// 		}
 		// 	},
-			
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh":true
-			}
-		},
-		
+
+
+
 		{
 			"path": "pages/public/public",
 			"style": {
@@ -24,9 +18,19 @@
 				"disableScroll": true
 			}
 		},
-	
-		
-	
+
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
+			}
+		},
+
+
+
+
+
 		{
 			"path": "pages/word/word",
 			"style": {
@@ -34,7 +38,7 @@
 				"backgroundColor": "#F5F5F5"
 			}
 		},
-	
+
 		{
 			"path": "pages/form/form",
 			"style": {
@@ -44,8 +48,8 @@
 				"backgroundColor": "#F5F5F5"
 			}
 		},
-		
-	
+
+
 
 		{
 			"path": "pages/myPublish/myPublish",
@@ -62,7 +66,7 @@
 				"navigationBarTitleText": "个人信息"
 			}
 		},
-		
+
 		{
 			"path": "pages/user/user",
 			"style": {
@@ -70,7 +74,7 @@
 				//"disableScroll": true
 			}
 		},
-		
+
 		{
 			"path": "pages/detail/detail",
 			"style": {
@@ -80,7 +84,7 @@
 			}
 
 		},
-		 {
+		{
 			"path": "pages/message/message",
 			"style": {
 				"navigationBarTitleText": "",

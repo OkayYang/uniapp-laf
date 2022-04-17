@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订阅",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}
