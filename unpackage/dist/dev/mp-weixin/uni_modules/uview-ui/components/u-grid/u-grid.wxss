@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+view.data-v-121efd29, scroll-view.data-v-121efd29, swiper-item.data-v-121efd29 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-grid.data-v-121efd29 {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+

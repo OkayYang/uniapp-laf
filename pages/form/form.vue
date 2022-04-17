@@ -383,9 +383,9 @@
 							createPlace: that.model1.userInfo.clue,
 						},
 						(res) => {
+							errdata.errlist("正在发布","loading");
 							if (res.data.code == 0) {
-								errdata.errlist("正在加载","loading")
-								setTimeout(function(){
+								// setTimeout(function(){
 									uni.switchTab({
 										url: '../index/index',
 										success() {
@@ -394,7 +394,7 @@
 											page.onLoad();
 										}
 									})
-								},2000)
+								// },2000)
 							
 							} else {
 								that.$refs.uToast.show({
@@ -453,9 +453,9 @@
 	.btn {
 		width: 15rem;
 		height: 4rem;
-		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
+		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
 			/* inset 18px 18px 30px rgba(0, 0, 0, 0.1), */
-			inset -18px -18px 30px rgba(227, 233, 246, 1.0);
+			/* inset -18px -18px 30px rgba(227, 233, 246, 1.0); */
 		justify-self: center;
 		display: flex;
 		align-items: center;
