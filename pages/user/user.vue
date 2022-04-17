@@ -182,8 +182,7 @@
 							console.log(file);
 							uni.login({
 								success: (res) => {
-									that.itemList[0].show = true
-									that.itemList[1].show = true
+									
 									request.postRequest(
 										'/wx/api/login/check', {
 											code: res.code,
@@ -193,6 +192,9 @@
 										},
 										(open) => {
 											if(open.data.code==0){
+												//登录成功显示
+												that.itemList[0].show = true
+												that.itemList[1].show = true
 												console.log(open);
 												that.isLogin = true;
 												that.src = open.data.userInfo.stuImage;

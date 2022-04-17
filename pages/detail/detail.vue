@@ -287,6 +287,8 @@
 			return {
 				load: {
 					show: true,
+					list:false,
+					comment:false,
 				},
 				baseUrl: request.getHost(),
 				author: {
@@ -382,6 +384,7 @@
 
 		methods: {
 			reload(option) {
+				
 				this.option = option;
 				this.tid = option.tid;
 				this.category = [];
@@ -408,10 +411,35 @@
 					(res) => {
 						var info = res.data;
 						this.info = info;
-						this.load.show = false;
+						this.load.list=true;
+						if(this.load.comment){
+							this.load.show=false;
+						}
+						
 					}
 				);
-				this.getCommentList(this.tid);
+				request.getRequest(
+					'/wx/api/info/test', {
+						relId: this.tid
+					},
+					(res) => {
+						var comments = res.data;
+						this.comments = comments;
+						this.load.comment=true;
+						if(this.load.list){
+							this.load.show=false;
+						}
+						
+					}
+				);
+				// while(true){
+				// 	if(this.load.comment&this.load.list){
+				// 		this.load.show = false;
+				// 		this.load.comment=false;
+				// 		this.load.list=false;
+				// 	}
+					
+				// }
 			},
 			clear() {
 				this.input.msg = '';
@@ -600,7 +628,7 @@
 			touchend(mainComment, acceptPeople) {
 				clearTimeout(this.timeout);
 				mainComment.comment.comStar = "#f3f3f3;";
-				if (this.timeout < 500) {
+				if (this.timeout < 700) {
 					this.replyInfo(mainComment, acceptPeople);
 				}
 			},
@@ -613,8 +641,8 @@
 					mainComment.comment.comStar = "#cbcbcb";
 					that.timeout = setTimeout(function() {
 						that.longClick(acceptPeople);
-						that.timeout = 501;
-					}, 500); //这里设置定时
+						that.timeout = 701;
+					}, 700); //这里设置定时
 				}
 
 
@@ -622,7 +650,7 @@
 			},
 			touchmove() {
 				clearTimeout(this.timeout); //清除定时器
-				this.timeout = 501;
+				this.timeout = 701;
 			},
 			longClick(acceptPeople) {
 				let that = this;
@@ -703,17 +731,7 @@
 			 *
 			 * @param {t帖子ID} event
 			 */
-			getCommentList(tid) {
-				request.getRequest(
-					'/wx/api/info/test', {
-						relId: tid
-					},
-					(res) => {
-						var comments = res.data;
-						this.comments = comments;
-					}
-				);
-			},
+			
 			doComment() {
 				this.input.focus = true;
 			},
