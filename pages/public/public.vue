@@ -21,7 +21,7 @@
 					<image src="../../static/present.png" mode="" style="width: 50rpx;height: 50rpx;margin-left: 5%; margin-right:10rpx ;margin-bottom:-8rpx ;"></image>
 					每日诗词
 				</view>
-				<view style="border:1rpx solid rgba(230,225,215,0.8);width: 90%;margin: auto;margin-bottom: 50rpx;"></view>
+				<view style="border:1rpx solid rgba(230,225,215,0.8);width: 90%;margin: auto;margin-bottom: 60rpx;"></view>
 				<view class="poem">
 					{{content}}
 				</view>
@@ -69,6 +69,7 @@
 				</view>
 			</view>
 		</tui-modal>
+		
 
 
 	</view>
@@ -237,6 +238,7 @@
 		background: hsla(0, 0%, 100%, 0.3);
 		border-radius: 40rpx;
 		box-shadow: 10rpx 10rpx 5rpx #d0d1d2;
+		height:200rpx;
 	}
 
 	.poem {

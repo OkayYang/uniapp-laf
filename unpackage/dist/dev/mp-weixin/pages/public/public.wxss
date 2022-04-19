@@ -15,6 +15,7 @@
   background: rgba(255, 255, 255, 0.3);
   border-radius: 40rpx;
   box-shadow: 10rpx 10rpx 5rpx #d0d1d2;
+  height: 200rpx;
 }
 .poem.data-v-e1a4b4b4 {
   width: 600rpx;

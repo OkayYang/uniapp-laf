@@ -71,16 +71,19 @@
 
 					<radio :checked="check" style="transform:scale(.6) translateY(-5rpx) ;" color='#449bf8'
 						@click='changeRadio' />
-					已阅读并同意<text style='color:#449bf8' @click="openWord" >江理失物招领小程序隐私保护指引</text>
+					已阅读并同意<text style='color:#449bf8' @click="openWord">江理失物招领小程序隐私保护指引</text>
 
 				</view>
 
 				<view style="margin-top: 100rpx; ">
 					<button class="btn" style="width: 500rpx;height: 100rpx;" @click="postForm()">发
-						&nbsp;&nbsp;&nbsp;&nbsp;布</button>
+						&nbsp;&nbsp;&nbsp;布</button>
 				</view>
 
 			</u--form>
+			<tui-loading text="发布中.." v-if="isRequest"></tui-loading>
+			<u-toast ref="uToast"></u-toast>
+			
 
 		</view>
 	</view>
@@ -96,13 +99,19 @@
 </template>
 
 <script>
+
+	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
 	import request from '@/utils/request.js';
 	export default {
+			components:{
+				tuiLoading
+			},
 		data() {
 			return {
 				apiHost: request.getHost(),
 				err: true,
 				isShow: true,
+				isRequest: false,
 				rel_status: null,
 				navbar: null,
 				showCampus: false,
@@ -193,7 +202,7 @@
 				status: '',
 				thumb: '',
 				check: false,
-				isActive:false,
+				isActive: false,
 			};
 		},
 		onLoad: function(options) {
@@ -346,7 +355,7 @@
 								that.model1.userInfo.title = '捡到' + this.name + '的学生证'
 								that.value3 = '学生证号为' + strcard;
 								that.model1.userInfo.sort = "学生证"
-								that.model1.userInfo.value = 3
+								that.model1.userInfo.value = 3;
 
 							}
 							if (that.model1.userInfo.campus == null || that.model1.userInfo.campus ==
@@ -364,44 +373,59 @@
 			//提交表单
 			postForm() {
 				var that = this
-				this.isActive=false
-				
+				this.isActive = false
 				this.$refs.form1.validate().then(res => {
-				if (!this.check) {
-					this.isActive=true
-				return
-				}
-					request.postRequest('/wx/api/release/auth/add/check', {
-							relCampus: that.model1.userInfo.campus,
-							relCateId: that.model1.userInfo.value,
-							relContact: that.model1.userInfo.contact,
-							relDesc: that.value3,
-							relImage: that.photoUrl,
-							relStatus: that.rel_status,
-							relTitle: that.model1.userInfo.title,
-							createPlace: that.model1.userInfo.clue,
-						},
-						(res) => {
-							if (res.data.code == 0) {
-								uni.switchTab({
-									url: '../index/index',
-									success() {
-										var page = getCurrentPages().pop();
-										if (page == undefined || page == null) return;
-										page.onLoad();
-									}
-								})
-							} else {
+					if (!this.check) {
+						this.isActive = true;
+						return
+					}
+					if (that.isRequest == false) {
+						request.postRequest('/wx/api/release/auth/add/check', {
+								relCampus: that.model1.userInfo.campus,
+								relCateId: that.model1.userInfo.value,
+								relContact: that.model1.userInfo.contact,
+								relDesc: that.value3,
+								relImage: that.photoUrl,
+								relStatus: that.rel_status,
+								relTitle: that.model1.userInfo.title,
+								createPlace: that.model1.userInfo.clue,
+							},
+							(res) => {
+								if (res.data.code == 0) {
+									// setTimeout(function(){
+									that.isRequest = false;
+									uni.switchTab({
+										url: '../index/index',
+										success() {
+											var page = getCurrentPages().pop();
+											if (page == undefined || page == null) return;
+											page.onLoad();
+										}
+									})
+									// },2000)
+
+								} else {
+									that.isRequest = false;
+									
+									that.$refs.uToast.show({
+										type: 'error',
+										message: "发布失败!",
+										iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+									});
+								}
+							},
+							(error)=>{
+								that.isRequest = false;
 								that.$refs.uToast.show({
 									type: 'error',
-									message: "发布失败!",
+									message: "服务器异常!",
 									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
 								});
 							}
-						}
-					)
-
-
+						)
+					}
+					that.isRequest = true;
+					
 				})
 
 
@@ -422,7 +446,7 @@
 					this.check = false
 				} else {
 					this.check = true
-					this.isActive=false
+					this.isActive = false
 				}
 
 			}
@@ -448,9 +472,9 @@
 	.btn {
 		width: 15rem;
 		height: 4rem;
-		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
-			inset 18px 18px 30px rgba(0, 0, 0, 0.1),
-			inset -18px -18px 30px rgba(255, 255, 255, 1);
+		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
+		/* inset 18px 18px 30px rgba(0, 0, 0, 0.1), */
+		/* inset -18px -18px 30px rgba(227, 233, 246, 1.0); */
 		justify-self: center;
 		display: flex;
 		align-items: center;
@@ -459,36 +483,36 @@
 		border: none;
 		transition: 0.3s ease;
 	}
-	
-	.move{
-	    animation: finger .5s;
-		
+
+	.move {
+		animation: finger .5s;
+
 	}
-	
+
 	@keyframes finger {
-	0% {
-	
-	    transform: translate(-5px)
-	}
-	
-	
-	25% {
-	    transform: translate(5px)
-	}
-	
-	
-	50% {
-	    transform: translate(-5px)
-	}
-	
-	
-	75% {
-	    transform: translate(5px)
-	}
-	
-	100% {
-	    transform: translate(-5px)
-	}
-	
+		0% {
+
+			transform: translate(-5px)
+		}
+
+
+		25% {
+			transform: translate(5px)
+		}
+
+
+		50% {
+			transform: translate(-5px)
+		}
+
+
+		75% {
+			transform: translate(5px)
+		}
+
+		100% {
+			transform: translate(-5px)
+		}
+
 	}
 </style>

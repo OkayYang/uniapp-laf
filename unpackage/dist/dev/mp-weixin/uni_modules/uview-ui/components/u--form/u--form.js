@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _props = _interopRequireDefault(__webpack_require__(/*! ../u-form/props.js */ 312));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvForm = function uvForm() {Promise.all(/*! require.ensure | uni_modules/uview-ui/components/u-form/u-form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form/u-form")]).then((function () {return resolve(__webpack_require__(/*! ../u-form/u-form.vue */ 461));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _props = _interopRequireDefault(__webpack_require__(/*! ../u-form/props.js */ 312));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvForm = function uvForm() {Promise.all(/*! require.ensure | uni_modules/uview-ui/components/u-form/u-form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form/u-form")]).then((function () {return resolve(__webpack_require__(/*! ../u-form/u-form.vue */ 475));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
 
   name: 'u-form',

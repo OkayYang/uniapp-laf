@@ -108,13 +108,19 @@ try {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 321))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 267))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 228))
     },
     uActionSheet: function() {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 327))
     },
     "u-Textarea": function() {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u--textarea/u--textarea */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--textarea/u--textarea")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--textarea/u--textarea.vue */ 337))
+    },
+    tuiLoading: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
     }
   }
 } catch (e) {
@@ -286,13 +292,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 357));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
+  components: {
+    tuiLoading: tuiLoading },
+
   data: function data() {
     return {
       apiHost: _request.default.getHost(),
       err: true,
       isShow: true,
+      isRequest: false,
       rel_status: null,
       navbar: null,
       showCampus: false,
@@ -555,42 +570,57 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
     postForm: function postForm() {var _this4 = this;
       var that = this;
       this.isActive = false;
-
       this.$refs.form1.validate().then(function (res) {
         if (!_this4.check) {
           _this4.isActive = true;
           return;
         }
-        _request.default.postRequest('/wx/api/release/auth/add/check', {
-          relCampus: that.model1.userInfo.campus,
-          relCateId: that.model1.userInfo.value,
-          relContact: that.model1.userInfo.contact,
-          relDesc: that.value3,
-          relImage: that.photoUrl,
-          relStatus: that.rel_status,
-          relTitle: that.model1.userInfo.title,
-          createPlace: that.model1.userInfo.clue },
+        if (that.isRequest == false) {
+          _request.default.postRequest('/wx/api/release/auth/add/check', {
+            relCampus: that.model1.userInfo.campus,
+            relCateId: that.model1.userInfo.value,
+            relContact: that.model1.userInfo.contact,
+            relDesc: that.value3,
+            relImage: that.photoUrl,
+            relStatus: that.rel_status,
+            relTitle: that.model1.userInfo.title,
+            createPlace: that.model1.userInfo.clue },
 
-        function (res) {
-          if (res.data.code == 0) {
-            uni.switchTab({
-              url: '../index/index',
-              success: function success() {
-                var page = getCurrentPages().pop();
-                if (page == undefined || page == null) return;
-                page.onLoad();
-              } });
+          function (res) {
+            if (res.data.code == 0) {
+              // setTimeout(function(){
+              that.isRequest = false;
+              uni.switchTab({
+                url: '../index/index',
+                success: function success() {
+                  var page = getCurrentPages().pop();
+                  if (page == undefined || page == null) return;
+                  page.onLoad();
+                } });
 
-          } else {
+              // },2000)
+
+            } else {
+              that.isRequest = false;
+
+              that.$refs.uToast.show({
+                type: 'error',
+                message: "发布失败!",
+                iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+            }
+          },
+          function (error) {
+            that.isRequest = false;
             that.$refs.uToast.show({
               type: 'error',
-              message: "发布失败!",
+              message: "服务器异常!",
               iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
 
-          }
-        });
+          });
 
-
+        }
+        that.isRequest = true;
 
       });
 
