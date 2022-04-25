@@ -10,3 +10,6 @@
 .systemCell{
     margin-bottom: 30rpx;
 }
+.bottom{
+   text-align: center;
+}

@@ -7,6 +7,8 @@
     "u-grid-item": "/uni_modules/uview-ui/components/u-grid-item/u-grid-item",
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
     "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
-    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
+    "tui-loading": "/components/thorui/tui-loading/tui-loading",
+    "u-overlay": "/uni_modules/uview-ui/components/u-overlay/u-overlay"
   }
 }

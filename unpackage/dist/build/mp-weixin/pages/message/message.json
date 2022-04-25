@@ -5,7 +5,11 @@
   "van-cell": "../../wxcomponents/vant/cell/index",
   "van-cell-group": "../../wxcomponents/vant/cell-group/index",
   "van-empty": "../../wxcomponents/vant/empty/index",
-  "van-toast": "../../wxcomponents/vant/toast/index"
+  "van-toast": "../../wxcomponents/vant/toast/index",
+  "van-swipe-cell": "../../wxcomponents/vant/swipe-cell/index",
+  "van-image": "../../wxcomponents/vant/image/index",
+  "van-loading": "../../wxcomponents/vant/loading/index",
+  "van-divider": "../../wxcomponents/vant/divider/index"
   },
   "navigationBarTitleText": "消息通知",
   "backgroundColor": "#ffffff"

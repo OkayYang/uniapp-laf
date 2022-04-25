@@ -99,7 +99,7 @@ try {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 273))
     },
     uButton: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 388))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 396))
     },
     uGrid: function() {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 212))
@@ -114,7 +114,13 @@ try {
       return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
     },
     uModal: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 396))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 404))
+    },
+    tuiLoading: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
+    },
+    uOverlay: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -252,67 +258,75 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { name: 'user', data: function data() {return { isLogin: false, src: '/static/avatar.png', nickName: '', notify: { show: false, content: '是否退出登录？', title: '警告' }, baseList: [{ name: '/static/love.png', title: '我的订阅', url: '/pages/subscribe/subscribe' }, { name: '/static/message.png', title: '我的消息', url: '/pages/message/message' }, { name: '/static/output.png', title: '我的发布', url: '/pages/myPublish/myPublish?id=1' }, { name: '/static/claim.png', title: '我的认领', url: '/pages/myPublish/myPublish?id=4' }], itemList: [{ title: '个人信息', icon: '/static/personInfo.png', url: '/pages/personal/personal', show: false, now: false, open: '' }, { title: '绑定教务', icon: '/static/bind.png', url: '/pages/school/school', show: false, now: false, open: '' }, { title: '联系客服', icon: '/static/aboutMe.png', url: '#', show: true, now: true, open: 'contact' }, { title: '反馈与投诉',
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+{
+  components: {
+    tuiLoading: tuiLoading },
+
+  name: 'user',
+  data: function data() {
+    return {
+      mask: false,
+      isLogin: false,
+      isRequest: false,
+      src: '/static/avatar.png',
+      nickName: '',
+      notify: {
+        show: false,
+        content: '是否退出登录？',
+        title: '警告' },
+
+      baseList: [{
+        name: '/static/love.png',
+        title: '我的订阅',
+        url: '/pages/subscribe/subscribe' },
+
+
+      {
+        name: '/static/output.png',
+        title: '我的发布',
+        url: '/pages/myPublish/myPublish?id=1' },
+
+
+      {
+        name: '/static/claim.png',
+        title: '我的认领',
+        url: '/pages/myPublish/myPublish?id=4' },
+
+      {
+        name: '/static/message.png',
+        title: '消息中心',
+        url: '/pages/message/message' }],
+
+
+      itemList: [{
+        title: '个人信息',
+        icon: '/static/personInfo.png',
+        url: '/pages/personal/personal',
+        show: false,
+        now: false,
+        open: '' },
+
+      {
+        title: '绑定教务',
+        icon: '/static/bind.png',
+        url: '/pages/school/school',
+        show: false,
+        now: false,
+        open: '' },
+
+      {
+        title: '联系客服',
+        icon: '/static/aboutMe.png',
+        url: '#',
+        show: true,
+        now: true,
+        open: 'contact' },
+
+      {
+        title: '反馈与投诉',
         icon: '/static/help.png',
         url: '#',
         show: true,
@@ -375,7 +389,8 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
             console.log(file);
             uni.login({
               success: function success(res) {
-
+                that.isRequest = true;
+                that.mask = true;
                 _request.default.postRequest(
                 '/wx/api/login/check', {
                   code: res.code,
@@ -386,6 +401,8 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
                 function (open) {
                   if (open.data.code == 0) {
                     //登录成功显示
+                    that.isRequest = false;
+                    that.mask = false;
                     that.itemList[0].show = true;
                     that.itemList[1].show = true;
                     console.log(open);
@@ -397,6 +414,8 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
                       duration: 1000 });
 
                   } else {
+                    that.isRequest = false;
+                    that.mask = false;
                     uni.showToast({
                       icon: "error",
                       title: '登陆失败!',
@@ -406,6 +425,8 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
 
                 },
                 function (error) {
+                  that.isRequest = false;
+                  that.mask = false;
                   uni.showToast({
                     icon: "error",
                     title: '登陆失败!',
@@ -461,7 +482,7 @@ var _default = { name: 'user', data: function data() {return { isLogin: false, s
       this.notify.show = false;
     },
     itemClick: function itemClick(url) {
-      if (this.isLogin) {
+      if (this.isLogin || url.indexOf("message") > 0) {
         uni.navigateTo({
           url: url });
 

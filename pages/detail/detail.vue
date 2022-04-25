@@ -12,7 +12,7 @@
 					<view style="display: flex;flex-direction: column;margin: 10rpx 0 0 20rpx;">
 						<view>
 							<b style="width: 200rpx;">{{info.stuNick}}</b>
-<!-- 							<b>{{info.stuNick}}</b> -->
+							<!-- 							<b>{{info.stuNick}}</b> -->
 						</view>
 						<view style="width: 240rpx;margin: 1rpx 0 0 0;">
 							<text style="color:#909399;font-size: 23rpx;">{{info.createTime}}</text>
@@ -34,7 +34,7 @@
 				<view class="detail" style="width: 93%;margin:20rpx auto 0 auto;">
 					<!-- <u--text :text="info.describe"></u--text> -->
 					<view style="margin: 0 0 20rpx 0;">
-						<text >{{info.relTitle}}</text>
+						<text>{{info.relTitle}}</text>
 					</view>
 					<view style="margin: 0 0 20rpx 0rpx;" v-if="info.relDesc!=null">
 						<u-read-more>
@@ -52,11 +52,11 @@
 						<text>校区:{{info.relCampus}}</text>
 					</view>
 					<text v-if="info.relContact!=null">联系方式:{{info.relContact}}</text>
-					
+
 					<view v-if="info.createPlace!=null" style="">
 						<text>地点:{{info.createPlace}}</text>
 					</view>
-					
+
 					<view v-if="info.relImage!=null">
 						<image :src="baseUrl+info.relImage" mode="aspectFit" style="width: 350rpx;height: 350rpx;"
 							@click.stop="previewImage(baseUrl+info.relImage)">
@@ -158,8 +158,8 @@
 					</view>
 				</u-empty>
 			</view>
-			<u-toast ref="uToast"></u-toast>
-			<u-popup :show="isPopup" mode="bottom" bgColor="transparent">
+			<!-- <u-toast ref="uToast"></u-toast> -->
+			<!-- <u-popup :show="isPopup" mode="bottom" bgColor="transparent">
 				<view style="background-color: #b4b4b4;border-radius: 30rpx;">
 					<view class="popup" style="margin: 0 0 10rpx 0;" @click.stop="deleteComment()"><text
 							style="color: #ff0004;">删除</text>
@@ -167,7 +167,12 @@
 					<view class="popup" @click.stop="isPopup=false"><text style="color: #2979FF;">取消</text>
 					</view>
 				</view>
-			</u-popup>
+			</u-popup> -->
+			<view>
+				<tui-actionsheet :show="isPopup" :item-list="itemList" tips="确定删除该评论吗？" @click="deleteComment()"
+					@cancel="isPopup=false">
+				</tui-actionsheet>
+			</view>
 			<u-tabbar style="display: flex;align-items: center;position:relative;top:0;" :border="false">
 				<view v-if="!input.focus" class="unfocus-tabbar" style="display: flex;width: 100%;align-items: center;">
 					<view>
@@ -226,7 +231,9 @@
 							style="height: 150rpx;width: 150rpx;">
 						</image>
 						<view style="position: absolute;top:-20rpx;left:130rpx;font-size: 40rpx;color: #767A82;"
-							class="custom-icon custom-icon-guanbi" @click="cancelUpload"></view>
+							@click="cancelUpload">
+							<image src="../../static/close.png" style="width: 50rpx;height: 50rpx;"></image>
+						</view>
 					</view>
 					<image src="/static/picture.png" mode="scaleToFill"
 						style="width: 60rpx;height: 40rpx;margin: 35rpx 0 0 15rpx;" @click="uploadPicture"></image>
@@ -266,6 +273,9 @@
 				</view>
 			</tui-modal>
 		</view>
+		<tui-loading text="加载中..." v-if="isRequest"></tui-loading>
+		<u-toast ref="uToast"></u-toast>
+		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
 	</view>
 
 
@@ -274,6 +284,8 @@
 <script>
 	import tuiButton from "@/components/thorui/tui-button/tui-button"
 	import tuiModal from "@/components/thorui/tui-modal/tui-modal"
+	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
+	import tuiActionsheet from "@/components/thorui/tui-actionsheet/tui-actionsheet"
 	import formatTime from "@/utils/formatTime.js"
 	import request from "@/utils/request.js"
 
@@ -281,15 +293,20 @@
 		components: {
 			tuiButton,
 			tuiModal,
+			tuiLoading,
+			tuiActionsheet
+
 		},
 
 		data() {
 			return {
 				load: {
 					show: true,
-					list:false,
-					comment:false,
+					list: false,
+					comment: false,
 				},
+				mask: false,
+				isRequest: false,
 				baseUrl: request.getHost(),
 				author: {
 					"uid": null,
@@ -354,7 +371,11 @@
 				},
 				emptyComment: {
 					text: " ",
-				}
+				},
+				itemList: [{
+					text: "删除",
+					color: "#fe2c02"
+				}]
 
 
 			}
@@ -384,7 +405,7 @@
 
 		methods: {
 			reload(option) {
-				
+
 				this.option = option;
 				this.tid = option.tid;
 				this.category = [];
@@ -411,11 +432,11 @@
 					(res) => {
 						var info = res.data;
 						this.info = info;
-						this.load.list=true;
-						if(this.load.comment){
-							this.load.show=false;
+						this.load.list = true;
+						if (this.load.comment) {
+							this.load.show = false;
 						}
-						
+
 					}
 				);
 				request.getRequest(
@@ -425,11 +446,11 @@
 					(res) => {
 						var comments = res.data;
 						this.comments = comments;
-						this.load.comment=true;
-						if(this.load.list){
-							this.load.show=false;
+						this.load.comment = true;
+						if (this.load.list) {
+							this.load.show = false;
 						}
-						
+
 					}
 				);
 				// while(true){
@@ -438,7 +459,7 @@
 				// 		this.load.comment=false;
 				// 		this.load.list=false;
 				// 	}
-					
+
 				// }
 			},
 			clear() {
@@ -475,7 +496,8 @@
 			},
 			comment() {
 				if (this.isLogin()) {
-
+					this.isRequest = true;
+					this.mask = true;
 					uni.requestSubscribeMessage({
 						tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
 							'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
@@ -519,6 +541,8 @@
 										},
 										(res) => {
 											if (res.data.code == 0) {
+												that.isRequest = false;
+												that.mask = false;
 												request.getRequest(
 													'/wx/api/info/test?relId=' + this.tid, null, (
 														res) => {
@@ -539,15 +563,26 @@
 												this.input.cid++;
 												this.input.placeholder = "请发送一条友善的评论";
 											} else {
+												that.isRequest = false;
+												that.mask = false;
 												this.paneAlert();
 											}
 
 										},
+										(error) => {
+											this.isRequest = false;
+											that.mask = false;
+											this.paneAlert();
+
+										}
 
 									);
 								}
 							})
 						} else {
+							let that = this;
+							that.isRequest = true;
+							that.mask = true;
 							request.postRequest(
 								'/wx/api/info/auth/comment/add', {
 									comRelId: that.tid,
@@ -557,6 +592,8 @@
 								},
 								(res) => {
 									if (res.data.code == 0) {
+										that.isRequest = false;
+										that.mask = false;
 										request.getRequest(
 											'/wx/api/info/test?relId=' + this.tid, null, (res) => {
 												that.comments = res.data;
@@ -576,8 +613,15 @@
 										this.input.cid++;
 										this.input.placeholder = "请发送一条友善的评论";
 									} else {
+										that.isRequest = false;
+										that.mask = false;
 										this.paneAlert();
 									}
+								},
+								(error) => {
+									that.isRequest = false;
+									that.mask = false;
+									that.paneAlert();
 								}
 							);
 						}
@@ -659,19 +703,37 @@
 
 			},
 			deleteComment() {
+				this.isRequest = true;
+				this.mask = true;
 				request.getRequest(
-					'/wx/api/info/auth/comment/delete?id=' + this.delete.id, null, (res) => {
+					'/wx/api/info/auth/comment/delete?id=' + this.delete.id, null,
+					(res) => {
 						if (res.data.code == 0) {
+							this.$refs.uToast.show({
+								type: 'success',
+								message: "删除评论成功",
+								duration: 700,
+								iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
+							});
 							request.getRequest(
 								'/wx/api/info/test?relId=' + this.tid, null, (res) => {
 									this.comments = res.data;
+									this.isRequest = false;
+									this.mask = false;
 									this.isPopup = false;
 								}
 							)
 						} else {
 							this.isPopup = false;
+							this.isRequest = false;
+							this.mask = false;
 							paneAlert();
 						}
+					},
+					(error) => {
+						that.isRequest = false;
+						that.mask = false;
+						paneAlert();
 					});
 			},
 			accept() {
@@ -701,16 +763,22 @@
 					this.renling.button[1].type = "gray";
 				} else {
 					if (this.waitTime == 0) {
+						this.isRequest = true;
+						this.mask = true;
 						request.getRequest(
-							'/wx/api/info/auth/claim?relId=' + this.tid, null, (res) => {
+							'/wx/api/info/auth/claim?relId=' + this.tid, null,
+							(res) => {
 								if (res.data.code == 0) {
-									// this.renling.show = false;
+									this.isRequest = false;
+									this.mask = false;
+									this.renling.show = false;
 									this.$refs.uToast.show({
 										type: 'success',
 										message: "认领成功",
 										duration: 700,
 										iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
 									});
+
 									this.renling.show = false;
 									this.waitTime = 5;
 									this.renling.button[1].text = "5s";
@@ -719,9 +787,16 @@
 									this.reload(this.option);
 
 								} else {
+									this.isRequest = false;
+									this.mask = false;
 									this.renling.show = false;
 									this.paneAlert();
 								}
+							},
+							(error) => {
+								this.isRequest = false;
+								this.mask = false;
+								this.paneAlert();
 							}
 						)
 					}
@@ -731,7 +806,7 @@
 			 *
 			 * @param {t帖子ID} event
 			 */
-			
+
 			doComment() {
 				this.input.focus = true;
 			},
@@ -752,16 +827,33 @@
 					this.renling.reShow = false;
 				} else {
 					this.renling.reShow = false;
+					this.isRequest = true;
+					this.mask = true;
 					request.getRequest(
 						'/wx/api/info/auth/unClaim?relId=' + this.tid, null,
 						(res) => {
 							if (res.data.code == 0) {
+								this.isRequest = false;
+								this.mask = false;
+								this.$refs.uToast.show({
+									type: 'success',
+									message: "取消认领成功",
+									duration: 700,
+									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
+								});
 								this.reload(this.option);
 								this.$store.state.fresh = true;
 							} else {
+								this.isRequest = false;
+								this.mask = false;
 								this.paneAlert();
 							}
 
+						},
+						(error) => {
+							this.isRequest = false;
+							this.mask = false;
+							this.paneAlert();
 						}
 					);
 				}

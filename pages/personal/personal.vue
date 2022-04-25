@@ -41,12 +41,19 @@
 
 			</u-cell-group>
 		</view>
+		<u-toast ref="uToast"></u-toast>
+		<tui-loading text="保存中..." v-if="isRequest"></tui-loading>
+		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
 	</view>
 </template>
 
 <script>
 	import request from '@/utils/request.js';
+	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
 	export default {
+		components: {
+			tuiLoading
+		},
 		data() {
 			return {
 				userInfo: {
@@ -65,6 +72,8 @@
 				show: false,
 				title: '',
 				change: '', //修改的信息
+				mask: false,
+				isRequest: false,
 			}
 		},
 		onLoad() {
@@ -78,6 +87,13 @@
 		},
 
 		methods: {
+			paneAlert() {
+				this.$refs.uToast.show({
+					type: 'fail',
+					message: "异常错误",
+					duration: 700,
+				});
+			},
 			open(t) {
 				this.show = true
 				this.title = t //在这里设置打开时提示是修改QQ还是昵称
@@ -94,7 +110,8 @@
 				} else if (this.title == "QQ") {
 					this.userInfo.stuQq = this.change
 				}
-
+				this.isRequest = true;
+				this.mask = true;
 
 				request.postRequest('/wx/api/student/auth/edit', {
 						stuNick: this.userInfo.stuNick,
@@ -102,20 +119,35 @@
 					},
 					(res) => {
 						if (res.data.code == 0 && res.statusCode == 200) {
+							this.isRequest = false;
+							this.mask = false;
+							uni.showToast({
+								title: '修改成功!',
+								duration: 1000
+							});
 							request.getRequest('/wx/api/student/auth/my', {
-							
-							},
-									(res)=>{
-											console.log(res)
-										uni.setStorage({
-										
-											key:'userInfo',
-											data:res.data
-										})
-									}
-								
+								},
+								(res) => {
+									console.log(res)
+									uni.setStorage({
+										key: 'userInfo',
+										data: res.data
+									})
+								}
+
 							)
-							}
+						}else{
+							this.$refs.uToast.show({
+								type: 'fail',
+								message: "修改失败",
+								duration: 700,
+							});
+						}
+					},
+					(error)=>{
+						this.isRequest = false;
+						this.mask = false;
+						this.paneAlert();
 					}
 
 				)

@@ -9,6 +9,10 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isReady: false,
+        flag1:false,
+        flag2:false,
+        flag2:false,
         index:0,
         baseUrl:request.getHost(),
         value:null,
@@ -44,8 +48,15 @@ Page({
                 (res)=>{
                     let array = res.data.rows
                     this.setData({
-                        shiwu:array
+                        shiwu:array,
+                        flag1:true,
                     })
+                    if(this.data.flag1&&this.data.flag2&&this.data.flag3){
+                        Toast.clear();
+                        this.setData({
+                            isReady:true
+                        })
+                    }
                 },
                 (error)=>{
                     Toast.fail('网络开小差了');
@@ -60,8 +71,15 @@ Page({
                     (res)=>{
                         let array = res.data.rows
                         this.setData({
-                            zhaoling:array
+                            zhaoling:array,
+                            flag2:true,
                         })
+                        if(this.data.flag1&&this.data.flag2&&this.data.flag3){
+                            Toast.clear();
+                            this.setData({
+                                isReady:true
+                            })
+                        }
                     },
                     (error)=>{
                         Toast.fail('网络开小差了');
@@ -76,8 +94,15 @@ Page({
                         (res)=>{
                             let array = res.data.rows
                             this.setData({
-                                successlist:array
+                                successlist:array,
+                                flag3:true
                             })
+                            if(this.data.flag1&&this.data.flag2&&this.data.flag3){
+                                Toast.clear();
+                                this.setData({
+                                    isReady:true
+                                })
+                            }
                         },
                         (error)=>{
                             Toast.fail('网络开小差了');
@@ -153,6 +178,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options.id)
+        if(options.id==4){
+            this.setData({
+                index:2
+            })
+        }
+        Toast({
+            type: 'loading',
+            message: '加载中...',
+            forbidClick: true,
+            duration: 0,
+        });
         this.refresh('0');
         this.refresh('1');
         this.refresh('2');

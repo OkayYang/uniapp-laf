@@ -13,8 +13,7 @@
 						<u-avatar :src="src" size="70"></u-avatar>
 					</view>
 
-					<view class='name'
-						style="height: 90rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
+					<view class='name' style="height: 90rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
 						<u-button v-if="!isLogin" shape="circle" text="请先登录" style="width: 200rpx;"></u-button>
 						<text v-else>{{nickName}}</text>
 					</view>
@@ -55,16 +54,24 @@
 
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
+		<tui-loading text="登陆中..." v-if="isRequest"></tui-loading>
+		<u-overlay  :show="mask" :opacity="0.3"></u-overlay>
 	</view>
 </template>
 
 <script>
+	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
 	import request from '@/utils/request.js';
 	export default {
+		components: {
+			tuiLoading
+		},
 		name: 'user',
 		data() {
 			return {
+				mask:false,
 				isLogin: false,
+				isRequest:false,
 				src: '/static/avatar.png',
 				nickName: '',
 				notify: {
@@ -75,13 +82,9 @@
 				baseList: [{
 						name: '/static/love.png',
 						title: '我的订阅',
-						url: '/pages/subscribe/subscribe'
+						url: '/pages/subscribe/subscribe',
 					},
-					{
-						name: '/static/message.png',
-						title: '我的消息',
-						url: '/pages/message/message'
-					},
+					
 					{
 						name: '/static/output.png',
 						title: '我的发布',
@@ -92,6 +95,11 @@
 						name: '/static/claim.png',
 						title: '我的认领',
 						url: '/pages/myPublish/myPublish?id=4'
+					},
+					{
+						name: '/static/message.png',
+						title: '消息中心',
+						url: '/pages/message/message'
 					},
 				],
 				itemList: [{
@@ -182,7 +190,8 @@
 							console.log(file);
 							uni.login({
 								success: (res) => {
-									
+									that.isRequest=true;
+									that.mask=true;
 									request.postRequest(
 										'/wx/api/login/check', {
 											code: res.code,
@@ -191,8 +200,10 @@
 											avatarUrl: file.userInfo.avatarUrl
 										},
 										(open) => {
-											if(open.data.code==0){
+											if (open.data.code == 0) {
 												//登录成功显示
+												that.isRequest=false;
+												that.mask=false;
 												that.itemList[0].show = true
 												that.itemList[1].show = true
 												console.log(open);
@@ -203,16 +214,20 @@
 													title: '登录成功!',
 													duration: 1000
 												});
-											}else{
+											} else {
+												that.isRequest=false;
+												that.mask=false;
 												uni.showToast({
 													icon: "error",
 													title: '登陆失败!',
 													duration: 1000
 												});
 											}
-											
+
 										},
 										(error) => {
+											that.isRequest=false;
+											that.mask=false;
 											uni.showToast({
 												icon: "error",
 												title: '登陆失败!',
@@ -268,7 +283,7 @@
 				this.notify.show = false;
 			},
 			itemClick(url) {
-				if (this.isLogin) {
+				if (this.isLogin||url.indexOf("message")>0) {
 					uni.navigateTo({
 						url: url,
 					})

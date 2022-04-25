@@ -629,7 +629,7 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
 
     // // 获取滚动条当前位置
     onPageScroll: function onPageScroll(e) {
-      console.log(e);
+      //console.log(e)
       if (e.scrollTop > 300) {
         this.floor = false;
       } else {

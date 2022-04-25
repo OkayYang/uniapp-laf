@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _props = _interopRequireDefault(__webpack_require__(/*! ../u-textarea/props.js */ 342));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvTextarea = function uvTextarea() {__webpack_require__.e(/*! require.ensure | uni_modules/uview-ui/components/u-textarea/u-textarea */ "uni_modules/uview-ui/components/u-textarea/u-textarea").then((function () {return resolve(__webpack_require__(/*! ../u-textarea/u-textarea.vue */ 498));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _props = _interopRequireDefault(__webpack_require__(/*! ../u-textarea/props.js */ 342));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvTextarea = function uvTextarea() {__webpack_require__.e(/*! require.ensure | uni_modules/uview-ui/components/u-textarea/u-textarea */ "uni_modules/uview-ui/components/u-textarea/u-textarea").then((function () {return resolve(__webpack_require__(/*! ../u-textarea/u-textarea.vue */ 520));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   name: 'u--textarea',
   mixins: [uni.$u.mpMixin, _props.default, uni.$u.mixin],

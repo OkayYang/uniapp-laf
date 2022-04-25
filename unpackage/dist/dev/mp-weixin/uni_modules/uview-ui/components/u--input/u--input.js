@@ -188,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _props = _interopRequireDefault(__webpack_require__(/*! ../u-input/props.js */ 326));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvInput = function uvInput() {__webpack_require__.e(/*! require.ensure | uni_modules/uview-ui/components/u-input/u-input */ "uni_modules/uview-ui/components/u-input/u-input").then((function () {return resolve(__webpack_require__(/*! ../u-input/u-input.vue */ 483));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _props = _interopRequireDefault(__webpack_require__(/*! ../u-input/props.js */ 326));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uvInput = function uvInput() {__webpack_require__.e(/*! require.ensure | uni_modules/uview-ui/components/u-input/u-input */ "uni_modules/uview-ui/components/u-input/u-input").then((function () {return resolve(__webpack_require__(/*! ../u-input/u-input.vue */ 505));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   name: 'u--input',
   mixins: [uni.$u.mpMixin, _props.default, uni.$u.mixin],

@@ -440,7 +440,7 @@
 
 			// // 获取滚动条当前位置
 			 onPageScroll: function(e) {
-				console.log(e)
+				//console.log(e)
 			 	if (e.scrollTop >300) {
 				this.floor = false
 				} else {

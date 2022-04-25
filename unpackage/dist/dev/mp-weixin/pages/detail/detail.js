@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uLoadingPage: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-page/u-loading-page.vue */ 404))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-page/u-loading-page.vue */ 412))
     },
     uAvatar: function() {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 273))
@@ -105,22 +105,19 @@ try {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 281))
     },
     uReadMore: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-read-more/u-read-more */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-read-more/u-read-more")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-read-more/u-read-more.vue */ 412))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-read-more/u-read-more */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-read-more/u-read-more")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-read-more/u-read-more.vue */ 420))
     },
     uLine: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 420))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 428))
     },
     uEmpty: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-empty/u-empty.vue */ 428))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-empty/u-empty.vue */ 436))
     },
-    uToast: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
-    },
-    uPopup: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 364))
+    tuiActionsheet: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet */ "node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet.vue */ 444))
     },
     uTabbar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tabbar/u-tabbar.vue */ 436))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tabbar/u-tabbar.vue */ 451))
     },
     tuiModal: function() {
       return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 237))
@@ -130,6 +127,15 @@ try {
     },
     tuiButton: function() {
       return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 244))
+    },
+    tuiLoading: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
+    },
+    uOverlay: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -155,7 +161,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   if (!_vm._isMounted) {
     _vm.e0 = function($event) {
-      $event.stopPropagation()
       _vm.isPopup = false
     }
 
@@ -476,13 +481,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 var _formatTime = _interopRequireDefault(__webpack_require__(/*! @/utils/formatTime.js */ 197));
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiButton = function tuiButton() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-button/tui-button */ "components/thorui/tui-button/tui-button").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-button/tui-button */ 444));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiButton = function tuiButton() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-button/tui-button */ "components/thorui/tui-button/tui-button").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-button/tui-button */ 459));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiActionsheet = function tuiActionsheet() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-actionsheet/tui-actionsheet */ "components/thorui/tui-actionsheet/tui-actionsheet").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-actionsheet/tui-actionsheet */ 466));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
     tuiButton: tuiButton,
-    tuiModal: tuiModal },
+    tuiModal: tuiModal,
+    tuiLoading: tuiLoading,
+    tuiActionsheet: tuiActionsheet },
+
 
 
   data: function data() {
@@ -492,6 +512,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         list: false,
         comment: false },
 
+      mask: false,
+      isRequest: false,
       baseUrl: _request.default.getHost(),
       author: {
         "uid": null,
@@ -555,7 +577,11 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         show: false },
 
       emptyComment: {
-        text: " " } };
+        text: " " },
+
+      itemList: [{
+        text: "删除",
+        color: "#fe2c02" }] };
 
 
 
@@ -677,21 +703,22 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
     },
     comment: function comment() {var _this3 = this;
       if (this.isLogin()) {
-
-        uni.requestSubscribeMessage({
-          tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
-          'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
-          'yN2LMy5FBS8ha9Fq-akQTag3SWgx9uvgTG5J3ABVGYw'],
-
-          success: function success(res) {
-            console.log("SubscribeMessageSuccess");
-            console.log(res);
-          },
-          fail: function fail(res) {
-            console.log("SubscribeMessageError");
-            console.log(res);
-          } });
-
+        this.isRequest = true;
+        this.mask = true;
+        // uni.requestSubscribeMessage({
+        // 	tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
+        // 		'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
+        // 		'yN2LMy5FBS8ha9Fq-akQTag3SWgx9uvgTG5J3ABVGYw'
+        // 	],
+        // 	success(res) {
+        // 		console.log("SubscribeMessageSuccess");
+        // 		console.log(res);
+        // 	},
+        // 	fail(res) {
+        // 		console.log("SubscribeMessageError");
+        // 		console.log(res);
+        // 	}
+        // });
 
         if (this.input.msg.length < 1 && !this.input.isUpload) {
           this.$refs.uToast.show({
@@ -700,31 +727,33 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
             iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
 
         } else {
-          var that = this;
+          var _that = this;
           var now = new Date();
           var time = (0, _formatTime.default)(now);
           var urlImage = null;
           if (this.input.isUpload) {
             uni.uploadFile({
-              url: that.baseUrl + '/wx/api/info/upload',
-              filePath: that.input.uploadPath,
+              url: _that.baseUrl + '/wx/api/info/upload',
+              filePath: _that.input.uploadPath,
               name: 'file',
               success: function success(res) {
                 urlImage = res.data;
-                console.log(that.input);
+                console.log(_that.input);
                 _request.default.postRequest(
                 '/wx/api/info/auth/comment/add', {
-                  comRelId: that.tid,
-                  comContent: that.input.msg,
-                  parentId: that.input.acceptPeople,
+                  comRelId: _that.tid,
+                  comContent: _that.input.msg,
+                  parentId: _that.input.acceptPeople,
                   comImage: urlImage },
 
                 function (res) {
                   if (res.data.code == 0) {
+                    _that.isRequest = false;
+                    _that.mask = false;
                     _request.default.getRequest(
                     '/wx/api/info/test?relId=' + _this3.tid, null, function (
                     res) {
-                      that.comments = res.data;
+                      _that.comments = res.data;
                     });
 
                     _this3.$refs.uToast.show({
@@ -741,8 +770,16 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
                     _this3.input.cid++;
                     _this3.input.placeholder = "请发送一条友善的评论";
                   } else {
+                    _that.isRequest = false;
+                    _that.mask = false;
                     _this3.paneAlert();
                   }
+
+                },
+                function (error) {
+                  _this3.isRequest = false;
+                  _that.mask = false;
+                  _this3.paneAlert();
 
                 });
 
@@ -750,18 +787,23 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
               } });
 
           } else {
+            var _that2 = this;
+            _that2.isRequest = true;
+            _that2.mask = true;
             _request.default.postRequest(
             '/wx/api/info/auth/comment/add', {
-              comRelId: that.tid,
-              comContent: that.input.msg,
-              parentId: that.input.acceptPeople,
+              comRelId: _that2.tid,
+              comContent: _that2.input.msg,
+              parentId: _that2.input.acceptPeople,
               comImage: urlImage },
 
             function (res) {
               if (res.data.code == 0) {
+                _that2.isRequest = false;
+                _that2.mask = false;
                 _request.default.getRequest(
                 '/wx/api/info/test?relId=' + _this3.tid, null, function (res) {
-                  that.comments = res.data;
+                  _that2.comments = res.data;
                 });
 
                 _this3.$refs.uToast.show({
@@ -778,8 +820,15 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
                 _this3.input.cid++;
                 _this3.input.placeholder = "请发送一条友善的评论";
               } else {
+                _that2.isRequest = false;
+                _that2.mask = false;
                 _this3.paneAlert();
               }
+            },
+            function (error) {
+              _that2.isRequest = false;
+              _that2.mask = false;
+              _that2.paneAlert();
             });
 
           }
@@ -861,19 +910,37 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
     },
     deleteComment: function deleteComment() {var _this4 = this;
+      this.isRequest = true;
+      this.mask = true;
       _request.default.getRequest(
-      '/wx/api/info/auth/comment/delete?id=' + this.delete.id, null, function (res) {
+      '/wx/api/info/auth/comment/delete?id=' + this.delete.id, null,
+      function (res) {
         if (res.data.code == 0) {
+          _this4.$refs.uToast.show({
+            type: 'success',
+            message: "删除评论成功",
+            duration: 700,
+            iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png' });
+
           _request.default.getRequest(
           '/wx/api/info/test?relId=' + _this4.tid, null, function (res) {
             _this4.comments = res.data;
+            _this4.isRequest = false;
+            _this4.mask = false;
             _this4.isPopup = false;
           });
 
         } else {
           _this4.isPopup = false;
+          _this4.isRequest = false;
+          _this4.mask = false;
           paneAlert();
         }
+      },
+      function (error) {
+        that.isRequest = false;
+        that.mask = false;
+        paneAlert();
       });
     },
     accept: function accept() {var _this5 = this;
@@ -903,15 +970,21 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         this.renling.button[1].type = "gray";
       } else {
         if (this.waitTime == 0) {
+          this.isRequest = true;
+          this.mask = true;
           _request.default.getRequest(
-          '/wx/api/info/auth/claim?relId=' + this.tid, null, function (res) {
+          '/wx/api/info/auth/claim?relId=' + this.tid, null,
+          function (res) {
             if (res.data.code == 0) {
-              // this.renling.show = false;
+              _this6.isRequest = false;
+              _this6.mask = false;
+              _this6.renling.show = false;
               _this6.$refs.uToast.show({
                 type: 'success',
                 message: "认领成功",
                 duration: 700,
                 iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png' });
+
 
               _this6.renling.show = false;
               _this6.waitTime = 5;
@@ -921,9 +994,16 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
               _this6.reload(_this6.option);
 
             } else {
+              _this6.isRequest = false;
+              _this6.mask = false;
               _this6.renling.show = false;
               _this6.paneAlert();
             }
+          },
+          function (error) {
+            _this6.isRequest = false;
+            _this6.mask = false;
+            _this6.paneAlert();
           });
 
         }
@@ -954,16 +1034,33 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         this.renling.reShow = false;
       } else {
         this.renling.reShow = false;
+        this.isRequest = true;
+        this.mask = true;
         _request.default.getRequest(
         '/wx/api/info/auth/unClaim?relId=' + this.tid, null,
         function (res) {
           if (res.data.code == 0) {
+            _this7.isRequest = false;
+            _this7.mask = false;
+            _this7.$refs.uToast.show({
+              type: 'success',
+              message: "取消认领成功",
+              duration: 700,
+              iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png' });
+
             _this7.reload(_this7.option);
             _this7.$store.state.fresh = true;
           } else {
+            _this7.isRequest = false;
+            _this7.mask = false;
             _this7.paneAlert();
           }
 
+        },
+        function (error) {
+          _this7.isRequest = false;
+          _this7.mask = false;
+          _this7.paneAlert();
         });
 
       }

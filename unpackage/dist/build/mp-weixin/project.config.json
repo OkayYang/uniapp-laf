@@ -36,7 +36,7 @@
         "minifyWXML": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.23.4",
+    "libVersion": "2.24.0",
     "appid": "wx39b85c8911cd3be5",
     "projectname": "uniapp-laf",
     "condition": {},

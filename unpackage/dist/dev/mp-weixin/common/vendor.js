@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7647,7 +7647,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7668,14 +7668,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7761,7 +7761,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -18982,11 +18982,11 @@ platform;exports.default = _default;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(uni) {var apiHost = 'http://localhost:80';
+/* WEBPACK VAR INJECTION */(function(uni) {//var apiHost = 'http://localhost:80';
 //var apiHost = "http://101.42.222.167"
 //var apiHost = "http://xiaoyang.asia"
 // var apiHost = "http://192.168.3.32:80";
-//var apiHost = "https://laf.4w3w.com"
+var apiHost = "https://laf.4w3w.com";
 
 //yang
 //var apiHost = "http://192.168.3.104:80";
@@ -21014,14 +21014,53 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 359 */,
 /* 360 */,
 /* 361 */,
-/* 362 */,
+/* 362 */
+/*!***********************************************************************************************!*\
+  !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-overlay/props.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    // 是否显示遮罩
+    show: {
+      type: Boolean,
+      default: uni.$u.props.overlay.show },
+
+    // 层级z-index
+    zIndex: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.zIndex },
+
+    // 遮罩的过渡时间，单位为ms
+    duration: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.duration },
+
+    // 不透明度值，当做rgba的第四个参数
+    opacity: {
+      type: [String, Number],
+      default: uni.$u.props.overlay.opacity } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 363 */,
 /* 364 */,
 /* 365 */,
 /* 366 */,
 /* 367 */,
 /* 368 */,
-/* 369 */
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */
 /*!*********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-popup/props.js ***!
   \*********************************************************************************************/
@@ -21108,14 +21147,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */
 /*!**************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-cell-group/props.js ***!
   \**************************************************************************************************/
@@ -21137,14 +21176,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */
 /*!********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-cell/props.js ***!
   \********************************************************************************************/
@@ -21262,14 +21301,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */
 /*!**********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-button/props.js ***!
   \**********************************************************************************************/
@@ -21438,14 +21477,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */
 /*!*********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-modal/props.js ***!
   \*********************************************************************************************/
@@ -21537,14 +21576,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */
 /*!****************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-loading-page/props.js ***!
   \****************************************************************************************************/
@@ -21596,14 +21635,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */
 /*!*************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-read-more/props.js ***!
   \*************************************************************************************************/
@@ -21672,14 +21711,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */
 /*!********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-line/props.js ***!
   \********************************************************************************************/
@@ -21720,14 +21759,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */
 /*!*********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-empty/props.js ***!
   \*********************************************************************************************/
@@ -21794,14 +21833,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */
 /*!**********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-tabbar/props.js ***!
   \**********************************************************************************************/
@@ -21853,21 +21899,28 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */
 /*!********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-text/props.js ***!
   \********************************************************************************************/
@@ -21985,12 +22038,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */,
-/* 462 */
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */
 /*!**************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-transition/props.js ***!
   \**************************************************************************************************/
@@ -22022,7 +22075,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 463 */
+/* 485 */
 /*!*******************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-transition/transition.js ***!
   \*******************************************************************************************************/
@@ -22033,7 +22086,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 36));
 
 
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 464));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 486));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {return new Promise(function (resolve) {return setTimeout(resolve, 1000 / 50);});}; // nvue动画模块实现细节抽离在外部文件
 
 // 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
@@ -22185,7 +22238,7 @@ var getClassNames = function getClassNames(name) {return {
     } } };exports.default = _default;
 
 /***/ }),
-/* 464 */
+/* 486 */
 /*!*********************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \*********************************************************************************************************/
@@ -22261,14 +22314,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     'leave-to': { opacity: 0, transform: 'scale(0.95)' } } };exports.default = _default;
 
 /***/ }),
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */
 /*!****************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
   \****************************************************************************************************/
@@ -22335,14 +22388,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */
 /*!**********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/libs/util/async-validator.js ***!
   \**********************************************************************************************/
@@ -22372,7 +22425,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var formatRegExp = /%[sdj%]/g;
 var warning = function warning() {}; // don't print warning message when in production env or node runtime
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
+if (typeof process !== 'undefined' && Object({"VUE_APP_NAME":"uniapp-laf","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
 'undefined' && typeof document !== 'undefined') {
   warning = function warning(type, errors) {
     if (typeof console !== 'undefined' && console.warn) {
@@ -23694,10 +23747,10 @@ Schema.messages = messages;var _default =
 Schema;
 // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../Development kit/HBuilderX.3.1.13.20210514.full/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 481)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../Development kit/HBuilderX.3.1.13.20210514.full/HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 503)))
 
 /***/ }),
-/* 481 */
+/* 503 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -23728,7 +23781,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 482);
+        if (!path) path = __webpack_require__(/*! path */ 504);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -23741,7 +23794,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 482 */
+/* 504 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -24051,22 +24104,22 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 481)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 503)))
 
 /***/ }),
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */,
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */
 /*!*******************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-gap/props.js ***!
   \*******************************************************************************************/
@@ -24098,60 +24151,21 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */,
-/* 508 */,
-/* 509 */,
-/* 510 */
-/*!***********************************************************************************************!*\
-  !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-overlay/props.js ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  props: {
-    // 是否显示遮罩
-    show: {
-      type: Boolean,
-      default: uni.$u.props.overlay.show },
-
-    // 层级z-index
-    zIndex: {
-      type: [String, Number],
-      default: uni.$u.props.overlay.zIndex },
-
-    // 遮罩的过渡时间，单位为ms
-    duration: {
-      type: [String, Number],
-      default: uni.$u.props.overlay.duration },
-
-    // 不透明度值，当做rgba的第四个参数
-    opacity: {
-      type: [String, Number],
-      default: uni.$u.props.overlay.opacity } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 511 */,
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */
 /*!**************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-status-bar/props.js ***!
   \**************************************************************************************************/
@@ -24167,14 +24181,14 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */
 /*!***************************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \***************************************************************************************************/
@@ -24186,14 +24200,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   props: {} };exports.default = _default;
 
 /***/ }),
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */
 /*!********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-text/value.js ***!
   \********************************************************************************************/
@@ -24287,14 +24301,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */
 /*!********************************************************************************************!*\
   !*** D:/Programs/WXapp/失物招领app/uniapp-laf/uni_modules/uview-ui/components/u-link/props.js ***!
   \********************************************************************************************/

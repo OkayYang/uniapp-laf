@@ -12,6 +12,7 @@
     "u-action-sheet": "/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet",
     "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
     "tui-loading": "/components/thorui/tui-loading/tui-loading",
-    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-overlay": "/uni_modules/uview-ui/components/u-overlay/u-overlay"
   }
 }

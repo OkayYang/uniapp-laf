@@ -96,13 +96,22 @@ var components
 try {
   components = {
     uPopup: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 364))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-popup/u-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-popup/u-popup.vue */ 372))
     },
     uCellGroup: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 372))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 380))
     },
     uCell: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 380))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell/u-cell.vue */ 388))
+    },
+    uToast: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
+    },
+    tuiLoading: function() {
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
+    },
+    uOverlay: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -206,6 +215,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -252,10 +264,24 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 //
 //
 //
-var _default = { data: function data() {return { userInfo: { "stuNick": "某某", "stuName": "某某某", "stuSex": "3", "stuXh": "********", "stuDepartment": "********", "stuMajor": "********", "stuClassname": "********", "stuQq": "********", "stuEmail": "********", "stuImage": '' }, show: false, title: '', change: '' //修改的信息
-    };}, onLoad: function onLoad() {var _this = this;uni.getStorage({ key: 'userInfo', success: function success(res) {_this.userInfo = res.data;} });}, methods: { open: function open(t) {this.show = true;this.title = t; //在这里设置打开时提示是修改QQ还是昵称
-    }, close: function close() {this.show = false;}, save: function save() {this.show = false; //判断修改的是qq还是昵称
-      if (this.title == "昵称") {this.userInfo.stuNick = this.change;} else if (this.title == "QQ") {this.userInfo.stuQq = this.change;}
+//
+//
+//
+var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiLoading: tuiLoading }, data: function data() {return { userInfo: { "stuNick": "某某", "stuName": "某某某", "stuSex": "3", "stuXh": "********", "stuDepartment": "********", "stuMajor": "********", "stuClassname": "********", "stuQq": "********", "stuEmail": "********", "stuImage": '' }, show: false, title: '', change: '', //修改的信息
+      mask: false, isRequest: false };}, onLoad: function onLoad() {var _this = this;uni.getStorage({ key: 'userInfo', success: function success(res) {_this.userInfo = res.data;} });}, methods: { paneAlert: function paneAlert() {this.$refs.uToast.show({ type: 'fail', message: "异常错误", duration: 700 });}, open: function open(t) {this.show = true;this.title = t; //在这里设置打开时提示是修改QQ还是昵称
+    }, close: function close() {this.show = false;
+
+    },
+    save: function save() {var _this2 = this;
+      this.show = false;
+      //判断修改的是qq还是昵称
+      if (this.title == "昵称") {
+        this.userInfo.stuNick = this.change;
+      } else if (this.title == "QQ") {
+        this.userInfo.stuQq = this.change;
+      }
+      this.isRequest = true;
+      this.mask = true;
 
       _request.default.postRequest('/wx/api/student/auth/edit', {
         stuNick: this.userInfo.stuNick,
@@ -263,20 +289,35 @@ var _default = { data: function data() {return { userInfo: { "stuNick": "某某"
 
       function (res) {
         if (res.data.code == 0 && res.statusCode == 200) {
-          _request.default.getRequest('/wx/api/student/auth/my', {},
+          _this2.isRequest = false;
+          _this2.mask = false;
+          uni.showToast({
+            title: '修改成功!',
+            duration: 1000 });
 
+          _request.default.getRequest('/wx/api/student/auth/my', {},
 
           function (res) {
             console.log(res);
             uni.setStorage({
-
               key: 'userInfo',
               data: res.data });
 
           });
 
 
+        } else {
+          _this2.$refs.uToast.show({
+            type: 'fail',
+            message: "修改失败",
+            duration: 700 });
+
         }
+      },
+      function (error) {
+        _this2.isRequest = false;
+        _this2.mask = false;
+        _this2.paneAlert();
       });
 
 

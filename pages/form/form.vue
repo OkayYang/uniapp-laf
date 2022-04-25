@@ -81,8 +81,9 @@
 				</view>
 
 			</u--form>
-			<tui-loading text="发布中.." v-if="isRequest"></tui-loading>
+			<tui-loading text="发布中..." v-if="isRequest"></tui-loading>
 			<u-toast ref="uToast"></u-toast>
+			<u-overlay  :show="mask" :opacity="0.3"></u-overlay>
 			
 
 		</view>
@@ -110,6 +111,7 @@
 			return {
 				apiHost: request.getHost(),
 				err: true,
+				mask:false,
 				isShow: true,
 				isRequest: false,
 				rel_status: null,
@@ -373,7 +375,7 @@
 			//提交表单
 			postForm() {
 				var that = this
-				this.isActive = false
+				this.isActive = false;
 				this.$refs.form1.validate().then(res => {
 					if (!this.check) {
 						this.isActive = true;
@@ -394,6 +396,7 @@
 								if (res.data.code == 0) {
 									// setTimeout(function(){
 									that.isRequest = false;
+									that.mask=false;
 									uni.switchTab({
 										url: '../index/index',
 										success() {
@@ -406,7 +409,7 @@
 
 								} else {
 									that.isRequest = false;
-									
+									that.mask=false;
 									that.$refs.uToast.show({
 										type: 'error',
 										message: "发布失败!",
@@ -416,6 +419,7 @@
 							},
 							(error)=>{
 								that.isRequest = false;
+								that.mask=false;
 								that.$refs.uToast.show({
 									type: 'error',
 									message: "服务器异常!",
@@ -425,6 +429,7 @@
 						)
 					}
 					that.isRequest = true;
+					that.mask=true;
 					
 				})
 
