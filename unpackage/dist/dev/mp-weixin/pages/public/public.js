@@ -96,19 +96,19 @@ var components
 try {
   components = {
     uGrid: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 212))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 218))
     },
     uGridItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 220))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 226))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 228))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 234))
     },
     tuiModal: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 237))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 243))
     },
     tuiButton: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 244))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 250))
     }
   }
 } catch (e) {
@@ -328,7 +328,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 //
 //
 //
-var jinrishici = __webpack_require__(/*! ../../utils/jinrishici.js */ 144);var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiModal: tuiModal }, data: function data() {return { choose: [{ 'src': '/static/lost.png', 'name': '失物招领', 'url': '../form/form?type=1' }, { 'src': '/static/found.png', 'name': '寻物启事', 'url': '../form/form?type=2' }, { 'src': '/static/notice.png', 'name': '服务推送' }], week01: '', year01: '', month01: '', day01: '', info: null, author: { "uid": null }, loginPane: { show: false }, content: '' };}, // onLaunch(){
+var jinrishici = __webpack_require__(/*! ../../utils/jinrishici.js */ 144);var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 257));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { tuiModal: tuiModal }, data: function data() {return { choose: [{ 'src': '/static/lost.png', 'name': '失物招领', 'url': '../form/form?type=1' }, { 'src': '/static/found.png', 'name': '寻物启事', 'url': '../form/form?type=2' }, { 'src': '/static/notice.png', 'name': '服务推送' }], week01: '', year01: '', month01: '', day01: '', info: null, author: { "uid": null }, loginPane: { show: false }, content: '' };}, // onLaunch(){
   // 	 uni.hideTabBar({})
   // },
   onLoad: function onLoad() {var _this = this;this.reload();var time = this.getTime();console.log(time + 'hhhhhhhh');var that = this;setInterval(function () {that.getTime();}, 1000);jinrishici.load(function (result) {// 下面是处理逻辑示例

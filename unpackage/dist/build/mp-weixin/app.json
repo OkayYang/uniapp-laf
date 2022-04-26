@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/appreciate/appreciate",
         "pages/public/public",
         "pages/word/word",
         "pages/form/form",

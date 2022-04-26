@@ -145,7 +145,7 @@
 					{
 						title: '打赏开发者',
 						icon: '/static/gift.png',
-						url: '#',
+						url: '/pages/appreciate/appreciate',
 						show: true,
 						now: false,
 						open: ''

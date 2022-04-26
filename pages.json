@@ -9,7 +9,15 @@
 		// 		}
 		// 	},
 
+		{
+			"path": "pages/appreciate/appreciate",
+			"style": {
+				"navigationBarTitleText": "打赏作者",
+				"enablePullDownRefresh": false,
+				"disableScroll": true
+			}
 
+		},
 
 		{
 			"path": "pages/public/public",
@@ -99,6 +107,7 @@
 			}
 
 		}
+
 	],
 	"globalStyle": {
 

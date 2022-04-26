@@ -178,12 +178,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options.id)
-        if(options.id==4){
-            this.setData({
-                index:2
-            })
+        if(options!=undefined){
+            if(options.id==4){
+                this.setData({
+                    index:2
+                })
+            }
         }
+        
+        
         Toast({
             type: 'loading',
             message: '加载中...',
