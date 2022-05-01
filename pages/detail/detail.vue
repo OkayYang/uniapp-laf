@@ -496,8 +496,7 @@
 			},
 			comment() {
 				if (this.isLogin()) {
-					this.isRequest = true;
-					this.mask = true;
+					let that=this;
 					uni.requestSubscribeMessage({
 						tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
 							'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
@@ -510,27 +509,41 @@
 						fail(res) {
 							console.log("SubscribeMessageError");
 							console.log(res);
+						},
+						complete() {
+							that.comment1();
 						}
 					});
 
-					if (this.input.msg.length < 1 && !this.input.isUpload) {
-						this.$refs.uToast.show({
-							type: 'default',
-							message: "评论不能为空!",
-							iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
-						});
-					} else {
-						let that = this;
-						let now = new Date();
-						let time = formatTime(now);
-						let urlImage = null;
-						if (this.input.isUpload) {
-							uni.uploadFile({
-								url: that.baseUrl + '/wx/api/info/upload',
-								filePath: that.input.uploadPath,
-								name: 'file',
-								success: (res) => {
-									urlImage = res.data;
+				} else {
+					this.loginPane.show = true;
+				}
+
+			},
+			comment1() {
+				if (this.input.msg.replace(/\ +/g, "") == '' && !this.input.isUpload) {
+					this.$refs.uToast.show({
+						type: 'default',
+						message: "评论不能为空!",
+						iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+					});
+				} else {
+					this.isRequest = true;
+					this.mask = true;
+					let that = this;
+					let now = new Date();
+					let time = formatTime(now);
+					let urlImage = null;
+					if (this.input.isUpload) {
+						uni.uploadFile({
+							url: that.baseUrl + '/wx/api/info/upload',
+							filePath: that.input.uploadPath,
+							name: 'file',
+							success: (res) => {
+								console.log(res);
+								res = JSON.parse(res.data)
+								if (res.code == 0) {
+									urlImage = res.msg;
 									console.log(that.input);
 									request.postRequest(
 										'/wx/api/info/auth/comment/add', {
@@ -562,77 +575,92 @@
 												this.input.acceptPeople = null;
 												this.input.cid++;
 												this.input.placeholder = "请发送一条友善的评论";
+											} else if (res.data.code == 406) {
+												that.isRequest = false;
+												that.mask = false;
+												that.paneAlertMsg("内容包含敏感信息");
+
 											} else {
 												that.isRequest = false;
 												that.mask = false;
-												this.paneAlert();
+												that.paneAlert();
 											}
 
 										},
 										(error) => {
-											this.isRequest = false;
+											that.isRequest = false;
 											that.mask = false;
-											this.paneAlert();
+											that.paneAlert();
 
 										}
 
 									);
-								}
-							})
-						} else {
-							let that = this;
-							that.isRequest = true;
-							that.mask = true;
-							request.postRequest(
-								'/wx/api/info/auth/comment/add', {
-									comRelId: that.tid,
-									comContent: that.input.msg,
-									parentId: that.input.acceptPeople,
-									comImage: urlImage,
-								},
-								(res) => {
-									if (res.data.code == 0) {
-										that.isRequest = false;
-										that.mask = false;
-										request.getRequest(
-											'/wx/api/info/test?relId=' + this.tid, null, (res) => {
-												that.comments = res.data;
-											}
-										)
-										this.$refs.uToast.show({
-											type: 'success',
-											message: "发布评论成功",
-											duration: 700,
-											iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
-										});
-										this.input.msg = '';
-										this.input.isUpload = false;
-										this.input.focus = false;
-										this.input.mainComment = null;
-										this.input.acceptPeople = null;
-										this.input.cid++;
-										this.input.placeholder = "请发送一条友善的评论";
-									} else {
-										that.isRequest = false;
-										that.mask = false;
-										this.paneAlert();
-									}
-								},
-								(error) => {
+								} else if (res.code == 406) {
+									that.isRequest = false;
+									that.mask = false;
+									that.paneAlertMsg("图片包含敏感信息！");
+								} else {
 									that.isRequest = false;
 									that.mask = false;
 									that.paneAlert();
 								}
-							);
-						}
 
-
-
+							}
+						})
+					} else {
+						let that = this;
+						that.isRequest = true;
+						that.mask = true;
+						request.postRequest(
+							'/wx/api/info/auth/comment/add', {
+								comRelId: that.tid,
+								comContent: that.input.msg,
+								parentId: that.input.acceptPeople,
+								comImage: urlImage,
+							},
+							(res) => {
+								if (res.data.code == 0) {
+									that.isRequest = false;
+									that.mask = false;
+									request.getRequest(
+										'/wx/api/info/test?relId=' + this.tid, null, (res) => {
+											that.comments = res.data;
+										}
+									)
+									this.$refs.uToast.show({
+										type: 'success',
+										message: "发布评论成功",
+										duration: 700,
+										iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
+									});
+									this.input.msg = '';
+									this.input.isUpload = false;
+									this.input.focus = false;
+									this.input.mainComment = null;
+									this.input.acceptPeople = null;
+									this.input.cid++;
+									this.input.placeholder = "请发送一条友善的评论";
+								} else if (res.data.code == 406) {
+									that.isRequest = false;
+									that.mask = false;
+									that.paneAlertMsg("内容包含敏感信息");
+								} else {
+									that.isRequest = false;
+									that.mask = false;
+									that.paneAlert();
+								}
+							},
+							(error) => {
+								that.isRequest = false;
+								that.mask = false;
+								that.paneAlert();
+							}
+						);
 					}
-				} else {
-					this.loginPane.show = true;
-				}
 
+
+
+				}
 			},
 			replyInfo(mainComment, acceptPeople) {
 
@@ -863,6 +891,13 @@
 				this.$refs.uToast.show({
 					type: 'fail',
 					message: "异常错误",
+					duration: 700,
+				});
+			},
+			paneAlertMsg(msg) {
+				this.$refs.uToast.show({
+					type: 'fail',
+					message: msg,
 					duration: 700,
 				});
 			}

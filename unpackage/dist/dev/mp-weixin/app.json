@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/appreciate/appreciate",
-    "pages/public/public",
     "pages/index/index",
+    "pages/public/public",
     "pages/word/word",
     "pages/form/form",
     "pages/myPublish/myPublish",
@@ -41,5 +40,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

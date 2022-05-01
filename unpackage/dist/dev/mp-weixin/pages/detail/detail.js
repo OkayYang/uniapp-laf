@@ -96,46 +96,46 @@ var components
 try {
   components = {
     uLoadingPage: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-page/u-loading-page.vue */ 418))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loading-page/u-loading-page */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loading-page/u-loading-page")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loading-page/u-loading-page.vue */ 396))
     },
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 279))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 227))
     },
     uTag: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 287))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 235))
     },
     uReadMore: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-read-more/u-read-more */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-read-more/u-read-more")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-read-more/u-read-more.vue */ 426))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-read-more/u-read-more */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-read-more/u-read-more")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-read-more/u-read-more.vue */ 420))
     },
     uLine: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 434))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 428))
     },
     uEmpty: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-empty/u-empty.vue */ 442))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-empty/u-empty.vue */ 436))
     },
     tuiActionsheet: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet */ "node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet.vue */ 450))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet */ "node-modules/thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-actionsheet/tui-actionsheet.vue */ 444))
     },
     uTabbar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tabbar/u-tabbar.vue */ 457))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tabbar/u-tabbar.vue */ 451))
     },
     tuiModal: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 243))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal */ "node-modules/thorui-uni/lib/thorui/tui-modal/tui-modal").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-modal/tui-modal.vue */ 276))
     },
     uSearch: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 264))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 212))
     },
     tuiButton: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 250))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-button/tui-button */ "node-modules/thorui-uni/lib/thorui/tui-button/tui-button").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-button/tui-button.vue */ 283))
     },
     tuiLoading: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 349))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
     },
     uToast: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 356))
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
     },
     uOverlay: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 363))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -494,7 +494,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _formatTime = _interopRequireDefault(__webpack_require__(/*! @/utils/formatTime.js */ 197));
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiButton = function tuiButton() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-button/tui-button */ "components/thorui/tui-button/tui-button").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-button/tui-button */ 465));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 257));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 371));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiActionsheet = function tuiActionsheet() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-actionsheet/tui-actionsheet */ "components/thorui/tui-actionsheet/tui-actionsheet").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-actionsheet/tui-actionsheet */ 472));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiButton = function tuiButton() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-button/tui-button */ "components/thorui/tui-button/tui-button").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-button/tui-button */ 459));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiModal = function tuiModal() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-modal/tui-modal */ "components/thorui/tui-modal/tui-modal").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-modal/tui-modal */ 290));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tuiActionsheet = function tuiActionsheet() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-actionsheet/tui-actionsheet */ "components/thorui/tui-actionsheet/tui-actionsheet").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-actionsheet/tui-actionsheet */ 466));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
@@ -701,10 +701,9 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
       comment.isGood = !comment.isGood;
 
     },
-    comment: function comment() {var _this3 = this;
+    comment: function comment() {
       if (this.isLogin()) {
-        this.isRequest = true;
-        this.mask = true;
+        var _that = this;
         uni.requestSubscribeMessage({
           tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
           'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
@@ -717,43 +716,57 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
           fail: function fail(res) {
             console.log("SubscribeMessageError");
             console.log(res);
+          },
+          complete: function complete() {
+            _that.comment1();
           } });
 
 
-        if (this.input.msg.length < 1 && !this.input.isUpload) {
-          this.$refs.uToast.show({
-            type: 'default',
-            message: "评论不能为空!",
-            iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+      } else {
+        this.loginPane.show = true;
+      }
 
-        } else {
-          var _that = this;
-          var now = new Date();
-          var time = (0, _formatTime.default)(now);
-          var urlImage = null;
-          if (this.input.isUpload) {
-            uni.uploadFile({
-              url: _that.baseUrl + '/wx/api/info/upload',
-              filePath: _that.input.uploadPath,
-              name: 'file',
-              success: function success(res) {
-                urlImage = res.data;
-                console.log(_that.input);
+    },
+    comment1: function comment1() {var _this3 = this;
+      if (this.input.msg.replace(/\ +/g, "") == '' && !this.input.isUpload) {
+        this.$refs.uToast.show({
+          type: 'default',
+          message: "评论不能为空!",
+          iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+      } else {
+        this.isRequest = true;
+        this.mask = true;
+        var _that2 = this;
+        var now = new Date();
+        var time = (0, _formatTime.default)(now);
+        var urlImage = null;
+        if (this.input.isUpload) {
+          uni.uploadFile({
+            url: _that2.baseUrl + '/wx/api/info/upload',
+            filePath: _that2.input.uploadPath,
+            name: 'file',
+            success: function success(res) {
+              console.log(res);
+              res = JSON.parse(res.data);
+              if (res.code == 0) {
+                urlImage = res.msg;
+                console.log(_that2.input);
                 _request.default.postRequest(
                 '/wx/api/info/auth/comment/add', {
-                  comRelId: _that.tid,
-                  comContent: _that.input.msg,
-                  parentId: _that.input.acceptPeople,
+                  comRelId: _that2.tid,
+                  comContent: _that2.input.msg,
+                  parentId: _that2.input.acceptPeople,
                   comImage: urlImage },
 
                 function (res) {
                   if (res.data.code == 0) {
-                    _that.isRequest = false;
-                    _that.mask = false;
+                    _that2.isRequest = false;
+                    _that2.mask = false;
                     _request.default.getRequest(
                     '/wx/api/info/test?relId=' + _this3.tid, null, function (
                     res) {
-                      _that.comments = res.data;
+                      _that2.comments = res.data;
                     });
 
                     _this3.$refs.uToast.show({
@@ -769,77 +782,92 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
                     _this3.input.acceptPeople = null;
                     _this3.input.cid++;
                     _this3.input.placeholder = "请发送一条友善的评论";
+                  } else if (res.data.code == 406) {
+                    _that2.isRequest = false;
+                    _that2.mask = false;
+                    _that2.paneAlertMsg("内容包含敏感信息");
+
                   } else {
-                    _that.isRequest = false;
-                    _that.mask = false;
-                    _this3.paneAlert();
+                    _that2.isRequest = false;
+                    _that2.mask = false;
+                    _that2.paneAlert();
                   }
 
                 },
                 function (error) {
-                  _this3.isRequest = false;
-                  _that.mask = false;
-                  _this3.paneAlert();
+                  _that2.isRequest = false;
+                  _that2.mask = false;
+                  _that2.paneAlert();
 
                 });
 
 
-              } });
-
-          } else {
-            var _that2 = this;
-            _that2.isRequest = true;
-            _that2.mask = true;
-            _request.default.postRequest(
-            '/wx/api/info/auth/comment/add', {
-              comRelId: _that2.tid,
-              comContent: _that2.input.msg,
-              parentId: _that2.input.acceptPeople,
-              comImage: urlImage },
-
-            function (res) {
-              if (res.data.code == 0) {
+              } else if (res.code == 406) {
                 _that2.isRequest = false;
                 _that2.mask = false;
-                _request.default.getRequest(
-                '/wx/api/info/test?relId=' + _this3.tid, null, function (res) {
-                  _that2.comments = res.data;
-                });
-
-                _this3.$refs.uToast.show({
-                  type: 'success',
-                  message: "发布评论成功",
-                  duration: 700,
-                  iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png' });
-
-                _this3.input.msg = '';
-                _this3.input.isUpload = false;
-                _this3.input.focus = false;
-                _this3.input.mainComment = null;
-                _this3.input.acceptPeople = null;
-                _this3.input.cid++;
-                _this3.input.placeholder = "请发送一条友善的评论";
+                _that2.paneAlertMsg("图片包含敏感信息！");
               } else {
                 _that2.isRequest = false;
                 _that2.mask = false;
-                _this3.paneAlert();
+                _that2.paneAlert();
               }
-            },
-            function (error) {
-              _that2.isRequest = false;
-              _that2.mask = false;
-              _that2.paneAlert();
-            });
 
-          }
+            } });
 
+        } else {
+          var _that3 = this;
+          _that3.isRequest = true;
+          _that3.mask = true;
+          _request.default.postRequest(
+          '/wx/api/info/auth/comment/add', {
+            comRelId: _that3.tid,
+            comContent: _that3.input.msg,
+            parentId: _that3.input.acceptPeople,
+            comImage: urlImage },
 
+          function (res) {
+            if (res.data.code == 0) {
+              _that3.isRequest = false;
+              _that3.mask = false;
+              _request.default.getRequest(
+              '/wx/api/info/test?relId=' + _this3.tid, null, function (res) {
+                _that3.comments = res.data;
+              });
+
+              _this3.$refs.uToast.show({
+                type: 'success',
+                message: "发布评论成功",
+                duration: 700,
+                iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png' });
+
+              _this3.input.msg = '';
+              _this3.input.isUpload = false;
+              _this3.input.focus = false;
+              _this3.input.mainComment = null;
+              _this3.input.acceptPeople = null;
+              _this3.input.cid++;
+              _this3.input.placeholder = "请发送一条友善的评论";
+            } else if (res.data.code == 406) {
+              _that3.isRequest = false;
+              _that3.mask = false;
+              _that3.paneAlertMsg("内容包含敏感信息");
+            } else {
+              _that3.isRequest = false;
+              _that3.mask = false;
+              _that3.paneAlert();
+            }
+          },
+          function (error) {
+            _that3.isRequest = false;
+            _that3.mask = false;
+            _that3.paneAlert();
+          });
 
         }
-      } else {
-        this.loginPane.show = true;
-      }
 
+
+
+      }
     },
     replyInfo: function replyInfo(mainComment, acceptPeople) {
 
@@ -1070,6 +1098,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
       this.$refs.uToast.show({
         type: 'fail',
         message: "异常错误",
+        duration: 700 });
+
+    },
+    paneAlertMsg: function paneAlertMsg(msg) {
+      this.$refs.uToast.show({
+        type: 'fail',
+        message: msg,
         duration: 700 });
 
     } } };exports.default = _default;

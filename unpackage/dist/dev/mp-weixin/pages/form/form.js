@@ -96,34 +96,34 @@ var components
 try {
   components = {
     uUpload: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-upload/u-upload.vue */ 303))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-upload/u-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-upload/u-upload")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-upload/u-upload.vue */ 297))
     },
     "u-Form": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 313))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--form/u--form */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--form/u--form")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--form/u--form.vue */ 307))
     },
     uFormItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 319))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-form-item/u-form-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-form-item/u-form-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-form-item/u-form-item.vue */ 313))
     },
     "u-Input": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 327))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--input/u--input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--input/u--input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--input/u--input.vue */ 321))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 234))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 267))
     },
     uActionSheet: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 333))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-action-sheet/u-action-sheet */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-action-sheet/u-action-sheet")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet.vue */ 327))
     },
     "u-Textarea": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--textarea/u--textarea */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--textarea/u--textarea")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--textarea/u--textarea.vue */ 343))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--textarea/u--textarea */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--textarea/u--textarea")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--textarea/u--textarea.vue */ 337))
     },
     tuiLoading: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 349))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
     },
     uToast: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 356))
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
     },
     uOverlay: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 363))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -300,8 +300,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 371));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     tuiLoading: tuiLoading },
@@ -412,30 +411,6 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
   },
   methods: {
     onLoadClone3389: function onLoadClone3389(options) {var _this = this;
-      if (this.qq == null) {
-        uni.getStorage({
-          key: 'userInfo',
-          success: function success(res) {
-            if (res.data.stuQq != null) {
-              _this.model1.userInfo.contact = 'QQ:' + res.data.stuQq;
-            }
-
-          } });
-
-      }
-
-      var that = this;
-      //option列表
-      _request.default.getRequest('/wx/api/category/treeData', null, function (res) {
-        var option = [];
-        res.data.forEach(function (element) {
-          option.push({
-            name: element.name,
-            value: element.id });
-
-        });
-        _this.sortActions = option;
-      });
       var type = options.type;
 
       if (type == 1) {
@@ -468,6 +443,51 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
         }
       }
+
+
+      uni.getStorage({
+        key: 'userInfo',
+        success: function success(res) {
+
+          var msg = null;
+          var qq = res.data.stuQq;
+          var tel = res.data.stuEmail;
+          if (qq.replace(/\ +/g, "") == '') {
+            qq = null;
+          }
+          if (tel.replace(/\ +/g, "") == '') {
+            tel = null;
+          }
+
+
+          if (qq != null && tel == null) {
+            msg = 'QQ:' + qq;
+          }
+          if (qq == null && tel != null) {
+            msg = 'TEL:' + tel;
+          }
+          if (tel != null && qq != null) {
+            msg = 'QQ:' + qq + '/TEL:' + tel;
+          }
+
+          _this.model1.userInfo.contact = msg;
+        } });
+
+
+
+      var that = this;
+      //option列表
+      _request.default.getRequest('/wx/api/category/treeData', null, function (res) {
+        var option = [];
+        res.data.forEach(function (element) {
+          option.push({
+            name: element.name,
+            value: element.id });
+
+        });
+        _this.sortActions = option;
+      });
+
     },
 
     campusSelect: function campusSelect(e) {
@@ -528,41 +548,69 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
             user: 'test' },
 
           success: function success(res) {
-            setTimeout(function () {
-              resolve(res.data.data);
-            }, 1000);
             console.log(res);
-            var data = res.data;
+            var result = JSON.parse(res.data);
+            console.log(result.code);
+            if (result.code == 0) {
+              console.log(1);
+              resolve();
+              // setTimeout(() => {
+              // 	resolve()
+              // }, 1000)
 
-            that.status = res.statusCode;
-            that.name = JSON.parse(data).name;
-            that.type = JSON.parse(data).type;
-            that.number = JSON.parse(data).number;
-            that.photoUrl = JSON.parse(data).photoUrl;
-            console.log(that.type);
-            if (that.type == 'sfz') {
-              var strcard = that.number.replace(/^(.{4})(?:\d+)(.{4})$/,
-              "$1******$2");
-              that.model1.userInfo.title = '捡到' + _this3.name + '的身份证';
-              that.value3 = '身份证号为' + strcard;
-              that.model1.userInfo.sort = "身份证";
-              that.model1.userInfo.value = 2;
+              var data = result.object;
+              console.log(data);
+              that.status = data.statusCode;
+              that.name = data.name;
+              that.type = data.type;
+              that.number = data.number;
+              that.photoUrl = data.photoUrl;
+              console.log(that.type);
+              if (that.type == 'sfz') {
+                var strcard = that.number.replace(/^(.{4})(?:\d+)(.{4})$/,
+                "$1******$2");
+                that.model1.userInfo.title = '捡到' + _this3.name + '的身份证';
+                that.value3 = '身份证号为' + strcard;
+                that.model1.userInfo.sort = "身份证";
+                that.model1.userInfo.value = 2;
 
 
-              console.log('捡到身份证');
-            } else if (that.type == 'xsz') {
-              var strcard = that.number.replace(/^(.{2})(?:\d+)(.{2})$/,
-              "$1******$2");
-              that.model1.userInfo.title = '捡到' + _this3.name + '的学生证';
-              that.value3 = '学生证号为' + strcard;
-              that.model1.userInfo.sort = "学生证";
-              that.model1.userInfo.value = 3;
+                console.log('捡到身份证');
+              } else if (that.type == 'xsz') {
+                var strcard = that.number.replace(/^(.{2})(?:\d+)(.{2})$/,
+                "$1******$2");
+                that.model1.userInfo.title = '捡到' + _this3.name + '的学生证';
+                that.value3 = '学生证号为' + strcard;
+                that.model1.userInfo.sort = "学生证";
+                that.model1.userInfo.value = 3;
+
+              }
+              if (that.model1.userInfo.campus == null || that.model1.userInfo.
+              campus ==
+              '') {
+                that.model1.userInfo.campus = "南昌校区";
+              }
+
+            } else if (result.code == 406) {
+              that.$refs.uToast.show({
+                type: 'error',
+                message: "图片包含敏感信息!",
+                iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+            } else {
+              that.$refs.uToast.show({
+                type: 'error',
+                message: "上传失败!",
+                iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
 
             }
-            if (that.model1.userInfo.campus == null || that.model1.userInfo.campus ==
-            '') {
-              that.model1.userInfo.campus = "南昌校区";
-            }
+
+          },
+          fail: function fail(res) {
+            that.$refs.uToast.show({
+              type: 'error',
+              message: "上传失败!",
+              iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
 
           } });
 
@@ -573,62 +621,97 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
 
     //提交表单
     postForm: function postForm() {var _this4 = this;
+
       var that = this;
+      if (that.model1.userInfo.title == null || that.model1.userInfo.title.replace(/\ +/g, "") == '') {
+        that.model1.userInfo.title = null;
+      }
+      if (that.value3 == null || that.value3.replace(/\ +/g, "") == '') {
+        that.value3 = null;
+      }
       this.isActive = false;
       this.$refs.form1.validate().then(function (res) {
         if (!_this4.check) {
           _this4.isActive = true;
           return;
         }
-        if (that.isRequest == false) {
-          _request.default.postRequest('/wx/api/release/auth/add/check', {
-            relCampus: that.model1.userInfo.campus,
-            relCateId: that.model1.userInfo.value,
-            relContact: that.model1.userInfo.contact,
-            relDesc: that.value3,
-            relImage: that.photoUrl,
-            relStatus: that.rel_status,
-            relTitle: that.model1.userInfo.title,
-            createPlace: that.model1.userInfo.clue },
+        uni.requestSubscribeMessage({
+          tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
+          'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
+          'yN2LMy5FBS8ha9Fq-akQTag3SWgx9uvgTG5J3ABVGYw'],
 
-          function (res) {
-            if (res.data.code == 0) {
-              // setTimeout(function(){
-              that.isRequest = false;
-              that.mask = false;
-              uni.switchTab({
-                url: '../index/index',
-                success: function success() {
-                  var page = getCurrentPages().pop();
-                  if (page == undefined || page == null) return;
-                  page.onLoad();
-                } });
+          success: function success(res) {
+            console.log("SubscribeMessageSuccess");
+            console.log(res);
+          },
+          fail: function fail(res) {
+            console.log("SubscribeMessageError");
+            console.log(res);
+          },
+          complete: function complete() {
+            if (that.isRequest == false) {
+              that.isRequest = true;
+              that.mask = true;
+              _request.default.postRequest('/wx/api/release/auth/add/check', {
+                relCampus: that.model1.userInfo.campus,
+                relCateId: that.model1.userInfo.value,
+                relContact: that.model1.userInfo.contact,
+                relDesc: that.value3,
+                relImage: that.photoUrl,
+                relStatus: that.rel_status,
+                relTitle: that.model1.userInfo.title,
+                createPlace: that.model1.userInfo.clue },
 
-              // },2000)
+              function (res) {
+                if (res.data.code == 0) {
+                  // setTimeout(function(){
+                  that.isRequest = false;
+                  that.mask = false;
+                  uni.switchTab({
+                    url: '../index/index',
+                    success: function success() {
+                      var page = getCurrentPages().pop();
+                      if (page == undefined || page == null)
+                      return;
+                      page.onLoad();
+                    } });
 
-            } else {
-              that.isRequest = false;
-              that.mask = false;
-              that.$refs.uToast.show({
-                type: 'error',
-                message: "发布失败!",
-                iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+                  // },2000)
+
+                } else if (res.data.code == 406) {
+                  that.isRequest = false;
+                  that.mask = false;
+                  that.$refs.uToast.show({
+                    type: 'error',
+                    message: "内容包含敏感信息",
+                    iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+                } else {
+                  that.isRequest = false;
+                  that.mask = false;
+                  that.$refs.uToast.show({
+                    type: 'error',
+                    message: "发布失败!",
+                    iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+                }
+              },
+              function (error) {
+                that.isRequest = false;
+                that.mask = false;
+                that.$refs.uToast.show({
+                  type: 'error',
+                  message: "服务器异常!",
+                  iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
+
+              });
 
             }
-          },
-          function (error) {
-            that.isRequest = false;
-            that.mask = false;
-            that.$refs.uToast.show({
-              type: 'error',
-              message: "服务器异常!",
-              iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png' });
 
-          });
+          } });
 
-        }
-        that.isRequest = true;
-        that.mask = true;
+
+
 
       });
 

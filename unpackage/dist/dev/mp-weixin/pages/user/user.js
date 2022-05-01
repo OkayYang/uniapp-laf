@@ -96,31 +96,31 @@ var components
 try {
   components = {
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 279))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 227))
     },
     uButton: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 402))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 404))
     },
     uGrid: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 218))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid/u-grid */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid/u-grid")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid/u-grid.vue */ 251))
     },
     uGridItem: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 226))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-grid-item/u-grid-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-grid-item/u-grid-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-grid-item/u-grid-item.vue */ 259))
     },
     uIcon: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 234))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 267))
     },
     uToast: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 356))
+      return __webpack_require__.e(/*! import() | uni_modules/uview-ui/components/u-toast/u-toast */ "uni_modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-toast/u-toast.vue */ 350))
     },
     uModal: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 410))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-modal/u-modal */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-modal/u-modal")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-modal/u-modal.vue */ 412))
     },
     tuiLoading: function() {
-      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 349))
+      return __webpack_require__.e(/*! import() | node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading */ "node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading").then(__webpack_require__.bind(null, /*! thorui-uni/lib/thorui/tui-loading/tui-loading.vue */ 343))
     },
     uOverlay: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 363))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-overlay/u-overlay */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-overlay/u-overlay")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-overlay/u-overlay.vue */ 357))
     }
   }
 } catch (e) {
@@ -260,7 +260,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 371));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js */ 143));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var tuiLoading = function tuiLoading() {__webpack_require__.e(/*! require.ensure | components/thorui/tui-loading/tui-loading */ "components/thorui/tui-loading/tui-loading").then((function () {return resolve(__webpack_require__(/*! @/components/thorui/tui-loading/tui-loading */ 365));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     tuiLoading: tuiLoading },
@@ -268,6 +269,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
   name: 'user',
   data: function data() {
     return {
+      test: "    1 ".replace(/\ +/g, ""),
       mask: false,
       isLogin: false,
       isRequest: false,
@@ -326,6 +328,14 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         open: 'contact' },
 
       {
+        title: '系统设置',
+        icon: '/static/setting.png',
+        url: '#',
+        show: true,
+        now: false,
+        open: 'openSetting' },
+
+      {
         title: '反馈与投诉',
         icon: '/static/help.png',
         url: '#',
@@ -339,16 +349,17 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
         url: '#',
         show: true,
         now: true,
-        open: 'share' },
+        open: 'share' }
 
-      {
-        title: '打赏开发者',
-        icon: '/static/gift.png',
-        url: '/pages/appreciate/appreciate',
-        show: true,
-        now: false,
-        open: '' }] };
-
+      // {
+      // 	title: '打赏开发者',
+      // 	icon: '/static/gift.png',
+      // 	url: '/pages/appreciate/appreciate',
+      // 	show: true,
+      // 	now: false,
+      // 	open: ''
+      // },
+      ] };
 
 
 
@@ -358,6 +369,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
     uni.getStorage({
       key: 'userInfo',
       success: function success(res) {
+
         _this.isLogin = true;
         _this.src = res.data.stuImage;
         _this.nickName = res.data.stuNick;
@@ -407,8 +419,8 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
                     that.itemList[1].show = true;
                     console.log(open);
                     that.isLogin = true;
-                    that.src = open.data.userInfo.stuImage;
-                    that.nickName = open.data.userInfo.stuNick;
+                    that.src = open.data.object.stuImage;
+                    that.nickName = open.data.object.stuNick;
                     uni.showToast({
                       title: '登录成功!',
                       duration: 1000 });
@@ -505,6 +517,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request.js
           data: res.data });
 
         that.nickName = res.data.stuNick;
+        that.src = res.data.stuImage;
       });
 
 

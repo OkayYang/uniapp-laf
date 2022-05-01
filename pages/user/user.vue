@@ -55,7 +55,8 @@
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
 		<tui-loading text="登陆中..." v-if="isRequest"></tui-loading>
-		<u-overlay  :show="mask" :opacity="0.3"></u-overlay>
+		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
+		
 	</view>
 </template>
 
@@ -69,9 +70,10 @@
 		name: 'user',
 		data() {
 			return {
-				mask:false,
+				test: "    1 ".replace(/\ +/g, ""),
+				mask: false,
 				isLogin: false,
-				isRequest:false,
+				isRequest: false,
 				src: '/static/avatar.png',
 				nickName: '',
 				notify: {
@@ -84,7 +86,7 @@
 						title: '我的订阅',
 						url: '/pages/subscribe/subscribe',
 					},
-					
+
 					{
 						name: '/static/output.png',
 						title: '我的发布',
@@ -127,6 +129,14 @@
 						open: 'contact'
 					},
 					{
+						title: '系统设置',
+						icon: '/static/setting.png',
+						url: '#',
+						show: true,
+						now: false,
+						open: 'openSetting'
+					},
+					{
 						title: '反馈与投诉',
 						icon: '/static/help.png',
 						url: '#',
@@ -142,14 +152,15 @@
 						now: true,
 						open: 'share'
 					},
-					{
-						title: '打赏开发者',
-						icon: '/static/gift.png',
-						url: '/pages/appreciate/appreciate',
-						show: true,
-						now: false,
-						open: ''
-					},
+					// {
+					// 	title: '打赏开发者',
+					// 	icon: '/static/gift.png',
+					// 	url: '/pages/appreciate/appreciate',
+					// 	show: true,
+					// 	now: false,
+					// 	open: ''
+					// },
+					
 				]
 
 			}
@@ -159,6 +170,7 @@
 			uni.getStorage({
 				key: 'userInfo',
 				success: (res) => {
+
 					this.isLogin = true;
 					this.src = res.data.stuImage;
 					this.nickName = res.data.stuNick;
@@ -190,8 +202,8 @@
 							console.log(file);
 							uni.login({
 								success: (res) => {
-									that.isRequest=true;
-									that.mask=true;
+									that.isRequest = true;
+									that.mask = true;
 									request.postRequest(
 										'/wx/api/login/check', {
 											code: res.code,
@@ -202,21 +214,21 @@
 										(open) => {
 											if (open.data.code == 0) {
 												//登录成功显示
-												that.isRequest=false;
-												that.mask=false;
+												that.isRequest = false;
+												that.mask = false;
 												that.itemList[0].show = true
 												that.itemList[1].show = true
 												console.log(open);
 												that.isLogin = true;
-												that.src = open.data.userInfo.stuImage;
-												that.nickName = open.data.userInfo.stuNick;
+												that.src = open.data.object.stuImage;
+												that.nickName = open.data.object.stuNick;
 												uni.showToast({
 													title: '登录成功!',
 													duration: 1000
 												});
 											} else {
-												that.isRequest=false;
-												that.mask=false;
+												that.isRequest = false;
+												that.mask = false;
 												uni.showToast({
 													icon: "error",
 													title: '登陆失败!',
@@ -226,8 +238,8 @@
 
 										},
 										(error) => {
-											that.isRequest=false;
-											that.mask=false;
+											that.isRequest = false;
+											that.mask = false;
 											uni.showToast({
 												icon: "error",
 												title: '登陆失败!',
@@ -283,7 +295,7 @@
 				this.notify.show = false;
 			},
 			itemClick(url) {
-				if (this.isLogin||url.indexOf("message")>0) {
+				if (this.isLogin || url.indexOf("message") > 0) {
 					uni.navigateTo({
 						url: url,
 					})
@@ -306,6 +318,7 @@
 							data: res.data
 						})
 						that.nickName = res.data.stuNick;
+						that.src = res.data.stuImage;
 					}
 
 				)

@@ -43,7 +43,7 @@
 					<image :src="baseUrl+info.relImage"
 						style="height:170rpx;width: 170rpx;border-radius: 30rpx;margin:20rpx 0 10rpx 20rpx;"
 						mode="aspectFill" @click.stop="previewImage(baseUrl+info.relImage)" />
-					<view class="content" style="margin: 20rpx 0 0 50rpx;">
+					<view class="content" style="margin: 30rpx 0 20rpx 50rpx;">
 						<view style="display: flex;">
 							<text style="color:#909399;margin: 5rpx 0 0 0;font-size: 27rpx; ">物品种类：</text>
 							<view>
@@ -58,11 +58,11 @@
 								<text style="font-size: 27rpx;">{{info.relTitle|ellipsis}}</text>
 							</view>
 						</view>
-						<view style="display: flex;margin: 8rpx 0 0 0;">
+						<view v-if="info.relDesc!=null" style="display: flex;margin: 8rpx 0 0 0;" >
 							<view style="width: 105rpx;">
 								<text style="color: #909399;font-size: 27rpx;">描述：</text>
 							</view>
-							<view>
+							<view >
 								<text style="font-size: 27rpx;">{{info.relDesc| ellipsis}}</text>
 							</view>
 						</view>

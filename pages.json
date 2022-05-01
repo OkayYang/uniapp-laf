@@ -1,23 +1,23 @@
 {
 	"pages": [
 
-		// {
-		// 		"path": "pages/subscribe/subscribe",
-		// 		"style": {
-		// 			"navigationBarTitleText": "订阅",
-		// 			"enablePullDownRefresh": true
-		// 		}
-		// 	},
-
 		{
-			"path": "pages/appreciate/appreciate",
+			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "打赏作者",
-				"enablePullDownRefresh": false,
-				"disableScroll": true
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
 			}
-
 		},
+
+		// {
+		// 	"path": "pages/appreciate/appreciate",
+		// 	"style": {
+		// 		"navigationBarTitleText": "打赏作者",
+		// 		"enablePullDownRefresh": false,
+		// 		"disableScroll": true
+		// 	}
+
+		// },
 
 		{
 			"path": "pages/public/public",
@@ -27,13 +27,7 @@
 			}
 		},
 
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh": true
-			}
-		},
+		
 
 
 

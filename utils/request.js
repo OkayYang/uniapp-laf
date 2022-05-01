@@ -3,6 +3,7 @@
 //var apiHost = "http://xiaoyang.asia"
 // var apiHost = "http://192.168.3.32:80";
 var apiHost = "https://laf.4w3w.com"
+//var apiHost = "http://192.168.43.122";
 
 //yang
 //var apiHost = "http://192.168.3.104:80";
@@ -78,7 +79,7 @@ function postRequest(url, data, success, fail) {
 					});
 					uni.setStorage({
 						key: 'userInfo',
-						data: res.data.userInfo
+						data: res.data.object
 					});
 				}
 

@@ -15,15 +15,16 @@
 				<u-cell icon="https://pic.imgdb.cn/item/62177c832ab3f51d91a39e09.png" title="头像" isLink="true">
 					<image :src="userInfo.stuImage" slot="value"
 						style="border-radius: 30rpx;width: 120rpx;height: 120rpx;overflow: hidden;"></image>
-
 				</u-cell>
 
 
 				<u-cell icon="https://pic.imgdb.cn/item/621f65285baa1a80abff47d1.png" title="昵称"
-					:value="userInfo.stuNick" isLink="true" @click="open('昵称')"></u-cell>
+					:value="userInfo.stuNick" isLink="true"></u-cell>
 
 				<u-cell icon="https://pic.imgdb.cn/item/621f66725baa1a80ab0005ce.png" title="QQ" :value="userInfo.stuQq"
 					isLink="true" @click="open('QQ')"></u-cell>
+				<u-cell icon="https://pic.imgdb.cn/item/626dd8b2239250f7c5483124.png" title="TEL"
+					:value="userInfo.stuEmail" isLink="true" @click="open('TEL')"></u-cell>
 			</u-cell-group>
 			<view class="" style="height: 60rpx;margin-top: 30rpx;margin-left:35rpx;font-size: 35rpx;color: grey;">
 				[教务信息]</view>
@@ -44,6 +45,7 @@
 		<u-toast ref="uToast"></u-toast>
 		<tui-loading text="保存中..." v-if="isRequest"></tui-loading>
 		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
+		<u-loading-page :loading="load.show"></u-loading-page>
 	</view>
 </template>
 
@@ -56,6 +58,11 @@
 		},
 		data() {
 			return {
+				load: {
+					show: true,
+				},
+				uploadPath: '',
+				baseUrl: request.getHost(),
 				userInfo: {
 					"stuNick": "某某",
 					"stuName": "某某某",
@@ -77,9 +84,11 @@
 			}
 		},
 		onLoad() {
+			let that = this;
 			uni.getStorage({
 				key: 'userInfo',
 				success: (res) => {
+					that.load.show = false;
 					this.userInfo = res.data;
 				}
 			});
@@ -105,28 +114,80 @@
 			save() {
 				this.show = false
 				//判断修改的是qq还是昵称
-				if (this.title == "昵称") {
-					this.userInfo.stuNick = this.change
-				} else if (this.title == "QQ") {
-					this.userInfo.stuQq = this.change
+				let name = null;
+				let qq = null;
+				let phone = null;
+				
+				if (this.change!=null&&this.change.replace(/\ +/g, "") != '') {
+					if (this.title == "昵称") {
+						name = this.change
+					} else if (this.title == "QQ") {
+						qq = this.change
+						let reg = /^[1-9][0-9]{4,9}$/;
+						let result = reg.test(qq)
+						if (result == false) {
+							this.$refs.uToast.show({
+								type: 'fail',
+								message: "QQ号不合规！",
+								duration: 700,
+							});
+							return;
+						}
+					
+					} else if (this.title == "TEL") {
+						phone = this.change
+						let reg = /^1[3-9][0-9]{9}$/
+						let result = reg.test(phone)
+						if (result == false) {
+							this.$refs.uToast.show({
+								type: 'fail',
+								message: "手机号不合规！",
+								duration: 700,
+							});
+							return;
+						}
+					}
+				}else{
+					if (this.title == "昵称") {
+						name = ''
+					} 
+					else if (this.title == "QQ") {
+						qq = ''
+						
+					} 
+					else if (this.title == "TEL") {
+						phone = ''
+						
+					}
 				}
+
+				
+				this.change = null;
 				this.isRequest = true;
 				this.mask = true;
 
 				request.postRequest('/wx/api/student/auth/edit', {
-						stuNick: this.userInfo.stuNick,
-						stuQq: this.userInfo.stuQq,
+						stuNick: name,
+						stuQq: qq,
+						stuEmail: phone
 					},
 					(res) => {
 						if (res.data.code == 0 && res.statusCode == 200) {
 							this.isRequest = false;
 							this.mask = false;
+							if (name != null) {
+								this.userInfo.stuNick = name;
+							} else if (qq != null) {
+								this.userInfo.stuQq = qq;
+							} else if (phone != null) {
+								this.userInfo.stuEmail = phone;
+							}
+
 							uni.showToast({
 								title: '修改成功!',
 								duration: 1000
 							});
-							request.getRequest('/wx/api/student/auth/my', {
-								},
+							request.getRequest('/wx/api/student/auth/my', {},
 								(res) => {
 									console.log(res)
 									uni.setStorage({
@@ -136,7 +197,17 @@
 								}
 
 							)
-						}else{
+						} else if (res.data.code == 406) {
+							this.isRequest = false;
+							this.mask = false;
+							this.$refs.uToast.show({
+								type: 'fail',
+								message: "内容包含敏感信息",
+								duration: 700,
+							});
+						} else {
+							this.isRequest = false;
+							this.mask = false;
 							this.$refs.uToast.show({
 								type: 'fail',
 								message: "修改失败",
@@ -144,7 +215,7 @@
 							});
 						}
 					},
-					(error)=>{
+					(error) => {
 						this.isRequest = false;
 						this.mask = false;
 						this.paneAlert();
@@ -152,6 +223,80 @@
 
 				)
 
+			},
+			changeImage() {
+				let that = this;
+				let urlImage = null;
+				uni.chooseImage({
+					count: 1,
+					sizeType: ['original'],
+					sourceType: ['album'],
+					success(res) {
+						that.isRequest = true;
+						that.mask = true;
+						that.uploadPath = res.tempFilePaths[0];
+						uni.uploadFile({
+							url: that.baseUrl + '/wx/api/info/upload',
+							filePath: that.uploadPath,
+							name: 'file',
+							success: (res) => {
+								res = JSON.parse(res.data);
+								if (res.code == 0) {
+									urlImage = that.baseUrl + res.msg;
+									request.postRequest('/wx/api/student/auth/edit', {
+											stuImage: that.baseUrl + res.msg,
+										},
+										(res) => {
+											if (res.data.code == 0 && res.statusCode == 200) {
+												that.isRequest = false;
+												that.mask = false;
+												that.userInfo.stuImage = urlImage;
+												uni.showToast({
+													title: '修改成功!',
+													duration: 1000
+												});
+												request.getRequest('/wx/api/student/auth/my', {},
+													(res) => {
+														uni.setStorage({
+															key: 'userInfo',
+															data: res.data
+														})
+													}
+
+												)
+											} else if (res.data.code == 406) {
+												this.isRequest = false;
+												this.mask = false;
+												this.$refs.uToast.show({
+													type: 'fail',
+													message: "图片包含敏感信息",
+													duration: 700,
+												});
+											} else {
+												this.isRequest = false;
+												this.mask = false;
+												this.$refs.uToast.show({
+													type: 'fail',
+													message: "修改失败",
+													duration: 700,
+												});
+											}
+										},
+										(error) => {
+											this.isRequest = false;
+											this.mask = false;
+											this.paneAlert();
+										}
+
+									)
+								}
+							}
+						})
+					}
+
+				});
+
+				// uni.uploadFile()
 			}
 
 
