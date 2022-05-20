@@ -12,7 +12,6 @@
 					<view style="display: flex;flex-direction: column;margin: 10rpx 0 0 20rpx;">
 						<view>
 							<b style="width: 200rpx;">{{info.stuNick}}</b>
-							<!-- 							<b>{{info.stuNick}}</b> -->
 						</view>
 						<view style="width: 240rpx;margin: 1rpx 0 0 0;">
 							<text style="color:#909399;font-size: 23rpx;">{{info.createTime}}</text>
@@ -33,14 +32,14 @@
 				</view>
 				<view class="detail" style="width: 93%;margin:20rpx auto 0 auto;">
 					<!-- <u--text :text="info.describe"></u--text> -->
-					<view style="margin: 0 0 20rpx 0;">
-						<text>{{info.relTitle}}</text>
+
+					<view style="margin: 0 0 20rpx 0;display: flex;">
+						<view style="margin: 10rpx 0 0 0;">
+							<text style="font-weight: 700;">标题:{{info.relTitle}}</text>
+						</view>
 					</view>
 					<view style="margin: 0 0 20rpx 0rpx;" v-if="info.relDesc!=null">
-						<u-read-more>
-							{{info.relDesc}}
-						</u-read-more>
-
+						<text>内容:{{info.relDesc}}</text>
 					</view>
 					<view style="display: flex;">
 						<text>物品种类:</text>
@@ -51,7 +50,15 @@
 					<view v-if="info.relCampus!=null" style="margin: 0 0 20rpx 0;">
 						<text>校区:{{info.relCampus}}</text>
 					</view>
-					<text v-if="info.relContact!=null">联系方式:{{info.relContact}}</text>
+					<view v-if="info.relContact!=null" style="margin: 0 0 20rpx 0;display: flex;">
+						<view>
+							<text>联系方式:</text>
+						</view>
+						<view style="margin: 5rpx 0 0 0;">
+							<u-tooltip v-if="info.relContact!=null" :text='info.relContact' size="17" bgColor="#e3e4e6"
+								style="margin: 20rpx 0 0 0;"></u-tooltip>
+						</view>
+					</view>
 
 					<view v-if="info.createPlace!=null" style="">
 						<text>地点:{{info.createPlace}}</text>
@@ -62,9 +69,13 @@
 							@click.stop="previewImage(baseUrl+info.relImage)">
 						</image>
 					</view>
-					<view style="display: flex;">
+					<view style="display: flex;justify-content: space-between;">
 						<view>
 							<text style="color: #909399;font-size: 30rpx;">阅读量:{{info.relFlow}}</text>
+						</view>
+						<view @click="showInfo()" v-if="info.relFlag==2">
+							<text style="color:#2979ff" v-if="info.relStatus==1">查看认领者信息</text>
+							<text style="color:#2979ff" v-else>查看归还者信息</text>
 						</view>
 					</view>
 
@@ -200,15 +211,21 @@
 					<view>
 						<view v-if="info.relFlag!=2" style="margin: 0 0 0 140rpx;display: flex;" @click="accept()">
 							<image src="../../static/accept.png" style="width: 50rpx;height: 50rpx;">
-								<view style="margin: 5rpx 0 0 10rpx;">
+								<view style="margin: 5rpx 0 0 10rpx;" v-if="info.relStatus==1">
 									<text style="color: #767a82;" user-select>认领</text>
+								</view>
+								<view style="margin: 5rpx 0 0 10rpx;" v-if="info.relStatus==2">
+									<text style="color: #767a82;" user-select>归还</text>
 								</view>
 						</view>
 						<view v-else-if="info.relClaimId==author.uid" style="margin: 0 0 0 100rpx;display: flex;"
-							@click="renling.reShow=true">
+							@click="returnThing">
 							<image src="../../static/accept.png" style="width: 50rpx;height: 50rpx;">
-								<view style="margin: 5rpx 0 0 10rpx;">
+								<view style="margin: 5rpx 0 0 10rpx;" v-if="info.relStatus==1">
 									<text style="color: #767a82;" user-select>取消认领</text>
+								</view>
+								<view style="margin: 5rpx 0 0 10rpx;" v-if="info.relStatus==2">
+									<text style="color: #767a82;" user-select>取消归还</text>
 								</view>
 						</view>
 						<view v-else style="margin: 0 0 0 130rpx;display: flex;">
@@ -261,21 +278,64 @@
 						<text style="color: #606266;font-size: 30rpx;">您还未登陆，请先登录!</text>
 					</view>
 					<view style="display: flex;justify-content: center;">
-						<view class="alert" style="margin: 0 30rpx 0 0;">
-							<tui-button height="72rpx" :size="28" type="danger" shape="circle"
-								@click="loginPane.show=false" :plain="true">取消</tui-button>
+						<view  style="margin: 0 30rpx 0 0;width: 250rpx;">
+							<tui-button height="72rpx" :size="28" type="danger" shape="circle" @click="check"  plain>取消</tui-button>
 						</view>
-						<view class="alert" style="margin: 0 0 0 30rpx;">
-							<tui-button height="72rpx" :size="28" type="danger" shape="circle" @click="login()">登陆
-							</tui-button>
+						<view  style="margin: 0 0 0 30rpx;width: 250rpx;">
+							<tui-button height="72rpx" :size="28" type="danger" shape="circle" @click="login()">登陆</tui-button>
 						</view>
 					</view>
 				</view>
 			</tui-modal>
+			
 		</view>
 		<tui-loading text="加载中..." v-if="isRequest"></tui-loading>
 		<u-toast ref="uToast"></u-toast>
 		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
+		<u-popup :show="drawer.visible" @close="closeDrawer" mode="center" round=10 :closeable="true"
+			:closeOnClickOverlay="false" :overlayOpacity="0.7">
+			<view class="d-container"
+				style="border-radius: 10rpx;width: 600rpx;box-shadow: 0 0rpx 0rpx 0 rgba(0, 0, 0, 0.1), 0 0rpx 5rpx 0 rgba(0, 0, 0, 0.19);overflow: hidden;display: flex;align-items: center;">
+				<view style="width: 85%;margin: 0 auto 30rpx auto">
+					<view class="avatar"
+						style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin: 30rpx 0 0 ;">
+						<u-avatar v-if="info.claimAvatar!=null" :src="info.claimAvatar" size="60"></u-avatar>
+						<view style="display: flex;align-items: center;justify-content: center;margin:20rpx 0 20rpx 0"
+							v-if="info.claimName!==null&&!stringIsNull(info.claimName)">
+							<u-tooltip :text="info.claimName" bgColor="#e3e4e6"></u-tooltip>
+						</view>
+					</view>
+					<view class="form" style="width: 500rpx;margin: 0 80% 0 1%;">
+						<view style="display: flex; margin: 20rpx 0 0 0;" v-if="!stringIsNull(info.claimQq)&&info.relStatus==1">
+							<view style="display: flex;align-items: center;width: 210rpx;justify-content: flex-end;">QQ：
+							</view>
+							<u-tooltip :text="info.claimQq" bgColor="#e3e4e6"></u-tooltip>
+						</view>
+						<view style="display: flex;margin: 20rpx 0 0 0;" v-if="!stringIsNull(info.claimTel)&&info.relStatus==1">
+							<view style="display: flex;align-items: center;width: 210rpx;justify-content: flex-end;">电话：
+							</view>
+							<u-tooltip :text="info.claimTel" bgColor="#e3e4e6"></u-tooltip>
+						</view>
+
+						<view style="display: flex;margin: 20rpx 0 0 0;" v-if="!stringIsNull(info.claimNick)">
+							<view style="display: flex;align-items: center;width: 210rpx;justify-content: flex-end;">
+								微信名：</view>
+							<u-tooltip :text="info.claimNick" bgColor="#e3e4e6"></u-tooltip>
+						</view>
+						<view style="display: flex;margin: 20rpx 0 0 0;" v-if="!stringIsNull(info.relTime)">
+							<view v-if="info.relStatus==1" style="display: flex;align-items: center;width: 210rpx;justify-content: flex-end;;">
+								认领时间：
+							</view>
+							<view v-else="info.relStatus==1" style="display: flex;align-items: center;width: 210rpx;justify-content: flex-end;;">
+								归还时间：
+							</view>
+							<u-tooltip :text="info.relTime" bgColor="#e3e4e6"></u-tooltip>
+						</view>
+
+					</view>
+				</view>
+			</view>
+		</u-popup>
 	</view>
 
 
@@ -285,33 +345,43 @@
 	import tuiButton from "@/components/thorui/tui-button/tui-button"
 	import tuiModal from "@/components/thorui/tui-modal/tui-modal"
 	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
+	import tuiDrawer from "@/components/thorui/tui-drawer/tui-drawer"
 	import tuiActionsheet from "@/components/thorui/tui-actionsheet/tui-actionsheet"
 	import formatTime from "@/utils/formatTime.js"
 	import request from "@/utils/request.js"
+	import strIsNull from "@/utils/strIsNull.js"
+
 
 	export default {
 		components: {
 			tuiButton,
 			tuiModal,
 			tuiLoading,
-			tuiActionsheet
+			tuiActionsheet,
+			tuiDrawer
 
 		},
 
 		data() {
 			return {
+
 				load: {
 					show: true,
 					list: false,
 					comment: false,
 				},
+				drawer: {
+					visible: false,
+					
+
+				},
 				mask: false,
 				isRequest: false,
 				baseUrl: request.getHost(),
 				author: {
-					"uid": null,
-					"avatar": null,
-					"nickName": null,
+					uid: null,
+					avatar: null,
+					nickName: null,
 				},
 				comments: [],
 				info: null,
@@ -496,7 +566,7 @@
 			},
 			comment() {
 				if (this.isLogin()) {
-					let that=this;
+					let that = this;
 					uni.requestSubscribeMessage({
 						tmplIds: ['WjSjw0WyRL-bTJ8KLZ0mL6bJLevOi3Qfw727iWPjdvg',
 							'ePAwjtm9WKRLyGdrce0IiQtO9jE6l7mnY1KhT2Nvm6U',
@@ -521,7 +591,7 @@
 
 			},
 			comment1() {
-				if (this.input.msg.replace(/\ +/g, "") == '' && !this.input.isUpload) {
+				if (strIsNull(this.input.msg) && !this.input.isUpload) {
 					this.$refs.uToast.show({
 						type: 'default',
 						message: "评论不能为空!",
@@ -716,9 +786,6 @@
 						that.timeout = 701;
 					}, 700); //这里设置定时
 				}
-
-
-
 			},
 			touchmove() {
 				clearTimeout(this.timeout); //清除定时器
@@ -859,8 +926,8 @@
 					this.mask = true;
 					request.getRequest(
 						'/wx/api/info/auth/unClaim?relId=' + this.tid, null,
-						(res) => {
-							if (res.data.code == 0) {
+						(suc) => {
+							if (suc.data.code == 0) {
 								this.isRequest = false;
 								this.mask = false;
 								this.$refs.uToast.show({
@@ -900,6 +967,26 @@
 					message: msg,
 					duration: 700,
 				});
+			},
+			showInfo() {
+				if(this.isLogin()){
+					this.drawer.visible = true;
+				}else{
+					this.loginPane.show=true;
+				}
+				
+			},
+			closeDrawer() {
+				this.drawer.visible = false;
+			},
+			stringIsNull(str) {
+				return strIsNull(str);
+			},
+			check(){
+				this.loginPane.show=false;
+			},
+			returnThing(){
+				this.renling.reShow=true;
 			}
 		}
 
@@ -911,9 +998,7 @@
 		background-color: #f6f7fa;
 	}
 
-	.alert {
-		width: 250rpx;
-	}
+	
 
 	.tui-modal-content {
 		margin: 20rpx 0 0 0;
@@ -961,5 +1046,9 @@
 	.button-hover {
 		color: rgba(0, 0, 0, 0.6);
 		background-color: #f3f3f3;
+	}
+
+	.u-tooltip__wrapper__text {
+		font-family: simsun;
 	}
 </style>

@@ -73,14 +73,17 @@ function postRequest(url, data, success, fail) {
 			header: header,
 			success: function(res) {
 				if (url === logInUrl) {
-					uni.setStorage({
-						key: tokenKey,
-						data: res.data.token
-					});
-					uni.setStorage({
-						key: 'userInfo',
-						data: res.data.object
-					});
+					if(res.data.code==0){
+						uni.setStorage({
+							key: tokenKey,
+							data: res.data.token
+						});
+						uni.setStorage({
+							key: 'userInfo',
+							data: res.data.object
+						});
+					}
+					
 				}
 
 				if (success && typeof success === 'function') {

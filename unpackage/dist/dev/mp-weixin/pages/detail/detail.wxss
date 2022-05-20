@@ -2,9 +2,6 @@
 page {
 	background-color: #f6f7fa;
 }
-.alert {
-	width: 250rpx;
-}
 .tui-modal-content {
 	margin: 20rpx 0 0 0;
 }
@@ -39,5 +36,8 @@ button[disabled] {
 .button-hover {
 	color: rgba(0, 0, 0, 0.6);
 	background-color: #f3f3f3;
+}
+.u-tooltip__wrapper__text {
+	font-family: simsun;
 }
 

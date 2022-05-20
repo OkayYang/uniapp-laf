@@ -104,7 +104,8 @@
 						url: '/pages/message/message'
 					},
 				],
-				itemList: [{
+				itemList: [
+					{
 						title: '个人信息',
 						icon: '/static/personInfo.png',
 						url: '/pages/personal/personal',
@@ -112,11 +113,19 @@
 						now: false,
 						open: ''
 					},
+					// {
+					// 	title: '绑定教务',
+					// 	icon: '/static/bind.png',
+					// 	url: '/pages/school/school',
+					// 	show: false,
+					// 	now: false,
+					// 	open: ''
+					// },
 					{
-						title: '绑定教务',
-						icon: '/static/bind.png',
-						url: '/pages/school/school',
-						show: false,
+						title: '每周推送',
+						icon: '/static/week.png',
+						url: '/pages/week/week',
+						show: true,
 						now: false,
 						open: ''
 					},
@@ -128,6 +137,7 @@
 						now: true,
 						open: 'contact'
 					},
+					
 					{
 						title: '系统设置',
 						icon: '/static/setting.png',
@@ -181,8 +191,10 @@
 		},
 		onShow() {
 			uni.showTabBar();
-			this.onChange();
-
+			if(this.$store.state.storeFresh){
+				this.onChange();
+				this.$store.state.storeFresh=false;
+			}
 		},
 		methods: {
 			// show() {
@@ -313,12 +325,16 @@
 				request.getRequest('/wx/api/student/auth/my', {},
 					(res) => {
 						console.log(res)
-						uni.setStorage({
-							key: 'userInfo',
-							data: res.data
-						})
-						that.nickName = res.data.stuNick;
-						that.src = res.data.stuImage;
+						if(res.error!=null){
+							uni.setStorage({
+								key: 'userInfo',
+								data: res.data
+							})
+							that.nickName = res.data.stuNick;
+							that.src = res.data.stuImage;
+						}
+					
+						
 					}
 
 				)

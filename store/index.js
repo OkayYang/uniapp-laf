@@ -8,6 +8,7 @@ Vue.use(Vuex);//vue的插件机制
 const store = new Vuex.Store({
     state:{//存放状态
         "fresh":false,
+		"storeFresh":false,
         
     }
 })

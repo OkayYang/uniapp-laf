@@ -1,0 +1,19 @@
+<view wx:if="{{isReady}}">
+    <view class="status-alarm">
+    <view class="line-row" wx:for="{{steps}}" wx:key="index">
+        <view class="onedot {{index===0?'dotS':''}}"></view>
+        <view wx:if="{{index!=steps.length-1}}" class="oneline"></view>
+        <view wx:else class="oneline oneline1"></view>
+        <view class="maintext {{index===0?'maintextS':''}} " data-id="{{item.id}}" bindtap="onClick">
+            <text>{{item.desc}}</text>
+            <text wx:if="{{item.text}}" >{{item.text}}</text>
+        </view>
+    </view>
+</view>
+
+</view>
+<view wx:else>
+  <van-empty image="network" description="网络开小差" />
+</view>
+<van-toast id="van-toast" />
+

@@ -23,4 +23,10 @@ page {
 	right: 30rpx;
 	border-radius: 50%;
 }
+.u-notice-bar{
+	height: 25rpx;
+}
+u-icon__icon{
+	font-size: 14rpx;
+}
 

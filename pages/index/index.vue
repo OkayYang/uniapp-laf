@@ -1,6 +1,9 @@
 <template>
-
+	
 	<view class="square">
+		<view class="roll">
+			<u-notice-bar :text="rollNews" fontSize="14" bgColor="#ffffff" color="#3c9cff" mode="link" url="../news/news"></u-notice-bar>
+		</view>
 		<view class="header" style="margin-top: 20rpx;width: 700rpx; margin: 20rpx auto;height: 165rpx;">
 			<u-search placeholder="请输入搜索内容" v-model="msg" shape="round" bgColor="#f4f4f4" :showAction="false"
 				@search="onSearch" @clear="clearSearch">
@@ -99,6 +102,7 @@
 
 		data() {
 			return {
+				rollNews:"点击查看本周失物招领汇总！",
 				uStatus: 'loading ',
 				msg: '',
 				filterData: [
@@ -498,5 +502,11 @@
 			inset -3px -5px 10px rgba(255, 255, 255, 1);
 		right: 30rpx;
 		border-radius: 50%;
+	}
+	.u-notice-bar{
+		height: 25rpx;
+	}
+	u-icon__icon{
+		font-size: 14rpx;
 	}
 </style>

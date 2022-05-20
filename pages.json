@@ -8,6 +8,13 @@
 				"enablePullDownRefresh": true
 			}
 		},
+		{
+			"path": "pages/news/news",
+			"style": {
+				"navigationBarTitleText": "本周推送",
+				"enablePullDownRefresh": false
+			}
+		},
 
 		// {
 		// 	"path": "pages/appreciate/appreciate",
@@ -26,11 +33,6 @@
 				"disableScroll": true
 			}
 		},
-
-		
-
-
-
 
 
 		{
@@ -102,7 +104,16 @@
 
 		}
 
-	],
+        ,{
+            "path" : "pages/week/week",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "每周推送",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 
 		"navigationBarBackgroundColor": "#449bf8",

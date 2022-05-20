@@ -2,6 +2,7 @@
   "navigationBarTitleText": "首页",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "u-notice-bar": "/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar",
     "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
     "ren-dropdown-filter": "/components/ren-dropdown-filter/ren-dropdown-filter",
     "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",

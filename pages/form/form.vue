@@ -32,9 +32,6 @@
 					@close="showSort = false" @select="sortSelect">
 				</u-action-sheet>
 
-
-
-
 				<u-form-item :required="true" :leftIconStyle="{color: '#888', fontSize: '32rpx'}" label="校 区:"
 					borderBottom @click="showCampus = true" labelWidth="120rpx">
 					<u--input v-model="model1.userInfo.campus" disabled disabledColor="#f5f5f5" placeholder=" 南昌校区"
@@ -251,6 +248,7 @@
 					success: (res) => {
 						
 						let msg = null;
+						
 						let qq = res.data.stuQq;
 						let tel = res.data.stuEmail;
 						if(qq.replace(/\ +/g, "")==''){
@@ -259,8 +257,7 @@
 						if(tel.replace(/\ +/g, "")==''){
 							tel =null;
 						}
-						
-						
+
 						if (qq != null && tel == null) {
 							msg = 'QQ:' + qq;
 						}
@@ -290,6 +287,8 @@
 				});
 				
 			},
+			
+			
 
 			campusSelect(e) {
 				this.model1.userInfo.campus = e.name

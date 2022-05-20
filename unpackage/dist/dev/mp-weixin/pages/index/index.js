@@ -95,20 +95,23 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uNoticeBar: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-notice-bar/u-notice-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-notice-bar/u-notice-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 227))
+    },
     uSearch: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 212))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 235))
     },
     renDropdownFilter: function() {
-      return __webpack_require__.e(/*! import() | components/ren-dropdown-filter/ren-dropdown-filter */ "components/ren-dropdown-filter/ren-dropdown-filter").then(__webpack_require__.bind(null, /*! @/components/ren-dropdown-filter/ren-dropdown-filter.vue */ 220))
+      return __webpack_require__.e(/*! import() | components/ren-dropdown-filter/ren-dropdown-filter */ "components/ren-dropdown-filter/ren-dropdown-filter").then(__webpack_require__.bind(null, /*! @/components/ren-dropdown-filter/ren-dropdown-filter.vue */ 243))
     },
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 227))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 250))
     },
     uTag: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 235))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-tag/u-tag */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-tag/u-tag")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-tag/u-tag.vue */ 258))
     },
     uLoadmore: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 243))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-loadmore/u-loadmore */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-loadmore/u-loadmore")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-loadmore/u-loadmore.vue */ 266))
     }
   }
 } catch (e) {
@@ -187,6 +190,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
 
 
 
@@ -355,8 +361,11 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
 //
 //
 //
+//
+//
+//
 // import data from '../../static/json/list.json'
-var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {if (!value) return '';if (value.length > 15) {return value.slice(0, 15) + '...';}return value;} }, data: function data() {return { uStatus: 'loading ', msg: '', filterData: [[{ text: '所有发布', value: '0' }, { text: '失物招领', value: '1' }, { text: '寻物启事', value: '2' }], [{ text: '待解决', value: '1' }, { text: '已解决', value: '2' }, { text: '全部状态', value: '0' }], [{ text: '所有种类', value: '0' } // {
+var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {if (!value) return '';if (value.length > 15) {return value.slice(0, 15) + '...';}return value;} }, data: function data() {return { rollNews: "点击查看本周失物招领汇总！", uStatus: 'loading ', msg: '', filterData: [[{ text: '所有发布', value: '0' }, { text: '失物招领', value: '1' }, { text: '寻物启事', value: '2' }], [{ text: '待解决', value: '1' }, { text: '已解决', value: '2' }, { text: '全部状态', value: '0' }], [{ text: '所有种类', value: '0' } // {
       // 	text: '其他',
       // 	value: '1',
       // },
@@ -378,9 +387,7 @@ var _default = { name: 'square', filters: { ellipsis: function ellipsis(value) {
     // })
     console.log('onLoad');this.onLoadClone3389();}, /**
                                                      * 生命周期函数--监听页面初次渲染完成
-                                                     */
-  onReady: function onReady() {
-    console.log('onready');
+                                                     */onReady: function onReady() {console.log('onready');
 
 
   },

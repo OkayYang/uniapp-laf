@@ -194,8 +194,9 @@
 										key: 'userInfo',
 										data: res.data
 									})
+									this.$store.state.storeFresh=true;
 								}
-
+								
 							)
 						} else if (res.data.code == 406) {
 							this.isRequest = false;
