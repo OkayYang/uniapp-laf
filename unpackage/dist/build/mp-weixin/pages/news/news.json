@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "每周失物招领推送",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "van-toast": "../../wxcomponents/vant/toast/index",
-    "van-empty": "../../wxcomponents/vant/empty/index"
-  }
-}

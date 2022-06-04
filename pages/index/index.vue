@@ -61,7 +61,7 @@
 								<text style="font-size: 27rpx;">{{info.relTitle|ellipsis}}</text>
 							</view>
 						</view>
-						<view v-if="info.relDesc!=null" style="display: flex;margin: 8rpx 0 0 0;" >
+						<view v-if="!stringIsNull(info.relDesc)" style="display: flex;margin: 8rpx 0 0 0;" >
 							<view style="width: 105rpx;">
 								<text style="color: #909399;font-size: 27rpx;">描述：</text>
 							</view>
@@ -87,6 +87,7 @@
 
 <script>
 	import request from '../../utils/request.js'
+	import strIsNull from "@/utils/strIsNull.js"
 	// import data from '../../static/json/list.json'
 	export default {
 		name: 'square',
@@ -469,7 +470,10 @@
 				 this.initSearchData();
 				 this.lafRelease.relTitle = null;
 				 this.loadRelease();
-			 }
+			 },
+			 stringIsNull(str) {
+			 	return strIsNull(str);
+			 },
 
 		}
 

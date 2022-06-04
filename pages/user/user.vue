@@ -46,6 +46,15 @@
 				</button>
 				<view class="underline"></view>
 			</view>
+			<button v-if="!isLogin" type="default" plain=true
+				style="border: none;height: 100rpx;font-size: 30rpx;display: flex;align-items: center;"
+				@click='modal=true'>
+				<image src='/static/test.png' mode="aspectFit" style="width: 55rpx;height:55rpx;float: left;"></image>
+				<text style="float: left;margin-left: 40rpx;">测试通道</text>
+				<view class="rightArrow"></view>
+				<!--右箭头 -->
+			</button>
+			<view class="underline"></view>
 		</view>
 		<u-toast ref="uToast"></u-toast>
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto 100rpx;">
@@ -56,22 +65,31 @@
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
 		<tui-loading text="登陆中..." v-if="isRequest"></tui-loading>
 		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
-		
+		<u-modal :show="modal" title="内测通道" :closeOnClickOverlay="true" @confirm="submit()" @close="closeModal()" width="550rpx">
+			<view class="slot-content">
+				<u--input placeholder="请输入管理员密钥"  v-model="input"></u--input>
+			</view>
+		</u-modal>
 	</view>
 </template>
 
 <script>
 	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
+	import tuiModal from "@/components/thorui/tui-modal/tui-modal"
 	import request from '@/utils/request.js';
+	import strIsNull from "@/utils/strIsNull.js";
 	export default {
 		components: {
-			tuiLoading
+			tuiLoading,
+			tuiModal
 		},
 		name: 'user',
 		data() {
 			return {
 				test: "    1 ".replace(/\ +/g, ""),
 				mask: false,
+				input:'',
+				modal: false,
 				isLogin: false,
 				isRequest: false,
 				src: '/static/avatar.png',
@@ -104,8 +122,7 @@
 						url: '/pages/message/message'
 					},
 				],
-				itemList: [
-					{
+				itemList: [{
 						title: '个人信息',
 						icon: '/static/personInfo.png',
 						url: '/pages/personal/personal',
@@ -137,7 +154,7 @@
 						now: true,
 						open: 'contact'
 					},
-					
+
 					{
 						title: '系统设置',
 						icon: '/static/setting.png',
@@ -170,8 +187,9 @@
 					// 	now: false,
 					// 	open: ''
 					// },
-					
-				]
+
+				],
+
 
 			}
 		},
@@ -191,9 +209,9 @@
 		},
 		onShow() {
 			uni.showTabBar();
-			if(this.$store.state.storeFresh){
+			if (this.$store.state.storeFresh) {
 				this.onChange();
-				this.$store.state.storeFresh=false;
+				this.$store.state.storeFresh = false;
 			}
 		},
 		methods: {
@@ -203,6 +221,10 @@
 			// 		this.itemList[1].show = true
 			// 	}
 			// },
+			closeModal(){
+				this.modal=false;
+				this.input="";
+			},
 			login() {
 				let that = this;
 
@@ -325,7 +347,7 @@
 				request.getRequest('/wx/api/student/auth/my', {},
 					(res) => {
 						console.log(res)
-						if(res.error!=null){
+						if (res.error != null) {
 							uni.setStorage({
 								key: 'userInfo',
 								data: res.data
@@ -333,8 +355,8 @@
 							that.nickName = res.data.stuNick;
 							that.src = res.data.stuImage;
 						}
-					
-						
+
+
 					}
 
 				)
@@ -343,6 +365,73 @@
 				wx.navigateTo({
 					url: url
 				});
+			},
+			submit(){
+				let code = this.input;
+				let that=this;
+				console.log(code);
+				if(!strIsNull(code)){
+					console.log(code);
+					let url = "/wx/api/login/beta?code="+code;
+					that.modal=false;
+					that.isRequest = true;
+					that.mask = true;
+					
+					request.getRequest(url,{},
+					(res)=>{
+						if(res.data.code==0){
+							uni.setStorage({
+								key: 'token',
+								data: res.data.token
+							});
+							uni.setStorage({
+								key: 'userInfo',
+								data: res.data.object
+							});
+							this.itemList[0].show = true
+							this.itemList[1].show = true
+							this.isLogin = true;
+							this.src = res.data.object.stuImage;
+							this.nickName = res.data.object.stuNick;
+							that.isRequest = false;
+							that.mask = false;
+							uni.showToast({
+								title: '登录成功!',
+								duration: 1000
+							});
+							
+							that.modal=false;
+							that.input="";
+							
+						}else{
+							that.modal=true;
+							that.isRequest = false;
+							that.mask = false;
+							console.log("认证失败");
+							uni.showToast({
+								icon: "error",
+								title: '认证失败!',
+								duration: 1000
+							});
+							
+						}
+						
+					},
+					(error)=>{
+						that.modal=true;
+						that.isRequest = false;
+						that.mask = false;
+						
+						uni.showToast({
+							icon: "error",
+							title: '登陆失败!',
+							duration: 1000
+						});
+					}
+					)
+				}
+				
+				console.log(this.input);
 			}
 
 		},
