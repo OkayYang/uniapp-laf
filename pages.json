@@ -1,16 +1,12 @@
 {
 	"pages": [
-
-		// {
-		// 		"path": "pages/subscribe/subscribe",
-		// 		"style": {
-		// 			"navigationBarTitleText": "订阅",
-		// 			"enablePullDownRefresh": true
-		// 		}
-		// 	},
-
-
-
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": ""
+				//"disableScroll": true
+			}
+		},
 		{
 			"path": "pages/public/public",
 			"style": {
@@ -18,7 +14,29 @@
 				"disableScroll": true
 			}
 		},
-
+		{
+			"path": "pages/form/form",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F5F5F5",
+				"navigationBarTitleText": "表单",
+				"backgroundColor": "#F5F5F5"
+			}
+		},
+		
+		
+		{
+			"path": "pages/subscribtion/subscribtion",
+			"style": {
+				"navigationBarBackgroundColor": "#F5F5F5",
+				// "navigationBarBackgroundColor": "#121929",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "关键字推送",
+				"disableScroll": true
+			}
+		},
+		
+		
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -26,9 +44,44 @@
 				"enablePullDownRefresh": true
 			}
 		},
+		
+		
+		
+	
+		
+		
+	{
+			"path": "pages/mySubscribe/mySubscribe",
+			"style": {
+				"navigationBarBackgroundColor": "#121929",
+				"disableScroll": true
+			}
+		},
+	
+
+		
+		{
+			"path": "pages/news/news",
+			"style": {
+				"navigationBarTitleText": "本周推送",
+				"enablePullDownRefresh": false
+			}
+		},
+
+		// {
+		// 	"path": "pages/appreciate/appreciate",
+		// 	"style": {
+		// 		"navigationBarTitleText": "打赏作者",
+		// 		"enablePullDownRefresh": false,
+		// 		"disableScroll": true
+		// 	}
+
+		// },
 
 
 
+
+	
 
 
 		{
@@ -39,17 +92,7 @@
 			}
 		},
 
-		{
-			"path": "pages/form/form",
-			"style": {
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#F5F5F5",
-				"navigationBarTitleText": "表单",
-				"backgroundColor": "#F5F5F5"
-			}
-		},
-
-
+	
 
 		{
 			"path": "pages/myPublish/myPublish",
@@ -67,13 +110,7 @@
 			}
 		},
 
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": ""
-				//"disableScroll": true
-			}
-		},
+		
 
 		{
 			"path": "pages/detail/detail",
@@ -95,6 +132,15 @@
 			"path": "pages/notice/notice",
 			"style": {
 				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+
+		, {
+			"path": "pages/week/week",
+			"style": {
+				"navigationBarTitleText": "每周推送",
 				"enablePullDownRefresh": false
 			}
 

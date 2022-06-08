@@ -69,6 +69,7 @@
 				</view>
 			</view>
 		</tui-modal>
+		
 
 
 	</view>
@@ -96,7 +97,8 @@
 					},
 					{
 						'src': '/static/notice.png',
-						'name': '服务推送'
+						'name': '关键字订阅',
+						'url':'../subscribtion/subscribtion'
 					},
 				],
 				week01: '',

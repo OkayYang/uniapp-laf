@@ -1,6 +1,9 @@
 <template>
-
+	
 	<view class="square">
+		<view class="roll">
+			<u-notice-bar :text="rollNews" fontSize="14" bgColor="#ffffff" color="#3c9cff" mode="link" url="../news/news"></u-notice-bar>
+		</view>
 		<view class="header" style="margin-top: 20rpx;width: 700rpx; margin: 20rpx auto;height: 165rpx;">
 			<u-search placeholder="请输入搜索内容" v-model="msg" shape="round" bgColor="#f4f4f4" :showAction="false"
 				@search="onSearch" @clear="clearSearch">
@@ -43,7 +46,7 @@
 					<image :src="baseUrl+info.relImage"
 						style="height:170rpx;width: 170rpx;border-radius: 30rpx;margin:20rpx 0 10rpx 20rpx;"
 						mode="aspectFill" @click.stop="previewImage(baseUrl+info.relImage)" />
-					<view class="content" style="margin: 20rpx 0 0 50rpx;">
+					<view class="content" style="margin: 30rpx 0 20rpx 50rpx;">
 						<view style="display: flex;">
 							<text style="color:#909399;margin: 5rpx 0 0 0;font-size: 27rpx; ">物品种类：</text>
 							<view>
@@ -58,11 +61,11 @@
 								<text style="font-size: 27rpx;">{{info.relTitle|ellipsis}}</text>
 							</view>
 						</view>
-						<view style="display: flex;margin: 8rpx 0 0 0;">
+						<view v-if="!stringIsNull(info.relDesc)" style="display: flex;margin: 8rpx 0 0 0;" >
 							<view style="width: 105rpx;">
 								<text style="color: #909399;font-size: 27rpx;">描述：</text>
 							</view>
-							<view>
+							<view >
 								<text style="font-size: 27rpx;">{{info.relDesc| ellipsis}}</text>
 							</view>
 						</view>
@@ -84,6 +87,7 @@
 
 <script>
 	import request from '../../utils/request.js'
+	import strIsNull from "@/utils/strIsNull.js"
 	// import data from '../../static/json/list.json'
 	export default {
 		name: 'square',
@@ -99,6 +103,7 @@
 
 		data() {
 			return {
+				rollNews:"点击查看本周失物招领汇总！",
 				uStatus: 'loading ',
 				msg: '',
 				filterData: [
@@ -440,7 +445,7 @@
 
 			// // 获取滚动条当前位置
 			 onPageScroll: function(e) {
-				console.log(e)
+				//console.log(e)
 			 	if (e.scrollTop >300) {
 				this.floor = false
 				} else {
@@ -465,7 +470,10 @@
 				 this.initSearchData();
 				 this.lafRelease.relTitle = null;
 				 this.loadRelease();
-			 }
+			 },
+			 stringIsNull(str) {
+			 	return strIsNull(str);
+			 },
 
 		}
 
@@ -498,5 +506,11 @@
 			inset -3px -5px 10px rgba(255, 255, 255, 1);
 		right: 30rpx;
 		border-radius: 50%;
+	}
+	.u-notice-bar{
+		height: 25rpx;
+	}
+	u-icon__icon{
+		font-size: 14rpx;
 	}
 </style>
