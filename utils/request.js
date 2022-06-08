@@ -1,8 +1,10 @@
 //var apiHost = 'http://localhost:80';
 //var apiHost = "http://101.42.222.167"
 //var apiHost = "http://xiaoyang.asia"
-//var apiHost = "http://192.168.3.32:80";
+// var apiHost = "http://192.168.3.32:80";
 var apiHost = "https://laf.4w3w.com"
+//var apiHost = "http://192.168.43.122";
+
 //yang
 //var apiHost = "http://192.168.3.104:80";
 
@@ -71,14 +73,17 @@ function postRequest(url, data, success, fail) {
 			header: header,
 			success: function(res) {
 				if (url === logInUrl) {
-					uni.setStorage({
-						key: tokenKey,
-						data: res.data.token
-					});
-					uni.setStorage({
-						key: 'userInfo',
-						data: res.data.userInfo
-					});
+					if(res.data.code==0){
+						uni.setStorage({
+							key: tokenKey,
+							data: res.data.token
+						});
+						uni.setStorage({
+							key: 'userInfo',
+							data: res.data.object
+						});
+					}
+					
 				}
 
 				if (success && typeof success === 'function') {

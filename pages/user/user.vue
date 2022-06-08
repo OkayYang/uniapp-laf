@@ -58,7 +58,7 @@
 		</view>
 		<u-toast ref="uToast"></u-toast>
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto 100rpx;">
-			<button class="btn" size="large" @click="exit" >退出登录</button>
+			<button class="btn"  @click="exit">退出登录</button>
 		</view>
 
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
@@ -491,14 +491,14 @@
 	.btn {
 		width: 720rpx;
 		height: 3rem;
-		background-color:rgba(202, 202, 202, 0.3);
-		letter-spacing:10rpx;
-		color:grey;
-		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
+		letter-spacing: 10rpx;
+		color: grey;
 		justify-self: center;
 		display: flex;
 		justify-content: center;
-		border: none;
 		transition: 0.3s ease;
+		margin-top: 100rpx;
+		border:0.5rpx solid rgb(245, 241, 239);
 	}
+
 </style>

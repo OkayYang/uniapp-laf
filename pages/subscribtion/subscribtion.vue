@@ -1,31 +1,31 @@
 <template>
 
 	<!-- 这里是输入关键字和描述 -->
-	<view class="" v-show="!button_show" style="width:100%;height:1100rpx;position:relative;">
+	<view class="" v-show="!button_show" style="width:100%;height:1200rpx;position:relative;">
 
 
 		<!-- <view class="box_text">描述</view> -->
-		<textarea type="text" v-model="data_formInput.title" maxlength="40"
-			style="border:1px solid rgba(222, 218, 208, 0.8);width:83%;box-sizing: border-box;height:200rpx;margin:auto;padding:30rpx;margin-top:40rpx;background-color:white;border-radius: 30rpx;"
+		<textarea type="text" v-model="data_formInput.title" maxlength="50"
+			style="border:1px solid rgba(222, 218, 208, 0.8);width:83%;box-sizing: border-box;height:250rpx;margin:auto;padding:30rpx;margin-top:40rpx;background-color:white;border-radius: 30rpx;"
 			placeholder="编辑标题,记录失物描述……">
 			</textarea>
 		<view class=""
-			style="position:relative;width:78%;height:45%;border:1px solid rgba(222, 218, 208, 0.8);margin:50rpx auto 0;background-color:white;overflow-y:auto;padding-left:30rpx;padding-top:20rpx;border-radius: 30rpx;">
+			style="position:relative;width:78%;height:50%;border:1px solid rgba(222, 218, 208, 0.8);margin:50rpx auto 0;background-color:white;overflow-y:auto;padding-left:30rpx;padding-top:50rpx;border-radius: 30rpx;">
 
-			<view style="display:flex;align-items:center;width:100%;margin-bottom:20rpx 0;"
+			<view style="display:flex;align-items:center;width:100%;margin-bottom:20rpx;"
 				v-for="(item,i) of data_formInput.keyword">
 				<input type="text" v-model="data_formInput.keyword[i]" :key="i"
 					style="border:1px solid rgba(230,225,215,0.8);width:80%;height:70rpx;margin-bottom:10rpx;padding-left:20rpx;display:inline-block;border-radius: 20rpx;" />
 				<!-- <view style="display:inline-block;height:70rpx;line-height:70rpx;margin:0 0 10rpx 30rpx;"
 					@click="delInput(item,i)"> -->
-				<image src="../../static/删除.png" mode="aspectFit"
+				<image src="/static/subscribtion/del.png" mode="aspectFit"
 					style="display:inline-block;height:70rpx;line-height:70rpx;margin:0 0 10rpx 20rpx;width:50rpx"
 					@click="delInput(item,i)">
 				</image>
 				<!-- </view> -->
 			</view>
-			<view @click='addInput' style="display:flex;align-items:center;height:30rpx;margin-top:20rpx;">
-				<image src="../../static/增加.png" mode="aspectFit"
+			<view @click='addInput' style="display:flex;align-items:center;height:30rpx;margin-top:50rpx;">
+				<image src="/static/subscribtion/add.png" mode="aspectFit"
 					style="display:inline;width:50rpx;padding-right:20rpx;"></image> 添加关键字
 			</view>
 		</view>
@@ -33,13 +33,14 @@
 
 		<!-- 使用帮助 -->
 		<view class=""
-			style="display:flex;align-items:center;position:relative;width:83%;height:12%;font-size:35rpx;color:grey;margin:auto"
+			style="display:flex;align-items:center;position:relative;width:78%;height:12%;font-size:35rpx;color:grey;margin:auto;padding-left:30rpx;"
 			@click="openHelp">
-			<image src="../../static/问题.png" mode="aspectFit" style="display:inline;width:50rpx;padding-right:20rpx;">
+			<image src="/static/subscribtion/help.png" mode="aspectFit"
+				style="display:inline;width:50rpx;padding-right:20rpx;">
 			</image>使用帮助
 		</view>
 		<button @click='create' class="btn"
-			style="position:absolute;bottom:40rpx;left:50%;transform:translate(-50%)">确&nbsp;&nbsp;&nbsp;定</button>
+			style="position:absolute;top:1150rpx;left:50%;transform:translateX(-50%)">确&nbsp;&nbsp;&nbsp;定</button>
 		<!-- 关键字个数超过5个时出现的弹窗 -->
 		<u-popup :show="maxTip" @close="close_box" mode="center" round=20 closeable=true>
 			<view style="width: 600rpx;height: 220rpx;position:relative;">
@@ -62,8 +63,7 @@
 				<view style="height: 220rpx;position:absolute;top:100rpx;">
 					添加的推送不能超过5个哦!
 				</view>
-				<view
-					style="position:absolute;top:190rpx;border:1rpx solid rgba(0, 0, 0, 0.1);width:200rpx;height:70rpx;border-radius:30rpx;text-align:center;line-height:70rpx;background-color: rgba(170, 170, 255, 0.1);"
+				<view  style="position:absolute;top:190rpx;border:1rpx solid rgba(0, 0, 0, 0.1);width:200rpx;height:70rpx;border-radius:30rpx;text-align:center;line-height:70rpx;background-color: rgba(170, 170, 255, 0.1);"
 					@click="jumpMySub">管理推送</view>
 			</view>
 		</u-popup>

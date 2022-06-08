@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#121929",
+  "disableScroll": true,
+  "usingComponents": {
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

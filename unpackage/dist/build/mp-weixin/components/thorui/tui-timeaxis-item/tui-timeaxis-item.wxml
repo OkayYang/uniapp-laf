@@ -1,0 +1,1 @@
+<view class="tui-timeaxis-item data-v-528e0e8f"><slot name="content"></slot><view class="tui-timeaxis-node data-v-528e0e8f" style="{{'background-color:'+(backgroundColor)+';'}}"><slot name="node"></slot></view></view>

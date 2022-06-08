@@ -1,0 +1,12 @@
+
+.btn.data-v-c8634f34 {
+	width: 83%;
+	height: 3rem;
+	box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	transition: 0.3s ease;
+}
+

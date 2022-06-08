@@ -6,7 +6,7 @@
 
 
 		<!-- 添加 /银河系-->
-		<view class="circle" style="display:flex;justify-content:center;">
+		<view class="circle" style="display:flex;justify-content:center;" @click='open_tip'>
 			<view class="out">
 				<view class="breath-light">
 					<view class="centerblue center">
@@ -18,53 +18,53 @@
 					<view class="centerblue1 center">
 					</view>
 				</view>
+
 			</view>
-			<image src="../../static/subscribtion/提示.png" mode="aspectFit"
-				style="width:100rpx;position:absolute;left:50%;	transform: translate(-50%, 50%);opacity: border-radius:50%;"
-				@click='open_tip'>
-			</image>
+			<!-- <image src="../../static/subscribtion/tip.png" mode="aspectFit"
+				style="width:100rpx;opacity: border-radius:50%;" @click='open_tip'>
+			</image> -->
 		</view>
 
 		<view class="">
-			<image src="../../static/subscribtion/星星.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:100rpx;left:100rpx" @click='open_box'
+			<image src="../../static/subscribtion/star.png" mode="aspectFit"
+				style="width:150rpx;position:absolute;top:300rpx;left:100rpx" @click='open_box'
 				:class="{'text1':isActive[0]}"></image>
-			<image src="../../static/subscribtion/太阳.png" mode="aspectFit"
-				style="width:200rpx;position:absolute;top:400rpx;left:20rpx" class="  " @click='open_box'
+			<image src="../../static/subscribtion/sun.png" mode="aspectFit"
+				style="width:200rpx;position:absolute;top:600rpx;left:20rpx" class="  " @click='open_box'
 				:class="{'text1':isActive[1]}"></image>
-			<image src="../../static/subscribtion/彗星.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:-50rpx;left:500rpx" class="  " @click='open_box'
+			<image src="../../static/subscribtion/comet.png" mode="aspectFit"
+				style="width:150rpx;position:absolute;top:200rpx;left:500rpx" class="  " @click='open_box'
 				:class="{'text1':isActive[2]}"></image>
-			<image src="../../static/subscribtion/土星.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:400rpx;left:550rpx" class="  " @click='open_box'
+			<image src="../../static/subscribtion/saturn.png" mode="aspectFit"
+				style="width:150rpx;position:absolute;top:550rpx;left:600rpx" class="  " @click='open_box'
 				:class="{'text1':isActive[3]}">
 			</image>
-			<image src="../../static/subscribtion/旗帜.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:600rpx;left:300rpx" class="  " @click='open_box'
+			<image src="../../static/subscribtion/flag.png" mode="aspectFit"
+				style="width:150rpx;position:absolute;top:850rpx;left:300rpx" class="  " @click='open_box'
 				:class="{'text1':isActive[4]}">
 			</image>
 
-			<view :class="{'text1':!isActive[0]}" style="width:150rpx;position:absolute;top:350rpx;left:100rpx;">
+			<view :class="{'text1':!isActive[0]}" style="width:150rpx;position:absolute;top:450rpx;left:50rpx;">
 				<view class="container" @click="opendetail(0)">
 					{{datas[0].keyword[0]}}
 				</view>
 			</view>
-			<view :class="{'text2':!isActive[1]}" style="width:200rpx;position:absolute;top:600rpx;left:20rpx">
+			<view :class="{'text2':!isActive[1]}" style="width:200rpx;position:absolute;top:800rpx;left:20rpx">
 				<view class="container" @click="opendetail(1)">
 					{{datas[1].keyword[0]}}
 				</view>
 			</view>
-			<view :class="{'text3':!isActive[2]}" style="width:150rpx;position:absolute;top:250rpx;left:500rpx">
+			<view :class="{'text3':!isActive[2]}" style="width:150rpx;position:absolute;top:450rpx;left:400rpx">
 				<view class="container" @click="opendetail(2)">
 					{{datas[2].keyword[0]}}
 				</view>
 			</view>
-			<view :class="{'text4':!isActive[3]}" style="width:150rpx;position:absolute;top:650rpx;left:550rpx">
+			<view :class="{'text4':!isActive[3]}" style="width:150rpx;position:absolute;top:800rpx;left:500rpx">
 				<view class="container" @click="opendetail(3)">
 					{{datas[3].keyword[0]}}
 				</view>
 			</view>
-			<view :class="{'text5':!isActive[4]}" style="width:150rpx;position:absolute;top:900rpx;left:300rpx">
+			<view :class="{'text5':!isActive[4]}" style="width:150rpx;position:absolute;top:1000rpx;left:300rpx">
 				<view class="container" @click="opendetail(4)">
 					{{datas[4].keyword[0]}}
 				</view>
@@ -254,8 +254,8 @@
 		position: relative;
 
 		width: 100%;
-		min-height: 2000rpx;
-		background: url(https://pic.imgdb.cn/item/627aab8d0947543129e4c300.jpg) repeat center;
+		min-height: 1500rpx;
+		background: url(https://pic.imgdb.cn/item/62a0a2d40947543129725be2.jpg) repeat center;
 		background-size: cover;
 		overflow: hidden;
 	}
@@ -264,14 +264,14 @@
 	.circle {
 		position: absolute;
 		left: 50%;
-		transform: translate(-50%);
-
+		top:50%;
+		transform: translateX(-50%) translateY(-50%);
 	}
 
 	.out {
 		position: relative;
 		left: 50%;
-		transform: translateX(-50%) translateY(40%);
+		transform: translateX(-50%) ;
 		border: 313rpx solid;
 		background-color: #00c1de;
 		opacity: 0.7;
