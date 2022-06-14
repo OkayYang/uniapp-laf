@@ -1,9 +1,0 @@
-{
-  "navigationBarBackgroundColor": "#F5F5F5",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "关键字推送",
-  "disableScroll": true,
-  "usingComponents": {
-    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
-  }
-}

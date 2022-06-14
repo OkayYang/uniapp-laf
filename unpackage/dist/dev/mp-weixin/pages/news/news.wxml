@@ -1,1 +1,0 @@
-<view><u-parse vue-id="1cdd0ce0-1" content="{{content}}" lazyLoad="{{true}}" bind:__l="__l"></u-parse><u-loading-page vue-id="1cdd0ce0-2" loading="{{loading}}" bind:__l="__l"></u-loading-page></view>

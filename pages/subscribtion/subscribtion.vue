@@ -33,7 +33,7 @@
 
 		<!-- 使用帮助 -->
 		<view class=""
-			style="display:flex;align-items:center;position:relative;width:78%;height:12%;font-size:35rpx;color:grey;margin:auto;padding-left:30rpx;"
+			style="display:flex;align-items:center;position:relative;width:78%;height:3%;font-size:35rpx;color:grey;margin:auto;padding-left:30rpx;margin-top:50rpx"
 			@click="openHelp">
 			<image src="/static/subscribtion/help.png" mode="aspectFit"
 				style="display:inline;width:50rpx;padding-right:20rpx;">
@@ -41,6 +41,17 @@
 		</view>
 		<button @click='create' class="btn"
 			style="position:absolute;top:1150rpx;left:50%;transform:translateX(-50%)">确&nbsp;&nbsp;&nbsp;定</button>
+		<!-- 输入的关键字不为空时才能添加新的空的输入框 -->
+
+		<u-popup :show="newTip" @close="close_new" mode="center" round=20 closeable=true>
+			<view style="width: 600rpx;height: 220rpx;position:relative;">
+				<view style="width: 550rpx;height: 220rpx;position:absolute;top:100rpx;text-align:center">
+					输入框不为空时才能添加新的输入框哦！
+				</view>
+			</view>
+		</u-popup>
+
+
 		<!-- 关键字个数超过5个时出现的弹窗 -->
 		<u-popup :show="maxTip" @close="close_box" mode="center" round=20 closeable=true>
 			<view style="width: 600rpx;height: 220rpx;position:relative;">
@@ -49,6 +60,7 @@
 				</view>
 			</view>
 		</u-popup>
+
 
 		<u-popup :show="nullTip" @close="close_null" mode="center" round=20 closeable=true>
 			<view style="width: 600rpx;height: 220rpx;position:relative;">
@@ -63,7 +75,8 @@
 				<view style="height: 220rpx;position:absolute;top:100rpx;">
 					添加的推送不能超过5个哦!
 				</view>
-				<view  style="position:absolute;top:190rpx;border:1rpx solid rgba(0, 0, 0, 0.1);width:200rpx;height:70rpx;border-radius:30rpx;text-align:center;line-height:70rpx;background-color: rgba(170, 170, 255, 0.1);"
+				<view
+					style="position:absolute;top:190rpx;border:1rpx solid rgba(0, 0, 0, 0.1);width:200rpx;height:70rpx;border-radius:30rpx;text-align:center;line-height:70rpx;background-color: rgba(170, 170, 255, 0.1);"
 					@click="jumpMySub">管理推送</view>
 			</view>
 		</u-popup>
@@ -80,6 +93,7 @@
 				</view>
 			</view>
 		</u-popup>
+
 	</view>
 
 </template>
@@ -99,6 +113,7 @@
 				nullTip: false,
 				totalTip: false,
 				helpTip: false,
+				newTip: false,
 			}
 		},
 
@@ -147,10 +162,26 @@
 			},
 			// 点击生成input
 			addInput() {
-				let num = this.data_formInput.keyword.length + 1;
-				if (num <= 5) {
-					let keyInput = this.data_formInput.keyword
-					keyInput.push('');
+				let num = this.data_formInput.keyword.length;
+				let arr = this.data_formInput.keyword;
+				let flag = false;
+				if (num < 5) {
+
+					for (let i = 0; i < num; i++) {
+						console.log(arr[i])
+						//判断是否有未填写的输入框，如果有则不能继续添加						
+						if (arr[i] == '') {
+							flag = true;
+						}
+					}
+					if (flag) {
+						this.newTip=true;
+					} else {
+						let keyInput = this.data_formInput.keyword
+						keyInput.push('');
+					}
+
+
 				} else {
 					this.maxTip = true;
 				}
@@ -158,6 +189,9 @@
 
 			close_box() {
 				this.maxTip = false
+			},
+			close_new() {
+				this.newTip = false
 			},
 
 			close_null() {

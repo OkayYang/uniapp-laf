@@ -1,5 +1,26 @@
 {
 	"pages": [
+		
+		{
+				"path": "pages/mySubscribe/mySubscribe",
+				"style": {
+					"navigationBarBackgroundColor": "#121929",
+						"navigationBarTitleText": "我的关键字",
+					"disableScroll": true
+				}
+			},
+		
+		{
+			"path": "pages/subscribtion/subscribtion",
+			"style": {
+				"navigationBarBackgroundColor": "#F5F5F5",
+				// "navigationBarBackgroundColor": "#121929",
+				"navigationBarTextStyle": "black",
+				"navigationBarTitleText": "关键字推送",
+				"disableScroll": true
+			}
+		},
+		
 		{
 			"path": "pages/user/user",
 			"style": {
@@ -25,17 +46,6 @@
 		},
 		
 		
-		{
-			"path": "pages/subscribtion/subscribtion",
-			"style": {
-				"navigationBarBackgroundColor": "#F5F5F5",
-				// "navigationBarBackgroundColor": "#121929",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "关键字推送",
-				"disableScroll": true
-			}
-		},
-		
 		
 		{
 			"path": "pages/index/index",
@@ -49,14 +59,7 @@
 		
 	
 		
-		
-	{
-			"path": "pages/mySubscribe/mySubscribe",
-			"style": {
-				"navigationBarBackgroundColor": "#121929",
-				"disableScroll": true
-			}
-		},
+	
 	
 
 		

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "每周推送",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "tui-time-axis": "/components/thorui/tui-time-axis/tui-time-axis",
-    "tui-timeaxis-item": "/components/thorui/tui-timeaxis-item/tui-timeaxis-item",
-    "tui-icon": "/node-modules/thorui-uni/lib/thorui/tui-icon/tui-icon"
-  }
-}
