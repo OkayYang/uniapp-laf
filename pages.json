@@ -2,6 +2,24 @@
 	"pages": [
 		
 		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
+			}
+		},
+		
+		
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "页面详细",
+				"enablePullDownRefresh": true
+				// "navigationBarBackgroundColor": "#449bf8"
+			}
+		
+		},
+		{
 				"path": "pages/mySubscribe/mySubscribe",
 				"style": {
 					"navigationBarBackgroundColor": "#121929",
@@ -44,25 +62,7 @@
 				"backgroundColor": "#F5F5F5"
 			}
 		},
-		
-		
-		
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh": true
-			}
-		},
-		
-		
-		
 	
-		
-	
-	
-
-		
 		{
 			"path": "pages/news/news",
 			"style": {
@@ -115,15 +115,6 @@
 
 		
 
-		{
-			"path": "pages/detail/detail",
-			"style": {
-				"navigationBarTitleText": "页面详细",
-				"enablePullDownRefresh": true
-				// "navigationBarBackgroundColor": "#449bf8"
-			}
-
-		},
 		{
 			"path": "pages/message/message",
 			"style": {

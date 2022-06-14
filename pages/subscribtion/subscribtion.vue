@@ -26,26 +26,28 @@
 			</view>
 			<view @click='addInput' style="display:flex;align-items:center;height:30rpx;margin-top:50rpx;">
 				<image src="/static/subscribtion/add.png" mode="aspectFit"
-					style="display:inline;width:50rpx;padding-right:20rpx;"></image> 添加关键字
+					style="display:inline;width:50rpx;height:50rpx;padding-right:20rpx;"></image> 添加关键字
 			</view>
 		</view>
 
 
 		<!-- 使用帮助 -->
 		<view class=""
-			style="display:flex;align-items:center;position:relative;width:78%;height:3%;font-size:35rpx;color:grey;margin:auto;padding-left:30rpx;margin-top:50rpx"
-			@click="openHelp">
-			<image src="/static/subscribtion/help.png" mode="aspectFit"
-				style="display:inline;width:50rpx;padding-right:20rpx;">
-			</image>使用帮助
+			style="display:flex;align-items:center;position:relative;width:78%;height:3%;font-size:35rpx;color:grey;margin:auto;padding-left:30rpx;margin-top:50rpx;"  @click="openHelp"
+			>
+				<image src="/static/subscribtion/help.png" mode="aspectFit"
+					style="display:inline;width:50rpx;height:50rpx;padding-right:20rpx;">
+				</image>使用帮助
+			
+		
 		</view>
 		<button @click='create' class="btn"
 			style="position:absolute;top:1150rpx;left:50%;transform:translateX(-50%)">确&nbsp;&nbsp;&nbsp;定</button>
 		<!-- 输入的关键字不为空时才能添加新的空的输入框 -->
 
 		<u-popup :show="newTip" @close="close_new" mode="center" round=20 closeable=true>
-			<view style="width: 600rpx;height: 220rpx;position:relative;">
-				<view style="width: 550rpx;height: 220rpx;position:absolute;top:100rpx;text-align:center">
+			<view style="width: 600rpx;height: 260rpx;position:relative;">
+				<view style="width: 400rpx;height: 220rpx;position:absolute;top:100rpx;left:100rpx;text-align:center">
 					输入框不为空时才能添加新的输入框哦！
 				</view>
 			</view>
@@ -84,12 +86,21 @@
 
 
 		<u-popup :show="helpTip" @close="close_help" mode="center" round=10 closeable=true>
-			<view style="width: 600rpx;height: 480rpx;position:relative;display:flex;justify-content:center">
-				<view style="height: 220rpx;position:absolute;top:100rpx;">
+			<view style="width: 650rpx;height: 950rpx;position:relative;display:flex;justify-content:center;font-size:40rpx;">
+				
+				<view style="height: 300rpx;position:absolute;top:80rpx;">
+					<view  style="width:90%;margin:20rpx auto 30rpx;">【关键字的作用】<view style="margin:30rpx auto"></view>
+					在输入框中添加关键字后，系统会将您的关键字与最新发布的失物/寻物信息作匹配，如果匹配到包含您的关键字的发布内容，系统将会自动为您推送该发布的内容。方便您第一时间收到相关信息。
+						
+					</view>
+					<view  style="width:90%;margin:20rpx auto 30rpx;">【添加关键字的步骤】
+						
+					</view>
 					<view style="width:90%;margin:20rpx auto 30rpx;">1.在编辑标题框可以编辑标题，作用仅为写给用户本人看的失物描述，<text
 							style="color:orange">可不写</text>。</view>
 					<view style="width:90%;margin:20rpx auto">2.点击添加关键字可添加输入框写入关键字，提交的推送中<text
 							style="color:orange">至少包含一个关键字</text>。</view>
+						
 				</view>
 			</view>
 		</u-popup>
