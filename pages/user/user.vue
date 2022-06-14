@@ -15,7 +15,7 @@
 
 					<view class='name' style="height: 90rpx;margin: 25rpx 0 0 0;display: flex;justify-content: center;">
 						<u-button v-if="!isLogin" shape="circle" text="请先登录" style="width: 200rpx;"></u-button>
-						<text v-else>{{nickName}}</text>
+						<text v-else style="color:white;">{{nickName}}</text>
 					</view>
 				</view>
 				<!-- <view style="display: flex;justify-content: center;margin: 20rpx 0 0 0 ;">
@@ -58,16 +58,17 @@
 		</view>
 		<u-toast ref="uToast"></u-toast>
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto 100rpx;">
-			<u-button type="error" size="large" text="退出登录" @click="exit" plain></u-button>
+			<button class="btn"  @click="exit">退出登录</button>
 		</view>
 
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"
 			:showCancelButton="true" :content="notify.content" :zoom="false"></u-modal>
 		<tui-loading text="登陆中..." v-if="isRequest"></tui-loading>
 		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
-		<u-modal :show="modal" title="内测通道" :closeOnClickOverlay="true" @confirm="submit()" @close="closeModal()" width="550rpx">
+		<u-modal :show="modal" title="内测通道" :closeOnClickOverlay="true" @confirm="submit()" @close="closeModal()"
+			width="550rpx">
 			<view class="slot-content">
-				<u--input placeholder="请输入管理员密钥"  v-model="input"></u--input>
+				<u--input placeholder="请输入管理员密钥" v-model="input"></u--input>
 			</view>
 		</u-modal>
 	</view>
@@ -88,7 +89,7 @@
 			return {
 				test: "    1 ".replace(/\ +/g, ""),
 				mask: false,
-				input:'',
+				input: '',
 				modal: false,
 				isLogin: false,
 				isRequest: false,
@@ -102,7 +103,7 @@
 				baseList: [{
 						name: '/static/love.png',
 						title: '我的订阅',
-						url: '/pages/subscribe/subscribe',
+						url: '/pages/mySubscribe/mySubscribe',
 					},
 
 					{
@@ -221,9 +222,9 @@
 			// 		this.itemList[1].show = true
 			// 	}
 			// },
-			closeModal(){
-				this.modal=false;
-				this.input="";
+			closeModal() {
+				this.modal = false;
+				this.input = "";
 			},
 			login() {
 				let that = this;
@@ -366,71 +367,71 @@
 					url: url
 				});
 			},
-			submit(){
+			submit() {
 				let code = this.input;
-				let that=this;
+				let that = this;
 				console.log(code);
-				if(!strIsNull(code)){
+				if (!strIsNull(code)) {
 					console.log(code);
-					let url = "/wx/api/login/beta?code="+code;
-					that.modal=false;
+					let url = "/wx/api/login/beta?code=" + code;
+					that.modal = false;
 					that.isRequest = true;
 					that.mask = true;
-					
-					request.getRequest(url,{},
-					(res)=>{
-						if(res.data.code==0){
-							uni.setStorage({
-								key: 'token',
-								data: res.data.token
-							});
-							uni.setStorage({
-								key: 'userInfo',
-								data: res.data.object
-							});
-							this.itemList[0].show = true
-							this.itemList[1].show = true
-							this.isLogin = true;
-							this.src = res.data.object.stuImage;
-							this.nickName = res.data.object.stuNick;
+
+					request.getRequest(url, {},
+						(res) => {
+							if (res.data.code == 0) {
+								uni.setStorage({
+									key: 'token',
+									data: res.data.token
+								});
+								uni.setStorage({
+									key: 'userInfo',
+									data: res.data.object
+								});
+								this.itemList[0].show = true
+								this.itemList[1].show = true
+								this.isLogin = true;
+								this.src = res.data.object.stuImage;
+								this.nickName = res.data.object.stuNick;
+								that.isRequest = false;
+								that.mask = false;
+								uni.showToast({
+									title: '登录成功!',
+									duration: 1000
+								});
+
+								that.modal = false;
+								that.input = "";
+
+							} else {
+								that.modal = true;
+								that.isRequest = false;
+								that.mask = false;
+								console.log("认证失败");
+								uni.showToast({
+									icon: "error",
+									title: '认证失败!',
+									duration: 1000
+								});
+
+							}
+
+						},
+						(error) => {
+							that.modal = true;
 							that.isRequest = false;
 							that.mask = false;
-							uni.showToast({
-								title: '登录成功!',
-								duration: 1000
-							});
-							
-							that.modal=false;
-							that.input="";
-							
-						}else{
-							that.modal=true;
-							that.isRequest = false;
-							that.mask = false;
-							console.log("认证失败");
+
 							uni.showToast({
 								icon: "error",
-								title: '认证失败!',
+								title: '登陆失败!',
 								duration: 1000
 							});
-							
 						}
-						
-					},
-					(error)=>{
-						that.modal=true;
-						that.isRequest = false;
-						that.mask = false;
-						
-						uni.showToast({
-							icon: "error",
-							title: '登陆失败!',
-							duration: 1000
-						});
-					}
 					)
 				}
-				
+
 				console.log(this.input);
 			}
 
@@ -486,4 +487,18 @@
 		border: 4rpx solid rgb(241, 242, 244);
 		width: 99%;
 	}
+
+	.btn {
+		width: 720rpx;
+		height: 3rem;
+		letter-spacing: 10rpx;
+		color: grey;
+		justify-self: center;
+		display: flex;
+		justify-content: center;
+		transition: 0.3s ease;
+		margin-top: 100rpx;
+		border:0.5rpx solid rgb(245, 241, 239);
+	}
+
 </style>

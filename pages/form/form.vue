@@ -6,10 +6,13 @@
 			<view class="identityCard_front" style="margin-left: 270rpx;margin-top: 75rpx;">
 				<!-- //照片下来100rpx,对应的原来占位的图就要上去100rpx -->
 				<u-upload :fileList="fileList1" @afterRead="afterRead" @delete="deletePic" name="1" multiple
-					:maxCount="1" :previewFullImage="true" width="210rpx" height="210rpx" uploadText="上传照片">
-					<image src="../../static/camera.png" mode="widthFix"
-						style="width: 350rpx;height: 350rpx;margin:auto;margin-left: -70rpx;margin-top: -85rpx;">
-					</image>
+					:maxCount="1" :previewFullImage="true" width="210rpx" height="210rpx" >
+						<image src="../../static/camera.png" mode="widthFix"
+							style="width: 350rpx;height: 350rpx;margin:auto;margin-left: -70rpx;margin-top: -85rpx;display:block">
+						</image>
+						<view style="position:absolute;top:270rpx;font-size:35rpx;color:grey;margin:auto;margin-left:25rpx">[上传照片]</view>
+					
+			
 				</u-upload>
 			</view>
 
@@ -560,13 +563,9 @@
 		width: 15rem;
 		height: 4rem;
 		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
-		/* inset 18px 18px 30px rgba(0, 0, 0, 0.1), */
-		/* inset -18px -18px 30px rgba(227, 233, 246, 1.0); */
-		justify-self: center;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		cursor: pointer;
 		border: none;
 		transition: 0.3s ease;
 	}
