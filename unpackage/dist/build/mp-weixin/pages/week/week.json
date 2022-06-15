@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-    "van-empty": "../../wxcomponents/vant/empty/index"
-    },
-    "navigationBarTitleText": "每周推送",
-    "backgroundColor": "#ffffff"
-  }
