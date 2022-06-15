@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "个人信息",
+  "usingComponents": {
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-cell-group": "/uni_modules/uview-ui/components/u-cell-group/u-cell-group",
+    "u-cell": "/uni_modules/uview-ui/components/u-cell/u-cell",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "tui-loading": "/components/thorui/tui-loading/tui-loading",
+    "u-overlay": "/uni_modules/uview-ui/components/u-overlay/u-overlay",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page"
+  }
+}

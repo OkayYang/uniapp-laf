@@ -58,7 +58,8 @@
 		</view>
 		<u-toast ref="uToast"></u-toast>
 		<view v-if='isLogin' class="exit" style="width: 95%;margin: 0 auto 100rpx;">
-			<button class="btn"  @click="exit">退出登录</button>
+			<!-- <button class="btn"  @click="exit">退出登录</button> -->
+			<u-button type="error" size="large" text="退出登录" @click="exit" plain></u-button>
 		</view>
 
 		<u-modal :title="notify.title" :show="notify.show" @confirm="confirm" @cancel="cancel" ref="uModal"

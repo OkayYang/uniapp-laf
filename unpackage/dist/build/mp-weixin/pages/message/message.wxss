@@ -1,0 +1,15 @@
+/* pages/massage/massage.wxss */
+.time{
+    text-align: center;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+.van-empty__description{
+    text-align: center;
+  }
+.systemCell{
+    margin-bottom: 30rpx;
+}
+.bottom{
+   text-align: center;
+}

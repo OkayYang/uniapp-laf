@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#121929",
+  "navigationBarTitleText": "我的关键字",
+  "disableScroll": true,
+  "usingComponents": {
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

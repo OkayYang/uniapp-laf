@@ -34,8 +34,8 @@
 				"navigationBarBackgroundColor": "#F5F5F5",
 				// "navigationBarBackgroundColor": "#121929",
 				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "关键字推送",
-				"disableScroll": true
+				"navigationBarTitleText": "关键字推送"
+				//"disableScroll": true
 			}
 		},
 		
