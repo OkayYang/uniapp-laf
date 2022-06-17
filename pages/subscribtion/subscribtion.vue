@@ -86,7 +86,8 @@
 
 
 		<u-popup :show="helpTip" @close="close_help" mode="center" round=10 closeable=true>
-			<view style="width: 650rpx;height: 950rpx;position:relative;display:flex;justify-content:center;font-size:40rpx;overflow-y:auto;">
+			<view
+				style="width: 650rpx;height: 950rpx;position:relative;display:flex;justify-content:center;font-size:40rpx;overflow-y:auto;">
 
 				<view style="height: 300rpx;position:absolute;top:80rpx;">
 					<view style="width:90%;margin:20rpx auto 30rpx;">【关键字的作用】<view style="margin:30rpx auto"></view>
@@ -96,13 +97,17 @@
 					<view style="width:90%;margin:20rpx auto 30rpx;">【添加关键字的步骤】
 
 					</view>
-					<view style="width:90%;margin:20rpx auto 30rpx;">1.在编辑标题框可以编辑标题，作用仅为写给用户本人看的失物描述，<text style="color:orange">可不写</text>。</view>
-					<view style="width:90%;margin:20rpx auto">2.点击添加关键字可添加输入框写入关键字，提交的推送中<text style="color:orange">至少包含一个关键字</text>。</view>
+					<view style="width:90%;margin:20rpx auto 30rpx;">1.在编辑标题框可以编辑标题，作用仅为写给用户本人看的失物描述，<text
+							style="color:orange">可不写</text>。</view>
+					<view style="width:90%;margin:20rpx auto">2.点击添加关键字可添加输入框写入关键字，提交的推送中<text
+							style="color:orange">至少包含一个关键字</text>。</view>
 
 				</view>
 			</view>
 		</u-popup>
-
+<tui-loading text="发布中..." v-if="isRequest"></tui-loading>
+			<u-toast ref="uToast"></u-toast>
+			<u-overlay :show="mask" :opacity="0.3"></u-overlay>
 	</view>
 
 </template>
@@ -110,6 +115,7 @@
 
 <script>
 	import request from '@/utils/request.js';
+		import tuiLoading from "@/components/thorui/tui-loading/tui-loading";
 	export default {
 		data() {
 			return {
@@ -123,16 +129,17 @@
 				totalTip: false,
 				helpTip: false,
 				newTip: false,
+				isRequest:false,
+					mask: false,
 			}
 		},
-
 		onShow() {
 			this.addInput()
 		},
 		methods: {
 			create() {
-
-
+				this.isRequest = true;
+				this.mask = true;
 				request.getRequest('/wx/api/push/auth/list', null, (res) => {
 					// 推送个数不超过5个
 					if (res.data.total > 4) {
@@ -150,24 +157,21 @@
 						if (arr == 0) {
 							this.nullTip = true;
 						} else {
+							let that = this
 							request.postRequest('/wx/api/push/auth/add', {
 								pushTitle: obj.title,
 								pushClue: str,
 							}, (res) => {
+									that.isRequest = false;
 								if (res.data.code == 0) {
-									console.log("11111111")
 									uni.switchTab({
 										url: '../index/index',
 									})
 								}
 							})
 						}
-
 					}
-
-
 				})
-
 			},
 			// 点击生成input
 			addInput() {
@@ -175,7 +179,6 @@
 				let arr = this.data_formInput.keyword;
 				let flag = false;
 				if (num < 5) {
-
 					for (let i = 0; i < num; i++) {
 						console.log(arr[i])
 						//判断是否有未填写的输入框，如果有则不能继续添加						
@@ -189,35 +192,28 @@
 						let keyInput = this.data_formInput.keyword
 						keyInput.push('');
 					}
-
-
 				} else {
 					this.maxTip = true;
 				}
 			},
-
 			close_box() {
 				this.maxTip = false
 			},
 			close_new() {
 				this.newTip = false
 			},
-
 			close_null() {
 				this.nullTip = false
 			},
-
 			close_total() {
 				this.totalTip = false
 			},
-
 			//删除input框及相应的关键字
 			delInput(item, num) {
 				console.log(item)
 				this.data_formInput.keyword = this.data_formInput.keyword.filter((i) => {
 					return i != item;
 				})
-
 			},
 			jumpMySub() {
 				uni.redirectTo({
