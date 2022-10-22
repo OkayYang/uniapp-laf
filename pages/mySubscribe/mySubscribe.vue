@@ -1,403 +1,189 @@
 <template>
-
-	<!-- 第一层首页 -->
-	<view class="first" v-show="button_show">
-
-
-
-		<!-- 添加 /银河系-->
-		<view class="circle" style="display:flex;justify-content:center;" @click='open_tip'>
-			<view class="out">
-				<view class="breath-light">
-					<view class="centerblue center">
-
-					</view>
-					<view class="centerblue2 center">
-
-					</view>
-					<view class="centerblue1 center">
-					</view>
-				</view>
-
-			</view>
-			<!-- <image src="../../static/subscribtion/tip.png" mode="aspectFit"
-				style="width:100rpx;opacity: border-radius:50%;" @click='open_tip'>
-			</image> -->
-		</view>
-
-		<view class="">
-			<image src="../../static/subscribtion/star.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:300rpx;left:100rpx" @click='open_box'
-				:class="{'text1':isActive[0]}"></image>
-			<image src="../../static/subscribtion/sun.png" mode="aspectFit"
-				style="width:200rpx;position:absolute;top:600rpx;left:20rpx" class="  " @click='open_box'
-				:class="{'text1':isActive[1]}"></image>
-			<image src="../../static/subscribtion/comet.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:200rpx;left:500rpx" class="  " @click='open_box'
-				:class="{'text1':isActive[2]}"></image>
-			<image src="../../static/subscribtion/saturn.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:550rpx;left:600rpx" class="  " @click='open_box'
-				:class="{'text1':isActive[3]}">
-			</image>
-			<image src="../../static/subscribtion/flag.png" mode="aspectFit"
-				style="width:150rpx;position:absolute;top:850rpx;left:300rpx" class="  " @click='open_box'
-				:class="{'text1':isActive[4]}">
-			</image>
-
-			<view :class="{'text1':!isActive[0]}" style="width:150rpx;position:absolute;top:450rpx;left:50rpx;">
-				<view class="container" @click="opendetail(0)">
-					{{datas[0].keyword[0]}}
-				</view>
-			</view>
-			<view :class="{'text2':!isActive[1]}" style="width:200rpx;position:absolute;top:800rpx;left:20rpx">
-				<view class="container" @click="opendetail(1)">
-					{{datas[1].keyword[0]}}
-				</view>
-			</view>
-			<view :class="{'text3':!isActive[2]}" style="width:150rpx;position:absolute;top:450rpx;left:400rpx">
-				<view class="container" @click="opendetail(2)">
-					{{datas[2].keyword[0]}}
-				</view>
-			</view>
-			<view :class="{'text4':!isActive[3]}" style="width:150rpx;position:absolute;top:800rpx;left:500rpx">
-				<view class="container" @click="opendetail(3)">
-					{{datas[3].keyword[0]}}
-				</view>
-			</view>
-			<view :class="{'text5':!isActive[4]}" style="width:150rpx;position:absolute;top:1000rpx;left:300rpx">
-				<view class="container" @click="opendetail(4)">
-					{{datas[4].keyword[0]}}
-				</view>
-			</view>
-		</view>
-
-		<!-- <view>
-			<button @click="openAll">所有关键字订阅</button>
-		</view> -->
-
-		<!-- 弹窗详细信息 -->
-		<u-popup :show="showdetail" @close="closedetail" mode="center" round=10>
-
-			<view style="width: 600rpx;height: 800rpx;position:relative;">
-				<view style="text-align:center" class="box_text">
-					标题
-				</view>
-				<view
-					style="border:1px solid rgba(222, 218, 208, 0.8);width:80%;height:100rpx;margin:auto;padding:10rpx 0 0 20rpx;margin-top:10rpx;background-color:white;overflow-y:auto;border-radius:20rpx;">
-					{{describeDetail}}
-				</view>
-				<view style="text-align:center" class="box_text">关键字</view>
-				<view class=""
-					style="width:80%;height:37%;border:1px solid rgba(222, 218, 208, 0.8);margin:auto;padding-left:20rpx;background-color:white;overflow-y:auto;border-radius:20rpx;">
-					<view v-for="(item,index) in keywordDetail" style="text-align:center">
-						<view class="" style="margin-top:5rpx">
-							{{item}}
+	<view>
+		<u-loading-page :loading="show"></u-loading-page>
+		<view v-if="!show">
+			<view v-if="size>0">
+				<view class="list" v-for="item in list">
+					<view class="content">
+						<view class="top">
+							<view class="sid">订阅号：{{getUnixTime(item.createTime)+item.pushId*3}}</view>
+							<view v-if="item.pushCount>0">
+								<u--text type="success" :text="'已推送'+item.pushCount+'次'"></u--text>
+							</view>
+							<view v-else="item.pushCount!=0"><u--text type="warning" text="寻找中"></u--text></view>
+						</view>
+						<view style="margin-bottom: 10rpx;"><u-line  ></u-line></view>
+						
+						<view class="middle">
+							<view class="name middle_txt">物品名称：{{item.pushTitle}}</view>
+							<view class="key middle_txt">关键字信息：{{item.pushClue}}</view>
+						</view>
+						<view style="margin-top: 25rpx;"><u-line ></u-line></view>
+						<view class="bottom">
+							<view style="color: #909399;">订阅时间：{{item.createTime}}</view>
+							<view class="btn"><u-button type="error" size="mini" text="取消订阅" @click="confirmbtn(item.pushId)"></u-button></view>
 						</view>
 					</view>
 				</view>
-
-				<button type="default" @click="delectPush()" class="btn"
-					style="width:400rpx;height:80rpx;line-height:80rpx;font-size:40rpx;position:absolute;bottom:50rpx;left:50%;transform:translate(-50%)">删除此推送
-				</button>
 			</view>
-
-		</u-popup>
-
-		<!-- 点击照片出现的弹窗 -->
-		<u-popup :show="imageShow" @close="close_box" mode="center" round=20 closeable=true>
-			<view style="width: 600rpx;height: 220rpx;position:relative;">
-				<view style="width: 550rpx;height: 220rpx;position:absolute;top:100rpx;left:30rpx">
-					您还没有在这个位置添加订阅哦
-				</view>
+			<view v-else="size==0">
+				<u-empty
+				        mode="list"
+						text="订阅列表为空"
+				        icon="http://cdn.uviewui.com/uview/empty/list.png"
+				>
+				</u-empty>
 			</view>
-		</u-popup>
-
-		<!-- 点击中间的灯出现的弹窗 -->
-		<u-popup :show="tipShow" @close="close_tip" mode="center" round=20 closeable=true>
-			<view style="width: 600rpx;height: 250rpx;position:relative;">
-				<view style="width: 550rpx;height: 250rpx;position:absolute;top:100rpx;left:40rpx">
-					点击关键字可看到详细信息和并进行信息管理哦！
-				</view>
-			</view>
-		</u-popup>
-
-
+		</view>
+		<tui-loading text="发布中..." v-if="isRequest"></tui-loading>
+		<u-toast ref="uToast"></u-toast>
+		<u-overlay :show="mask" :opacity="0.3"></u-overlay>
+		<view >
+				<u-modal :show="confirm"  content="是否取消订阅?" showCancelButton @cancel="confirm=false" @confirm="cancelbtn(selectId)"></u-modal>
+				
+		</view>
 	</view>
-
-
-
 </template>
 
 <script>
-	import request from '@/utils/request.js';
+	import request from '../../utils/request.js'
+	import tuiLoading from "@/components/thorui/tui-loading/tui-loading"
 	export default {
-
 		data() {
 			return {
-				datas: [],
-				data_formInput: {
-					keyword: [], //关键字  
-					title: '', //描述
-					index: null,
-					pushId: null
-				},
-				show_title: '',
-				show: false,
-				box_show: false,
-				button_show: true,
-				isActive: [false, false, false, false, false],
-
-				// openObj: [],
-				showdetail: false,
-				describeDetail: '',
-				keywordDetail: '',
-				obj: '',
-				allDatas: [],
-				pushId: null,
-				imageShow: false, //点击照片出现的提示
-				tipShow: false,
+				confirm:false,
+				size:0,
+				list:null,
+				show:true,
+				isRequest: false,
+				mask: false,
+				selectId:null
+				
+				
 			}
 		},
-		mounted() {
-			request.getRequest('/wx/api/push/auth/list', null, (res) => {
-				let option = [];
-				console.log(res.data)
-				let str = res.data.rows.slice(0, 6);
-				for (let item in str) {
-
-					option.push({
-						title: str[item].pushTitle,
-						keyword: str[item].pushClue.split(";"),
-						pushId: str[item].pushId
-					});
-
-
-				}
-				this.datas.push(...option);
-				for (let key in this.datas) {
-					this.isActive[key] = true;
-
-				}
-
-				let optionAll = []
-				let strAll = res.data.rows
-				for (let item in strAll) {
-					if (strAll[item].pushTitle != "" && strAll[item].pushClue != "") {
-						optionAll.push({
-							title: strAll[item].pushTitle,
-							keyword: strAll[item].pushClue.split(";")
-						});
-					}
-				}
-				this.allDatas.push(...optionAll);
-
-			})
-			// this.selIndex = this.defaultIndex;
-			// this.keepStatus();
-			// this.selDate = getCurDateTime().formatDate;
+		onLoad:function(){
+			this.created()
+			
 		},
 		methods: {
-
-			opendetail(num) {
-				this.showdetail = true;
-				this.obj = this.datas[num];
-				this.describeDetail = this.obj.title;
-				this.keywordDetail = this.obj.keyword;
-				this.pushId = this.obj.pushId;
-				console.log(this.describeDetail)
-				console.log(this.obj)
-				this.data_formInput.index = num
+			created(){
+				request.getRequest('/wx/api/push/auth/list',null,
+					(res)=>{
+						
+						this.list=res.data.rows;
+						
+						this.size =res.data.total;
+						
+						this.show=false;
+						
+						
+					},
+					(error)=>{
+						
+					}
+				)
 			},
-			closedetail() {
-				this.showdetail = false
+			getUnixTime(dateStr){
+			    var newstr = dateStr.replace(/-/g,'/'); 
+			    var date =  new Date(newstr); 
+			    var time_str = date.getTime().toString();
+			    return time_str.substr(0, 10);
 			},
-
-
-
-			// 删除推送
-			delectPush() {
-				this.isActive[this.data_formInput.index] = false
-				this.showdetail = false
-				request.getRequest('/wx/api/push/auth/del', {
-					pid: this.pushId
-				}, (success) => {}, (error) => {})
+			confirmbtn(id){
+				this.selectId = id;
+				this.confirm=true;
 			},
-
-			open_box() {
-				this.imageShow = true
-			},
-
-			close_box() {
-				this.imageShow = false
-			},
-
-
-			open_tip() {
-				this.tipShow = true
-			},
-			close_tip() {
-				this.tipShow = false
+			cancelbtn(id){
+				this.confirm=false;
+				if(id!=null){
+					let that = this;
+					if (that.isRequest == false) {
+						that.isRequest = true;
+						that.mask = true;
+						request.getRequest('/wx/api/push/auth/del',{pid:id},
+						(res)=>{
+							if(res.data.code==0){
+								that.isRequest = false;
+								that.mask = false;
+								this.created();
+								
+							}else{
+								that.isRequest = false;
+								that.mask = false;
+								that.$refs.uToast.show({
+									type: 'error',
+									message: "网络失败!",
+									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+								});
+							}
+							
+						},
+						(error)=>{
+							that.isRequest = false;
+							that.mask = false;
+							that.$refs.uToast.show({
+								type: 'error',
+								message: "服务器异常!",
+								iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+							});
+						}
+						)
+						
+					}
+				}else{
+					that.$refs.uToast.show({
+						type: 'error',
+						message: "异常错误!",
+						iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+					});
+				}
+				
+				
+				
 			}
 
-
-
-
-
 		}
-
 	}
 </script>
 
-<style scoped>
-	/* 显示页的样式 */
-	.first {
-		position: relative;
-
-		width: 100%;
-		min-height: 1500rpx;
-		background: url(https://pic.imgdb.cn/item/62a0a2d40947543129725be2.jpg) repeat center;
-		background-size: cover;
-		overflow: hidden;
+<style>
+	.list{
+		
+		margin:0 auto;
+		width: 95%;
+		border-radius: 7rpx;
+		margin-top: 10rpx;
+		margin-bottom: 10rpx;
+		background-color: white;
+	}
+	.content{
+		padding-left: 25rpx;
+		padding-right: 25rpx;
+	}
+	.top{
+		line-height: 70rpx;
+		
+		height: 70rpx;
+		display: flex;
+		justify-content: space-between;
+	}
+	.middle{
+		
+	}
+	.name{
+		height: 70rpx;
+		line-height: 70rpx;
+	}
+	.bottom{
+		line-height: 70rpx;
+		height: 70rpx;
+		display: flex;
+		justify-content: space-between;
+	}
+	.btn{
+		
+		margin-top: 12rpx;
 	}
 
-
-	.circle {
-		position: absolute;
-		left: 50%;
-		top:50%;
-		transform: translateX(-50%) translateY(-50%);
-	}
-
-	.out {
-		position: relative;
-		left: 50%;
-		transform: translateX(-50%) ;
-		border: 313rpx solid;
-		background-color: #00c1de;
-		opacity: 0.7;
-		-moz-box-shadow: 0px 0px 20px #00c1de;
-		-webkit-box-shadow: 0px 0px 20px #00c1de;
-		box-shadow: 0px 0px 20px #00c1de;
-		border-radius: 400rpx;
-	}
-
-
-	.breath-light {
-		width: 0px;
-		height: 0px;
-		border: 200rpx solid;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		background-color: #00c1de;
-		opacity: 0.7;
-		-moz-box-shadow: 0px 0px 20rpx #00c1de;
-		-webkit-box-shadow: 0px 0px 20rpx #00c1de;
-		box-shadow: 0px 0px 20rpx #00c1de;
-		border-radius: 200rpx;
-	}
-
-	/* 添加页的样式 */
-	.box_text {
-		text-align: center;
-		border: solid 1px rgba(230, 225, 215, 0.8);
-		width: 200rpx;
-		height: 60rpx;
-		line-height: 60rpx;
-		margin: 20rpx auto;
-		border-radius: 60rpx;
-	}
-
-
-	.btn {
-		width: 83%;
-		height: 100rpx;
-		border-radius: 20rpx;
-		box-shadow: 0 0 0 rgba(227, 236, 237, 0.2), 0 0 0 rgba(255, 255, 255, 0.8);
-		cursor: pointer;
-		border: none;
-		transition: 0.3s ease;
-	}
-
-	.center {
-		position: absolute;
-		transform: translate(-50%, -50%);
-		border-radius: 50%;
-	}
-
-	.centerblue2 {
-
-
-		width: 200rpx;
-		height: 200rpx;
-		background: #a6afc8;
-		opacity: 0.2;
-		animation: breath1 1s ease 1s infinite alternate; // 呼吸动画实现
-	}
-
-	.centerblue {
-
-
-		width: 140rpx;
-		height: 140rpx;
-		background: #6e72c8;
-		opacity: 0.2;
-		animation: breath1 1s ease 1s infinite alternate; // 呼吸动画实现
-	}
-
-	.centerblue1 {
-		width: 60rpx;
-		height: 60rpx;
-		background: #7f0fff;
-		opacity: 1;
-		animation: breath1 1s ease 1s infinite alternate; // 呼吸动画实现
-	}
-
-	@keyframes breath1 {
-
-		// 关键帧规则
-		0% {
-			opacity: 0.2;
-		}
-
-		100% {
-			opacity: 0;
-		}
-	}
-
-
-	.text1 {
-		display: none;
-	}
-
-	.text2 {
-		display: none;
-	}
-
-	.text3 {
-		display: none;
-	}
-
-	.text4 {
-		display: none;
-	}
-
-	.text5 {
-		display: none;
-	}
-
-
-	.container {
-		min-width: 200rpx;
-		min-height: 80rpx;
-		/* border: 1px solid rgb(255, 255, 255); */
-		border: 1px solid rgb(230, 230, 230);
-		color: white;
-		text-align: center;
-		line-height: 80rpx;
-		border-radius: 20rpx;
-		background-color: rgba(255, 255, 255, 0.2);
-		backdrop-filter: blur(rpx);
-		box-shadow: 0 0 10px #333;
-	}
 </style>

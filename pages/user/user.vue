@@ -105,6 +105,7 @@
 						name: '/static/love.png',
 						title: '我的订阅',
 						url: '/pages/mySubscribe/mySubscribe',
+						//url: '#',
 					},
 
 					{

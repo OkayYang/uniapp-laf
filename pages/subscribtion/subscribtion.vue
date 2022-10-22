@@ -7,7 +7,7 @@
 		<!-- <view class="box_text">描述</view> -->
 		<textarea type="text" v-model="data_formInput.title" maxlength="50"
 			style="border:1px solid rgba(222, 218, 208, 0.8);width:83%;box-sizing: border-box;height:250rpx;margin:auto;padding:30rpx;margin-top:40rpx;background-color:white;border-radius: 30rpx;"
-			placeholder="编辑标题,记录失物描述……">
+			placeholder="请记录您需要寻找物品的名称(例如:校园卡/身份证/水卡等)帮助您更快检索!">
 			</textarea>
 		<view class=""
 			style="position:relative;width:78%;height:50%;border:1px solid rgba(222, 218, 208, 0.8);margin:50rpx auto 0;background-color:white;overflow-y:auto;padding-left:30rpx;padding-top:50rpx;border-radius: 30rpx;">
@@ -26,7 +26,7 @@
 			</view>
 			<view @click='addInput' style="display:flex;align-items:center;height:30rpx;margin-top:50rpx;">
 				<image src="/static/subscribtion/add.png" mode="aspectFit"
-					style="display:inline;width:50rpx;height:50rpx;padding-right:20rpx;"></image> 添加关键字
+					style="display:inline;width:50rpx;height:50rpx;padding-right:20rpx;"></image> 添加物品匹配关键字
 			</view>
 		</view>
 
@@ -52,7 +52,9 @@
 				</view>
 			</view>
 		</u-popup>
-
+		
+		
+		
 
 		<!-- 关键字个数超过5个时出现的弹窗 -->
 		<u-popup :show="maxTip" @close="close_box" mode="center" round=20 closeable=true>
@@ -63,7 +65,6 @@
 			</view>
 		</u-popup>
 
-
 		<u-popup :show="nullTip" @close="close_null" mode="center" round=20 closeable=true>
 			<view style="width: 600rpx;height: 220rpx;position:relative;">
 				<view style="width: 550rpx;height: 220rpx;position:absolute;top:100rpx;text-align:center">
@@ -72,6 +73,8 @@
 
 			</view>
 		</u-popup>
+		
+		
 		<u-popup :show="totalTip" @close="close_total" mode="center" round=20 closeable=true>
 			<view style="width: 600rpx;height: 300rpx;position:relative;display:flex;justify-content:center">
 				<view style="height: 220rpx;position:absolute;top:100rpx;">
@@ -80,6 +83,15 @@
 				<view
 					style="position:absolute;top:190rpx;border:1rpx solid rgba(0, 0, 0, 0.1);width:200rpx;height:70rpx;border-radius:30rpx;text-align:center;line-height:70rpx;background-color: rgba(170, 170, 255, 0.1);"
 					@click="jumpMySub">管理推送</view>
+			</view>
+		</u-popup>
+		<!-- 寻找物品名称不能为空 -->
+		<u-popup :show="nullTitle" @close="close_title" mode="center" round=20 closeable=true>
+			<view style="width: 600rpx;height: 220rpx;position:relative;">
+				<view style="width: 550rpx;height: 220rpx;position:absolute;top:100rpx;text-align:center">
+					请输入需要寻找的物品名称，帮助您快速检索！
+				</view>
+		
 			</view>
 		</u-popup>
 
@@ -97,8 +109,8 @@
 					<view style="width:90%;margin:20rpx auto 30rpx;">【添加关键字的步骤】
 
 					</view>
-					<view style="width:90%;margin:20rpx auto 30rpx;">1.在编辑标题框可以编辑标题，作用仅为写给用户本人看的失物描述，<text
-							style="color:orange">可不写</text>。</view>
+					<view style="width:90%;margin:20rpx auto 30rpx;">1.在编辑物品框可以输入丢失物品名称，作用仅为写给用户本人看的物品描述记录，<text
+							style="color:orange">必填</text>。</view>
 					<view style="width:90%;margin:20rpx auto">2.点击添加关键字可添加输入框写入关键字，提交的推送中<text
 							style="color:orange">至少包含一个关键字</text>。</view>
 
@@ -129,6 +141,7 @@
 				totalTip: false,
 				helpTip: false,
 				newTip: false,
+				nullTitle:false,
 				isRequest:false,
 					mask: false,
 			}
@@ -137,42 +150,106 @@
 			this.addInput()
 		},
 		methods: {
-			create() {
-				this.isRequest = true;
-				this.mask = true;
-				request.getRequest('/wx/api/push/auth/list', null, (res) => {
-					// 推送个数不超过5个
-					if (res.data.total > 4) {
-						this.totalTip = true
-					} else {
-						let obj = {
-							keyword: this.data_formInput.keyword,
-							title: this.data_formInput.title
-						}
-						this.datas.push(obj);
-						let arr = obj.keyword;
-						console.log(arr);
-						let str = arr.join(';'); //join
-						//判断关键字是否为空，不为空才提交，为空提示
-						if (arr == 0) {
-							this.nullTip = true;
-						} else {
-							let that = this
-							request.postRequest('/wx/api/push/auth/add', {
-								pushTitle: obj.title,
-								pushClue: str,
-							}, (res) => {
-									that.isRequest = false;
-								if (res.data.code == 0) {
-									uni.switchTab({
-										url: '../index/index',
-									})
-								}
-							})
-						}
+			create(){
+				let that = this;
+				let obj = {
+					keyword: this.data_formInput.keyword,
+					title: this.data_formInput.title
+				}
+				
+				this.datas.push(obj);
+				let arr = obj.keyword;
+				console.log(arr);
+				let str = arr.join(';'); //join
+				//判断关键字是否为空，不为空才提交，为空提示
+				
+				if (arr == 0||obj.title=='') {
+					if(obj.title==''){
+						this.nullTitle=true;
+					}else{
+						this.nullTip = true;
 					}
-				})
+					
+				}else{
+					if(that.isRequest == false) {
+						that.isRequest = true;
+						that.mask = true;
+						request.postRequest('/wx/api/push/auth/add', {
+							pushTitle: obj.title,
+							pushClue: str,
+						}, (res) => {
+								
+							if (res.data.code == 0) {
+								that.isRequest = false;
+								that.mask = false;
+								uni.switchTab({
+									url: '../user/user',
+								})
+							}else{
+								that.isRequest = false;
+								that.mask = false;
+								that.$refs.uToast.show({
+									type: 'error',
+									message: "发布失败!",
+									iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+								});
+							}
+						},
+						(error) => {
+							that.isRequest = false;
+							that.mask = false;
+							that.$refs.uToast.show({
+								type: 'error',
+								message: "服务器异常!",
+								iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png',
+							});
+						}
+						)
+					}
+					
+				}
+				
+				
+				
 			},
+			
+			
+			// create() {
+			// 	this.isRequest = true;
+			// 	this.mask = true;
+			// 	request.getRequest('/wx/api/push/auth/list', null, (res) => {
+			// 		// 推送个数不超过5个
+			// 		if (res.data.total > 4) {
+			// 			this.totalTip = true
+			// 		} else {
+			// 			let obj = {
+			// 				keyword: this.data_formInput.keyword,
+			// 				title: this.data_formInput.title
+			// 			}
+			// 			this.datas.push(obj);
+			// 			let arr = obj.keyword;
+			// 			console.log(arr);
+			// 			let str = arr.join(';'); //join
+			// 			//判断关键字是否为空，不为空才提交，为空提示
+			// 			if (arr == 0) {
+			// 				this.nullTip = true;
+			// 			} else {
+			// 				let that = this
+			// 				request.postRequest('/wx/api/push/auth/add', {
+			// 					pushTitle: obj.title,
+			// 					pushClue: str,
+			// 				}, (res) => {
+			// 						that.isRequest = false;
+			// 					if (res.data.code == 0) {
+			// 						uni.switchTab({
+			// 							url: '../index/index',
+			// 						})
+			// 					}
+			// 				})
+			// 			}
+			// 		}
+			// 	})
+			// },
 			// 点击生成input
 			addInput() {
 				let num = this.data_formInput.keyword.length;
@@ -210,10 +287,17 @@
 			},
 			//删除input框及相应的关键字
 			delInput(item, num) {
-				console.log(item)
-				this.data_formInput.keyword = this.data_formInput.keyword.filter((i) => {
-					return i != item;
-				})
+				console.log(num);
+				if(num!=0){
+					this.data_formInput.keyword = this.data_formInput.keyword.filter((i) => {
+						return i != item;
+					})
+				}else{
+					this.nullTip = true;
+					console.log("至少添加一个");
+				}
+				//console.log(item)
+				
 			},
 			jumpMySub() {
 				uni.redirectTo({
@@ -225,6 +309,9 @@
 			},
 			close_help() {
 				this.helpTip = false;
+			},
+			close_title(){
+				this.nullTitle=false;
 			}
 		}
 	}

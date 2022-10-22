@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+view.data-v-5b3a01af, scroll-view.data-v-5b3a01af, swiper-item.data-v-5b3a01af {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.u-grid-item.data-v-5b3a01af {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  float: left;
+  margin-top: 1rpx;
+}
+.u-grid-item--hover-class.data-v-5b3a01af {
+  opacity: 0.5;
+}
+

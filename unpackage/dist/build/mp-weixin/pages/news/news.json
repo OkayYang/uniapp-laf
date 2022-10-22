@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "本周推送",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "van-toast": "../../wxcomponents/vant/toast/index",
+    "van-empty": "../../wxcomponents/vant/empty/index"
+  }
+}

@@ -1,0 +1,13 @@
+<!--pages/notice/notice.wxml-->
+<view class="main" wx:if="{{isReady}}">
+<view class="title">{{artical.annTitle}}</view>
+<view style="margin: 10rpx;color:#969799; font-size: small;">{{artical.createTime}}<text style="margin-left: 50rpx;">浏览量:{{artical.flow}}</text></view>
+<view class="artical">
+    {{artical.annContent}}
+</view>
+    <image src="{{artical.image}}" mode="widthFix" style="margin-top: 20rpx;"/>
+</view>
+<view wx:else>
+    <van-empty image="network" description="网络开小差" />
+</view>
+<van-toast id="van-toast" />

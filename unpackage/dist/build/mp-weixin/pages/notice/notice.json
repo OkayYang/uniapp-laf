@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-toast": "../../wxcomponents/vant/toast/index",
+    "van-empty": "../../wxcomponents/vant/empty/index"
+  },
+  "navigationBarTitleText": "系统通知",
+  "backgroundColor": "#ffffff"
+}

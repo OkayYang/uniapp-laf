@@ -1,0 +1,20 @@
+
+.tui-time-axis.data-v-5c8e2d00 {
+	padding-left: 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+.tui-time-axis.data-v-5c8e2d00::before {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	bottom: 0;
+	border-left: 1px solid #ddd;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scaleX(0.5);
+	transform: scaleX(0.5);
+}
+

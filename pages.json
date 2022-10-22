@@ -1,6 +1,5 @@
 {
 	"pages": [
-		
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -9,7 +8,14 @@
 			}
 		},
 		
-		
+		{
+				"path": "pages/mySubscribe/mySubscribe",
+				"style": {
+					"navigationBarBackgroundColor": "#449bf8",
+						"navigationBarTitleText": "我的订阅",
+					"disableScroll": true
+				}
+		},		
 		{
 			"path": "pages/detail/detail",
 			"style": {
@@ -19,14 +25,7 @@
 			}
 		
 		},
-		{
-				"path": "pages/mySubscribe/mySubscribe",
-				"style": {
-					"navigationBarBackgroundColor": "#121929",
-						"navigationBarTitleText": "我的关键字",
-					"disableScroll": true
-				}
-			},
+		
 		
 		{
 			"path": "pages/subscribtion/subscribtion",
@@ -139,7 +138,8 @@
 			}
 
 		}
-	],
+	    
+    ],
 	"globalStyle": {
 
 		"navigationBarBackgroundColor": "#449bf8",

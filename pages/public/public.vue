@@ -98,6 +98,7 @@
 					{
 						'src': '/static/notice.png',
 						'name': '关键字订阅',
+						//'url':'#'
 						'url':'../subscribtion/subscribtion'
 					},
 				],

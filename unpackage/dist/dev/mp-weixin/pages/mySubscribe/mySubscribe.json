@@ -1,0 +1,16 @@
+{
+  "navigationBarBackgroundColor": "#449bf8",
+  "navigationBarTitleText": "我的订阅",
+  "disableScroll": true,
+  "usingComponents": {
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-line": "/uni_modules/uview-ui/components/u-line/u-line",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty",
+    "tui-loading": "/node-modules/thorui-uni/lib/thorui/tui-loading/tui-loading",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast",
+    "u-overlay": "/uni_modules/uview-ui/components/u-overlay/u-overlay",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+  }
+}
