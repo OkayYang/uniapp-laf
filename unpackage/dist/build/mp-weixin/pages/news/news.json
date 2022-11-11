@@ -2,7 +2,7 @@
   "navigationBarTitleText": "本周推送",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "van-toast": "../../wxcomponents/vant/toast/index",
-    "van-empty": "../../wxcomponents/vant/empty/index"
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page"
   }
 }

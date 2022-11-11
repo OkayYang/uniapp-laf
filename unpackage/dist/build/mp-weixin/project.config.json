@@ -7,8 +7,8 @@
     "setting": {
         "urlCheck": false,
         "es6": true,
-        "postcss": true,
-        "minified": true,
+        "postcss": false,
+        "minified": false,
         "newFeature": true,
         "bigPackageSizeSupport": true,
         "babelSetting": {
@@ -16,11 +16,10 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "enhance": true,
-        "uglifyFileName": true
+        "enhance": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.25.4",
+    "libVersion": "2.27.1",
     "appid": "wx39b85c8911cd3be5",
     "projectname": "uniapp-laf",
     "condition": {},

@@ -26,10 +26,11 @@
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	export default {
 		data() {
 			return {
-				"imageUrl":'https://laf.4w3w.com/img/user/tiezi/wxpay.jpg'
+				"imageUrl":request.getHost+'/img/user/tiezi/wxpay.jpg'
 			}
 		},
 		methods: {

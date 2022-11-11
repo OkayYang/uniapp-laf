@@ -16,7 +16,6 @@
     "pages/week/week"
   ],
   "subPackages": [],
-  "lazyCodeLoading": "requiredComponents",
   "window": {
     "navigationBarBackgroundColor": "#449bf8",
     "navigationBarTextStyle": "white",
