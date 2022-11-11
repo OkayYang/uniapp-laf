@@ -18,9 +18,13 @@ HBuilder+微信开发者工具
 
 ## 2.小程序演示
   ![微信小程序](https://laf.ywenrou.cn/img/user/tiezi/xcxonline.jpg)
+  
   ![首页](https://laf.ywenrou.cn/img/user/tiezi/index.jpg)![发布](https://laf.ywenrou.cn/img/user/tiezi/middle.jpg)
+  
   ![用户](https://laf.ywenrou.cn/img/user/tiezi/user.jpg)![个人](https://laf.ywenrou.cn/img/user/tiezi/info.jpg)
+  
   ![订阅](https://laf.ywenrou.cn/img/user/tiezi/push.jpg)![表单](https://laf.ywenrou.cn/img/user/tiezi/publish.jpg)
+  
   ![详细](https://laf.ywenrou.cn/img/user/tiezi/detail.jpg)
 ## 3.所用技术 
 
