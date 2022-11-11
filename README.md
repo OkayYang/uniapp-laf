@@ -1,13 +1,27 @@
 # uniapp-laf 江理失物招领用户界面
 
+##项目部署
+HBuilder+微信开发者工具
+  ~~~
+  1.npm install
+  ~~~
+  2.配置好HBuilder的运行配置（微信开发者工具的启动路径)
+  
+  3.发行到微信小程序
+  4.最后把微信原生开发中的文件直接拖到项目的\unpackage\dist\build\mp-weixin下即可
+
+
+
 ## 1.前言
 
   江理失物招领用户页面采用微信小程序原生开发+uniapp混合式开发开发微信小程序.
 
 ## 2.小程序演示
-
-  ![](https://laf.ywenrou.cn/img/user/tiezi/xcxonline.jpg)
-
+  ![微信小程序](https://laf.ywenrou.cn/img/user/tiezi/xcxonline.jpg)
+  ![首页](https://laf.ywenrou.cn/img/user/tiezi/index.jpg)![发布](https://laf.ywenrou.cn/img/user/tiezi/middle.jpg)
+  ![用户](https://laf.ywenrou.cn/img/user/tiezi/user.jpg)![个人](https://laf.ywenrou.cn/img/user/tiezi/info.jpg)
+  ![订阅](https://laf.ywenrou.cn/img/user/tiezi/push.jpg)![表单](https://laf.ywenrou.cn/img/user/tiezi/publish.jpg)
+  ![详细](https://laf.ywenrou.cn/img/user/tiezi/detail.jpg)
 ## 3.所用技术 
 
 1. Vue2.0
@@ -64,7 +78,7 @@
 │  │      public.vue	//发布页面
 │  │      
 │  ├─subscribe
-│  │      subscribe.vue //订阅页面    正在开发中 ~
+│  │      subscribe.vue //订阅页面    
 │  │      
 │  ├─user
 │  │      user.vue 	   //用户页面
