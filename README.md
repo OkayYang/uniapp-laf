@@ -17,15 +17,14 @@ HBuilder+微信开发者工具
   江理失物招领用户页面采用微信小程序原生开发+uniapp混合式开发开发微信小程序.
 
 ## 2.小程序演示
-  ![微信小程序](https://laf.ywenrou.cn/img/user/tiezi/xcxonline.jpg)
+
+  ![微信小程序码](https://i.postimg.cc/x1bSgZD7/gh-4c21a8fcb4b0-344.jpg)
   
-  ![首页](https://laf.ywenrou.cn/img/user/tiezi/index.jpg)![发布](https://laf.ywenrou.cn/img/user/tiezi/middle.jpg)
+  ![首页](https://i.postimg.cc/5twn2BLj/IMG-3300-1.png)![个人](https://i.postimg.cc/tCZdgdHy/IMG-3303.png)
+  ![发布](https://i.postimg.cc/T2Wqdqxx/IMG-3301.png)![表单](https://i.postimg.cc/j2NzMKc2/IMG-3302.png)
+  ![系统消息](https://i.postimg.cc/s2y0SHV5/IMG-3306.png)![个人订阅](https://i.postimg.cc/sgfTgQKJ/IMG-3305.png)
   
-  ![用户](https://laf.ywenrou.cn/img/user/tiezi/user.jpg)![个人](https://laf.ywenrou.cn/img/user/tiezi/info.jpg)
   
-  ![订阅](https://laf.ywenrou.cn/img/user/tiezi/push.jpg)![表单](https://laf.ywenrou.cn/img/user/tiezi/publish.jpg)
-  
-  ![详细](https://laf.ywenrou.cn/img/user/tiezi/detail.jpg)
 ## 3.所用技术 
 
 1. Vue2.0
